@@ -5,7 +5,7 @@
 
   const CAMADAS = [
     { grupo: "Geologia", itens: [
-      { id: "limites", nome: "Limites de placas", desc: "Dorsais (vermelho), subducção (amarelo, dentes do lado que sobe), transformantes (verde), riftes (laranja)", cor: "#ff6b5b", padrao: true },
+      { id: "limites", nome: "Limites de placas", desc: "Dorsais (vermelho), subducção (amarelo, dentes do lado que sobe), transformantes (verde), riftes (laranja)", cor: "#ff6b5b", padrao: false },
       { id: "crosta", nome: "Crosta continental", desc: "Inclui as plataformas hoje submersas", cor: "#2a5f82", padrao: true },
       { id: "grade", nome: "Equador e trópicos da época", desc: "A latitude de cada lugar no passado explica seu clima e seus fósseis", cor: "#ffd678", padrao: true },
     ] },
@@ -16,7 +16,7 @@
     ] },
     { grupo: "Geografia de hoje", itens: [
       { id: "fronteiras", nome: "Fronteiras dos países", cor: "#fdf6e3", padrao: true },
-      { id: "estados", nome: "Estados", desc: "Brasil, EUA, Rússia e China", cor: "#ffffff", padrao: false },
+      { id: "estados", nome: "Estados", desc: "Brasil, EUA, Rússia e China", cor: "#ffffff", padrao: true },
       { id: "regioes", nome: "Macrorregiões", desc: "Regiões do Brasil, EUA, Rússia e China", cor: "#6fa8dc", padrao: false },
       { id: "nomes", nome: "Nomes", cor: "#fdf6e3", padrao: true },
     ] },
@@ -24,7 +24,7 @@
       { id: "populacao", nome: "População humana", desc: "Densidade estimada (HYDE/ISIMIP). Antes de 10 mil a.C., as regiões já ocupadas pelos sapiens", cor: "#ffad1f", padrao: true },
       { id: "migracoes", nome: "Migrações humanas", desc: "Da saída da África à imigração moderna", cor: "#ce93d8", padrao: true },
       { id: "povos", nome: "Povos e cidades", desc: "Humanos arcaicos, povos, civilizações e cidades com data de fundação", cor: "#ffcc80", padrao: true },
-      { id: "hominideos", nome: "Especial hominídeos", desc: "As espécies humanas dos últimos 7 milhões de anos: onde viviam, quantos eram e onde se encontraram", cor: "#ff7043", padrao: false },
+      { id: "hominideos", nome: "Especial hominídeos", desc: "As espécies humanas dos últimos 7 milhões de anos: onde viviam, quantos eram e onde se encontraram", cor: "#ff7043", padrao: true },
     ] },
     { grupo: "Vida", itens: [
       { id: "fosseis", nome: "Fósseis", desc: "Ocorrências reais da Paleobiology Database, levadas com as placas", cor: "#ff8a65", padrao: true },
@@ -42,6 +42,8 @@
 
   // ------------------------------------------------------------------ memória (localStorage)
   const CHAVE = "evo-config";
+  // como o site abre na primeira visita (as camadas padrão estão em CAMADAS)
+  const PADRAO = { velocidade: "0.0013", modo: "tudo", semCamadas: true, semInfo: true, aba: "detalhe" };
   function lerConfig() {
     try { return JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { return {}; }
   }
@@ -277,6 +279,7 @@
     const palco = document.getElementById("palco");
     palco.querySelectorAll(".reabrir").forEach((b) => b.remove());
     const fechadoCamadas = window.innerWidth <= 1100 ? !corpo.classList.contains("com-camadas") : corpo.classList.contains("sem-camadas");
+    palco.classList.toggle("com-reabrir", fechadoCamadas); // o painel dos hominídeos desce para não cobrir o botão
     if (fechadoCamadas) {
       const b = document.createElement("button");
       b.className = "reabrir"; b.style.left = "10px"; b.textContent = "☰ Camadas";
@@ -306,7 +309,7 @@
   }
 
   function iniciar() {
-    const config = lerConfig();
+    const config = { ...PADRAO, ...lerConfig() };
     if (config.camadas) {
       for (const [k, v] of Object.entries(config.camadas)) if (Object.hasOwn(estado.camadas, k)) estado.camadas[k] = v === true;
     }

@@ -168,6 +168,8 @@ body { display: grid; grid-template-rows: auto 1fr auto; }
 #painel-hominideos .bola.anda { width: 10px; height: 10px; background: #ffe066; border: 1.5px solid #fff; }
 #painel-hominideos .bola.tracejada { width: 12px; height: 12px; background: none; border: 1px dashed #ff7043; color: #ff7043; font: bold 9px Georgia, serif; text-align: center; line-height: 11px; }
 
+@media (min-width: 721px) { #palco.com-reabrir #painel-hominideos { top: 46px; } }
+
 /* debates */
 .debate { border-top: 1px solid var(--linha); padding: 14px 0 6px; }
 .debate h3 { font-family: var(--fonte-titulo); font-size: 17px; margin: 0 0 2px; }
@@ -192,7 +194,8 @@ body { display: grid; grid-template-rows: auto 1fr auto; }
   #cartao-historia { right: 16px; }
   #corpo { grid-template-columns: 0 1fr 320px; }
   #painel-camadas { visibility: hidden; }
-  #corpo.com-camadas { grid-template-columns: 240px 1fr 0; }
+  #corpo.sem-info, #corpo.sem-camadas.sem-info { grid-template-columns: 0 1fr 0; }
+  #corpo.com-camadas, #corpo.com-camadas.sem-info, #corpo.com-camadas.sem-camadas { grid-template-columns: 240px 1fr 0; }
   #corpo.com-camadas #painel-camadas { visibility: visible; }
   #corpo.com-camadas #painel-info { visibility: hidden; }
 }

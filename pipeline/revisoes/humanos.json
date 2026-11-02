@@ -1661,8 +1661,8 @@
     {
      "id": "pan_africana",
      "nome": "Origem pan-africana",
-     "padrao": true,
-     "texto": "Não haveria um único berço: populações espalhadas pela África trocavam genes de tempos em tempos e, juntas, foram formando a nossa espécie. A evidência são fósseis com traços modernos em lugares distantes e em épocas próximas: Jebel Irhoud (Marrocos, ~315 mil anos), Florisbad (África do Sul, ~260 mil) e Omo Kibish (Etiópia, ≥233 mil), além de ferramentas parecidas por todo o continente. É o que o mapa mostra hoje.",
+     "padrao": false,
+     "texto": "Não haveria um único berço: populações espalhadas pela África trocavam genes de tempos em tempos e, juntas, foram formando a nossa espécie. A evidência são fósseis com traços modernos em lugares distantes e em épocas próximas: Jebel Irhoud (Marrocos, ~315 mil anos), Florisbad (África do Sul, ~260 mil) e Omo Kibish (Etiópia, ≥233 mil), além de ferramentas parecidas por todo o continente.",
      "fontes": [
       "Hublin, J.-J. et al. (2017) Nature 546: 289–292",
       "Scerri, E. et al. (2018) Trends in Ecology & Evolution 33: 582–594"
@@ -1672,8 +1672,8 @@
     {
      "id": "linhagens_que_se_reuniram",
      "nome": "Linhagens antigas que se reuniram",
-     "padrao": false,
-     "texto": "Modelos recentes de DNA sugerem que nossos ancestrais se dividiram em duas populações há ~1,5 milhão de anos e voltaram a se misturar há ~300 mil anos; uma delas deu ~80% do nosso genoma. Outro modelo fala num 'tronco' de grupos africanos pouco separados, que trocaram genes por centenas de milhares de anos. Nessa visão, a pergunta 'onde surgiu o sapiens?' não tem resposta de um lugar só.",
+     "padrao": true,
+     "texto": "Modelos recentes de DNA sugerem que nossos ancestrais se dividiram em duas populações há ~1,5 milhão de anos e voltaram a se misturar há ~300 mil anos; uma delas deu ~80% do nosso genoma. Outro modelo fala num 'tronco' de grupos africanos pouco separados, que trocaram genes por centenas de milhares de anos. Nessa visão, a pergunta 'onde surgiu o sapiens?' não tem resposta de um lugar só. É o que o mapa mostra hoje (com os sapiens surgindo pela África toda, como na origem pan-africana).",
      "fontes": [
       "Cousins, T., Scally, A. & Durbin, R. (2025) Nature Genetics, 'A structured coalescent model reveals deep ancestral structure shared by all modern humans'",
       "Ragsdale, A. et al. (2023) Nature 617: 755–763"
