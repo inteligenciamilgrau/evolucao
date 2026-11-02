@@ -66,12 +66,19 @@
     return Math.max(0, Math.min(1, -nivelMar(t) / 125));
   }
 
+  // Debate "Terra bola de neve": latitude mínima do gelo nas glaciações globais
+  // (0 = congelou inteira; ~15 = sobrou uma faixa de mar aberto nos trópicos)
+  let bolaDeNeveLat = 0;
+  function definirAjustes(aj) {
+    bolaDeNeveLat = (aj && aj.bolaDeNeveLat) || 0;
+  }
+
   function gelo(t) {
     if (t <= 2.7) {
       const g = glacial(t);
       return { norte: 78 - g * 10, sul: 63 - g * 5 };
     }
-    return { norte: interp(GELO, t, 1), sul: interp(GELO, t, 2) };
+    return { norte: Math.max(bolaDeNeveLat, interp(GELO, t, 1)), sul: Math.max(bolaDeNeveLat, interp(GELO, t, 2)) };
   }
 
   const temperatura = (t) => interp(TEMPERATURA, t, 1);
@@ -88,6 +95,7 @@
   function regime(t) {
     const g = gelo(t);
     if (g.norte < 5 && g.sul < 5) return { nome: "Terra bola de neve", cor: "#dff3ff" };
+    if (bolaDeNeveLat && g.norte <= bolaDeNeveLat + 0.01 && g.sul <= bolaDeNeveLat + 0.01) return { nome: "Terra bola de lama", cor: "#dff3ff" };
     if (t > 4400) return { nome: "Oceano de magma", cor: "#ff7a3a" };
     if (t > 4031) return { nome: "Terra primitiva", cor: "#d9825b" };
     if (t <= 2.7 && glacial(t) > 0.6) return { nome: "Era glacial (máximo)", cor: "#bfe6ff" };
@@ -111,5 +119,5 @@
     m.geo = { type: "Polygon", coordinates: [m.pts] };
   }
 
-  EVO.Clima = { nivelMar, glacial, gelo, temperatura, vegetacao, campos, regime, MANTOS };
+  EVO.Clima = { nivelMar, glacial, gelo, temperatura, vegetacao, campos, regime, MANTOS, definirAjustes };
 })();

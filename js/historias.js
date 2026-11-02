@@ -65,6 +65,7 @@
         <li><b>Mapa:</b> role para aproximar e arraste para mover. Passe o mouse sobre países, fósseis e rotas, e clique para ver detalhes.</li>
         <li><b>Camadas:</b> ligue estados e macrorregiões do Brasil, EUA, Rússia e China, limites de placas, gelo e o mar baixo das eras glaciais.</li>
         <li><b>Árvore da vida:</b> na aba da direita, ligue ou desligue os fósseis de cada grupo.</li>
+        <li><b>⚖️ Debates:</b> onde os cientistas ainda discordam (por exemplo, quando os humanos chegaram às Américas), escolha qual versão o mapa segue. As datas, as rotas e a ocupação humana mudam junto. Marcos com debate mostram o símbolo ⚖️.</li>
       </ul>
       <h4>Como ler o mapa</h4>
       <p>A linha amarela é o <b>equador da época</b>. Se um lugar estava perto dele, era tropical; perto dos polos, frio. Isso explica corais fossilizados no Ártico e geleiras antigas em São Paulo. As cores da terra são biomas <b>aproximados</b>, calculados pela latitude e pelo clima global de cada época.</p>

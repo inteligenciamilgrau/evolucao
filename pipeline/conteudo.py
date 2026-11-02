@@ -1,7 +1,11 @@
-"""Monta data/conteudo.js a partir de conteudo_fonte.py: acha a placa de cada ponto."""
+"""Monta data/conteudo.js a partir dos arquivos de conteúdo: acha a placa de cada ponto."""
+import copy
+
 from comum import escrever_js, placa_do_ponto, registrar_placas
 from conteudo_fonte import EVENTOS, GRUPOS, HISTORIAS, ROTAS, ROTULOS, A
 from conteudo_humanos import CIDADES, HISTORIAS_HUMANAS, MIGRACOES, POVOS
+from perspectivas import PERSPECTIVAS
+from revisao import carregar_revisoes
 
 placas = set()
 
@@ -12,33 +16,87 @@ def ponto(lon, lat, *extra):
     return [round(lon, 3), round(lat, 3), placa, idade, *extra]
 
 
-def main():
-    grupos = [{k: v for k, v in g.items() if k != "pbdb"} | {"fosseis": bool(g.get("pbdb"))} for g in GRUPOS]
-    eventos = []
-    for e in EVENTOS:
-        e = dict(e)
-        e["locais"] = [ponto(lon, lat, nome) for lon, lat, nome in e.get("locais", [])]
-        eventos.append(e)
-    rotas = []
-    for r in ROTAS + [dict(m, humana=True) for m in MIGRACOES]:
-        r = dict(r)
+def preparar_evento(e):
+    e = dict(e)
+    if "ano" in e:
+        e["t"] = A(e.pop("ano"))
+    if "locais" in e:
+        e["locais"] = [ponto(lon, lat, nome) for lon, lat, nome in e["locais"]]
+    return e
+
+
+def preparar_rota(r, humana=False):
+    r = dict(r)
+    if "de_ano" in r:
+        r["de"] = A(r.pop("de_ano"))
+    if "ate_ano" in r:
+        r["ate"] = A(r.pop("ate_ano"))
+    if "ramos" in r:
         r["ramos"] = [[ponto(lon, lat) for lon, lat in ramo] for ramo in r["ramos"]]
-        rotas.append(r)
+    if humana:
+        r["humana"] = True
+    r.pop("fontes", None)
+    return r
+
+
+def preparar_povo(p):
+    p = dict(p)
+    if "de_ano" in p:
+        p["de"] = A(p.pop("de_ano"))
+    if "ate_ano" in p:
+        ate = p.pop("ate_ano")
+        p["ate"] = A(ate) if ate else 0  # 0/None = até hoje
+    if "pos" in p:
+        p["pos"] = ponto(*p["pos"])
+    p.pop("fontes", None)
+    return p
+
+
+def preparar_perspectiva(pv):
+    pv = copy.deepcopy(pv)
+    rotas_humanas = {m["id"] for m in MIGRACOES} | {"erectus", "sapiens_saida", "sapiens_europa", "sapiens_america", "austronesios"}
+    # rotas extras humanas: do grupo sapiens/hominíneos ou com id de migração (h_...)
+    for op in pv["opcoes"]:
+        alt = op.get("alteracoes", {})
+        for k, e in alt.get("eventos", {}).items():
+            alt["eventos"][k] = preparar_evento(e)
+        for k, r in alt.get("rotas", {}).items():
+            alt["rotas"][k] = preparar_rota(r)
+        for k, p in alt.get("povos", {}).items():
+            alt["povos"][k] = preparar_povo(p)
+        alt["eventos_extra"] = [preparar_evento(e) for e in alt.get("eventos_extra", [])]
+        alt["rotas_extra"] = [preparar_rota(r, humana=r.get("grupo") in ("sapiens", "hominineos") or r["id"] in rotas_humanas)
+                              for r in alt.get("rotas_extra", [])]
+        op["alteracoes"] = alt
+    return pv
+
+
+def main():
+    rev = carregar_revisoes()  # pipeline/revisoes/*.json, já validadas
+    grupos = [{k: v for k, v in g.items() if k != "pbdb"} | {"fosseis": bool(g.get("pbdb"))}
+              for g in GRUPOS + rev["novos_grupos"]]
+    eventos = [preparar_evento(dict(e, locais=e.get("locais", []))) for e in EVENTOS + rev["novos_eventos"]]
+    rotas = ([preparar_rota(r) for r in ROTAS + rev["novas_rotas"]]
+             + [preparar_rota(m, humana=True) for m in MIGRACOES + rev["novas_migracoes"]])
     rotulos = []
     for r in ROTULOS:
         r = dict(r)
         r["ancoras"] = [ponto(lon, lat) for lon, lat in r["ancoras"]]
         rotulos.append(r)
-    povos = [dict(p, pos=ponto(*p["pos"])) for p in POVOS]
-    cidades = [ponto(lon, lat, nome, A(de), A(ate) if ate is not None else 0) for nome, lon, lat, de, ate in CIDADES]
+    povos = [preparar_povo(p) for p in POVOS + rev["novos_povos"]]
+    novas_cidades = [(c["nome"], c["lon"], c["lat"], c["fundacao"], c.get("abandono")) for c in rev["novas_cidades"]]
+    cidades = [ponto(lon, lat, nome, A(de), A(ate) if ate is not None else 0)
+               for nome, lon, lat, de, ate in CIDADES + novas_cidades]
     historias = []
     for h in HISTORIAS + HISTORIAS_HUMANAS:
         h = dict(h)
         h["passos"] = [dict(p, foco=ponto(*p["foco"])) for p in h["passos"]]
         historias.append(h)
+    perspectivas = [preparar_perspectiva(pv) for pv in PERSPECTIVAS + rev["perspectivas"]]
     registrar_placas("conteudo", placas)
     escrever_js("conteudo", {"grupos": grupos, "eventos": eventos, "rotas": rotas, "rotulos": rotulos,
-                             "historias": historias, "povos": povos, "cidades": cidades})
+                             "historias": historias, "povos": povos, "cidades": cidades,
+                             "perspectivas": perspectivas})
 
 
 if __name__ == "__main__":

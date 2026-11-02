@@ -326,6 +326,7 @@
     EVO.Populacao && EVO.Populacao.iniciar({ estado });
     EVO.Vida && EVO.Vida.iniciar({ definirTempo, definirCamada, mostrarDetalhe, abrirAba, estado, legenda, tocar, salvar });
     if (Array.isArray(config.gruposDesligados) && EVO.Vida) EVO.Vida.desligarGrupos(config.gruposDesligados);
+    EVO.Perspectivas && EVO.Perspectivas.iniciar({ definirTempo, estado });
     if (["agora", "arvore", "detalhe"].includes(config.aba)) abrirAba(config.aba, true);
     EVO.Historias && EVO.Historias.iniciar({ definirTempo, definirCamada, tocar, abrirAba, estado, mostrarDetalhe, salvar });
 
@@ -348,7 +349,10 @@
         tocar(false);
         definirTempo(E.tempo(E.posicao(estado.tempo) + d));
       }
-      if (ev.code === "Escape") EVO.Historias && EVO.Historias.fechar();
+      if (ev.code === "Escape") {
+        EVO.Historias && EVO.Historias.fechar();
+        document.getElementById("debates").hidden = true;
+      }
     });
     window.addEventListener("hashchange", () => {
       const t = lerUrl();

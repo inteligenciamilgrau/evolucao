@@ -1,0 +1,1609 @@
+{
+ "sobre": {
+  "tema": "Geologia e vida (sem humanos): árvore da vida, marcos, rotas de dispersão, clima e descrições dos períodos",
+  "revisor": "agente revisor (Claude), com pesquisa na web",
+  "data": "2026-11-02",
+  "como_usar": "Correções NÃO aplicadas: são propostas (campo 'proposto' pode ser texto, número, lista de locais ou objeto com vários campos). Itens novos e perspectivas seguem o formato de pipeline/revisao.py. A correção de EVENTOS.araripe é opcional (só faz sentido se o novo evento 'crato' entrar); a de EVENTOS.goe só é necessária se huroniana mudar para 2420."
+ },
+ "correcoes": [
+  {
+   "alvo": "GRUPOS.cianobacterias",
+   "campo": "origem",
+   "atual": 3480,
+   "proposto": 3000,
+   "motivo": "Os estromatólitos de 3,48 bilhões de anos (Dresser, Pilbara) não provam que já existiam cianobactérias: podem ter sido feitos por micróbios que fazem fotossíntese sem liberar oxigênio. Sinais químicos de oxigênio e relógios moleculares põem a origem da fotossíntese que libera O2 entre ~3,0 e 2,7 bilhões de anos; os fósseis indiscutíveis de cianobactérias têm ~1,9 bilhão.",
+   "fontes": [
+    "Planavsky, N.J. et al. 2014. Evidence for oxygenic photosynthesis half a billion years before the Great Oxidation Event. Nature Geoscience 7: 283-286",
+    "Fournier, G.P. et al. 2021. The Archean origin of oxygenic photosynthesis and extant cyanobacterial lineages. Proc. R. Soc. B 288: 20210675",
+    "Shih, P.M. et al. 2017. Crown group Oxyphotobacteria postdate the rise of oxygen. Geobiology 15: 19-29 - https://authors.library.caltech.edu/records/75yt8-59w63"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.cianobacterias",
+   "campo": "texto",
+   "atual": "Fazem fotossíntese e liberam oxigênio. Formaram os estromatólitos, as estruturas de vida mais antigas visíveis a olho nu, e encheram a atmosfera de oxigênio.",
+   "proposto": "Fazem fotossíntese e liberam oxigênio. Surgiram talvez há ~3 bilhões de anos (os estromatólitos mais antigos, de 3,48 bilhões, foram provavelmente obra de outros micróbios) e, aos poucos, encheram a atmosfera de oxigênio.",
+   "motivo": "Mesmo motivo da correção de origem: o texto atual atribui às cianobactérias os estromatólitos mais antigos, o que não é consenso.",
+   "fontes": [
+    "Planavsky et al. 2014, Nature Geoscience 7: 283-286",
+    "Fournier et al. 2021, Proc. R. Soc. B 288: 20210675"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.plantas_terra",
+   "campo": "locais",
+   "atual": [
+    [
+     -68.7,
+     -30.5,
+     "Precordilheira, Argentina"
+    ]
+   ],
+   "proposto": [
+    [
+     -64.9,
+     -23.8,
+     "Sierras Subandinas, noroeste da Argentina"
+    ]
+   ],
+   "motivo": "Os criptósporos de 473-471 milhões de anos (Rubinstein et al. 2010) vêm da Formação Zanjón, nas Sierras Subandinas (Salta/Jujuy), e não da Precordilheira de San Juan, ~700 km ao sul.",
+   "fontes": [
+    "Rubinstein, C.V. et al. 2010. Early Middle Ordovician evidence for land plants in Argentina (eastern Gondwana). New Phytologist 188: 365-369 - https://ri.conicet.gov.ar/handle/11336/55341",
+    "https://ri.conicet.gov.ar/bitstream/handle/11336/59933/CONICET_Digital_Nro.ad1c891c-cbc3-4860-bdf9-9af2e4db0dc0_D.pdf?sequence=5"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.licofitas",
+   "campo": "texto",
+   "atual": "Árvores como Lepidodendron (até 40 m) formaram as florestas do Carbonífero, cujos restos viraram carvão, inclusive no Sul do Brasil.",
+   "proposto": "Árvores como Lepidodendron (até 40 m) formaram as florestas do Carbonífero, cujos restos viraram o carvão do hemisfério norte. O carvão do Sul do Brasil é mais novo, do Permiano (~290 milhões de anos), e também tem licófitas, como Brasilodendron.",
+   "motivo": "No Carbonífero o Sul do Brasil estava coberto de gelo (Grupo Itararé). O carvão gaúcho e catarinense é da Formação Rio Bonito, do início do Permiano, formado sobretudo pela flora de Glossopteris, com licófitas como Brasilodendron.",
+   "fontes": [
+    "Chaloner, W.G., Leistikow, K.U. & Hill, A. 1979. Brasilodendron gen. nov. and B. pedroanum, a Permian lycopod from Brazil. Review of Palaeobotany and Palynology 28: 117-136",
+    "https://pt.wikipedia.org/wiki/Forma%C3%A7%C3%A3o_Rio_Bonito"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.placodermos",
+   "campo": "texto",
+   "atual": "Peixes com armadura e as primeiras mandíbulas. Dunkleosteus tinha 6 m. Sumiram no fim do Devoniano.",
+   "proposto": "Peixes com armadura e as primeiras mandíbulas. Dunkleosteus, um dos maiores, tinha cerca de 3,5 a 4 m e uma mordida fortíssima. Sumiram no fim do Devoniano.",
+   "motivo": "A estimativa de 6 m (ou mais) era baseada em peixes alongados. Um estudo de 2023, usando o tamanho da cabeça, chegou a ~3,4 m (até ~4 m para os maiores), com corpo robusto como o de um atum.",
+   "fontes": [
+    "Engelman, R.K. 2023. A Devonian fish tale: a new method of body length estimation suggests much smaller sizes for Dunkleosteus terrelli. Diversity 15(3): 318 - https://doi.org/10.3390/d15030318",
+    "https://case.edu/news/chunky-dunk-clevelands-prehistoric-sea-monster-may-have-been-shorter-stouter-once-believed"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.glossopteris",
+   "campo": "fim",
+   "atual": 235,
+   "proposto": 252,
+   "motivo": "Glossopteris praticamente desaparece na extinção do fim do Permiano (~252 Ma). Os poucos registros triássicos (Índia) são duvidosos; não há registro seguro até 235 Ma.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Glossopteris",
+    "Saxena, A., Cleal, C.J. & Singh, K.J. 2024. Gondwana Research (floras da Formação Panchet reinterpretadas como do fim do Permiano)"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.mesossauros",
+   "campo": "texto",
+   "atual": "Répteis de água doce e salobra com ~1 m. Só existem no sul da América do Sul (Brasil, Uruguai, Paraguai) e no sul da África. Não cruzavam oceanos: os dois lugares eram vizinhos.",
+   "proposto": "Répteis aquáticos de ~1 m que viviam num mar interior raso e quase fechado, de água salobra a muito salgada (a salinidade ainda é discutida). Só existem no sul da América do Sul (Brasil, Uruguai e, raros, Paraguai) e no sul da África. Não cruzavam oceanos: os dois lugares eram vizinhos.",
+   "motivo": "A ausência de peixes e de fauna marinha normal, a baixa diversidade e a preservação excepcional levaram à interpretação mais recente de um corpo de água interior por vezes hipersalino (Piñeiro et al. 2012), e não de água doce. O ponto central (não cruzavam o oceano aberto) continua valendo.",
+   "fontes": [
+    "Piñeiro, G. et al. 2012. Unusual environmental conditions preserve a Permian mesosaur-bearing Konservat-Lagerstätte from Uruguay. Acta Palaeontologica Polonica 57: 299-318 - https://www.app.pan.pl/article/item/app20100113.html",
+    "Silva, R.R. et al. 2017. Frontiers in Earth Science 5: 23 - https://www.frontiersin.org/articles/10.3389/feart.2017.00023/full"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.insetos",
+   "campo": "texto",
+   "atual": "Os primeiros animais a voar (há ~325 milhões de anos). No Carbonífero, rico em oxigênio, havia libélulas de 70 cm.",
+   "proposto": "Os primeiros animais a voar (há ~325 milhões de anos). No Carbonífero, rico em oxigênio, havia parentes gigantes das libélulas (Meganeura) com ~70 cm de uma ponta da asa à outra.",
+   "motivo": "Os 70 cm são de envergadura, não de comprimento do corpo, e Meganeura não é uma libélula verdadeira, mas um parente extinto (grupo Meganisoptera).",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Meganeura"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.devoniano",
+   "campo": "texto",
+   "atual": "Mares sem oxigênio e resfriamento: os recifes e os placodermos desaparecem.",
+   "proposto": "Em dois pulsos (372 e 359 milhões de anos), mares sem oxigênio e resfriamento derrubam a vida marinha. No primeiro, os grandes recifes desabam; os placodermos resistem e só somem no segundo, no fim do Devoniano.",
+   "motivo": "O evento está em 372 Ma (pulso Kellwasser), quando os recifes colapsaram. Os placodermos sobreviveram e desapareceram no evento Hangenberg, em 359 Ma (o próprio grupo placodermos tem fim=359).",
+   "fontes": [
+    "Sallan, L.C. & Coates, M.I. 2010. End-Devonian extinction and a bottleneck in the early evolution of modern jawed vertebrates. PNAS 107: 10131-10135",
+    "https://en.wikipedia.org/wiki/Late_Devonian_extinction"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.extincoes.passo2",
+   "campo": "texto",
+   "atual": "As novas florestas mudam o clima e os oceanos perdem oxigênio. Os recifes e os peixes com armadura somem.",
+   "proposto": "As novas florestas mudam o clima e os oceanos perdem oxigênio. Os grandes recifes desabam; os peixes com armadura resistem um pouco mais e somem no fim do Devoniano (359 Ma).",
+   "motivo": "Mesmo motivo da correção de EVENTOS.devoniano: os placodermos sumiram em 359 Ma, não em 372 Ma.",
+   "fontes": [
+    "Sallan & Coates 2010, PNAS 107: 10131-10135"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.florestas",
+   "campo": "t",
+   "atual": 385,
+   "proposto": 390,
+   "motivo": "Em 2024 foi descrita uma floresta fóssil de Calamophyton com ~390 milhões de anos em penhascos de Somerset (Inglaterra), ~4 milhões de anos mais velha que a de Cairo (NY, ~386 Ma).",
+   "fontes": [
+    "Davies, N.S. et al. 2024. Earth's earliest forest: fossilized trees and vegetation-induced sedimentary structures from the Middle Devonian (Eifelian) Hangman Sandstone Formation, Somerset and Devon, SW England. Journal of the Geological Society 181 - https://www.geolsoc.org.uk/news/earths-earliest-forest/",
+    "https://www.sci.news/paleontology/calamophyton-fossil-forest-12748.html"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.florestas",
+   "campo": "texto",
+   "atual": "Árvores como Archaeopteris formam florestas. As raízes quebram as rochas, criam solos e retiram CO₂ do ar, e o planeta esfria.",
+   "proposto": "Surgem as primeiras florestas: a mais antiga conhecida (~390 milhões de anos) está em penhascos de Somerset, na Inglaterra; logo depois vêm as de Nova York, com Archaeopteris. As raízes quebram as rochas, criam solos e retiram CO₂ do ar, e o planeta esfria.",
+   "motivo": "Atualização com a floresta de Somerset (2024).",
+   "fontes": [
+    "Davies et al. 2024, Journal of the Geological Society 181"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.florestas",
+   "campo": "locais",
+   "atual": [
+    [
+     -74.0,
+     42.2,
+     "Cairo e Gilboa, Nova York"
+    ]
+   ],
+   "proposto": [
+    [
+     -3.48,
+     51.2,
+     "Minehead, Somerset, Inglaterra (~390 Ma)"
+    ],
+    [
+     -74.0,
+     42.2,
+     "Cairo e Gilboa, Nova York (~386 Ma)"
+    ]
+   ],
+   "motivo": "Acrescenta o sítio da floresta mais antiga conhecida.",
+   "fontes": [
+    "https://www.geolsoc.org.uk/news/earths-earliest-forest/"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.bangiomorpha",
+   "campo": "locais",
+   "atual": [
+    [
+     -91.0,
+     74.5,
+     "Ilha Somerset, Canadá"
+    ]
+   ],
+   "proposto": [
+    [
+     -93.5,
+     73.3,
+     "Ilha Somerset, Canadá"
+    ]
+   ],
+   "motivo": "A coordenada atual (74,5°N, 91°W) cai no estreito de Barrow/Lancaster ou na costa da Ilha Devon, ao norte da Ilha Somerset (centro em ~73°15'N, 93°30'W), onde aflora a Formação Hunting.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Somerset_Island",
+    "Butterfield, N.J. 2000. Bangiomorpha pubescens n. gen., n. sp. Paleobiology 26: 386-404"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.huroniana",
+   "campo": "t",
+   "atual": 2290,
+   "proposto": 2420,
+   "motivo": "A glaciação de baixa latitude mais bem datada do Paleoproterozoico (Makganyene, África do Sul) ocorreu há ~2,43-2,42 bilhões de anos, logo abaixo das lavas de Ongeluk (2,426 Ga), formadas perto do equador. As glaciações Huronianas vão de ~2,45 a 2,22 Ga, em vários episódios. A tabela GELO de clima.js já põe o gelo entre 2420 e 2225 Ma.",
+   "fontes": [
+    "Gumsley, A.P. et al. 2017. Timing and tempo of the Great Oxidation Event. PNAS 114: 1811-1816 - https://news.uj.ac.za/news/novel-research-on-timing-and-tempo-of-the-great-oxidation-event-2/",
+    "Warke, M.R. et al. 2020. The Great Oxidation Event preceded a Paleoproterozoic 'snowball Earth'. PNAS 117: 13314-13320 - https://pmc.ncbi.nlm.nih.gov/articles/PMC7306805"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.huroniana",
+   "campo": "texto",
+   "atual": "Sem o metano, a Terra congela quase inteira (glaciação Huroniana) por dezenas de milhões de anos.",
+   "proposto": "Sem o metano, o gelo avança. Entre 2,45 e 2,22 bilhões de anos há várias glaciações (as Huronianas); na de ~2,43 bilhões, geleiras chegaram ao nível do mar perto do equador, onde hoje é a África do Sul: a primeira Terra bola de neve.",
+   "motivo": "Deixa claro que foram vários episódios e qual deles foi global.",
+   "fontes": [
+    "Gumsley et al. 2017, PNAS 114: 1811-1816",
+    "Warke et al. 2020, PNAS 117: 13314-13320"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.goe",
+   "campo": "t",
+   "atual": 2400,
+   "proposto": 2440,
+   "motivo": "Só necessário se huroniana for para 2420 Ma, para manter a ordem causal (oxigênio antes do gelo). O sinal químico do início do Grande Evento de Oxidação (fim do fracionamento de enxofre independente de massa) é datado entre ~2,50 e 2,43 Ga.",
+   "fontes": [
+    "Warke et al. 2020, PNAS 117: 13314-13320",
+    "Poulton, S.W. et al. 2021. A 200-million-year delay in permanent atmospheric oxygenation. Nature 592: 232-236"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.permiano",
+   "campo": "texto",
+   "atual": "Vulcões da Sibéria liberam CO₂ por milhares de anos. O mar esquenta e perde oxigênio: ~90% das espécies marinhas e 70% das terrestres desaparecem.",
+   "proposto": "Vulcões da Sibéria liberam CO₂ durante centenas de milhares de anos. O mar esquenta e perde oxigênio: ~90% das espécies marinhas e cerca de 70% das espécies de vertebrados terrestres desaparecem.",
+   "motivo": "O vulcanismo siberiano durou ~1 milhão de anos ou mais; a fase ligada à extinção (intrusões que queimaram carvão e calcário) durou dezenas a centenas de milhares de anos, não 'milhares'. O número de 70% se refere a vertebrados terrestres.",
+   "fontes": [
+    "Burgess, S.D. & Bowring, S.A. 2015. High-precision geochronology confirms voluminous magmatism before, during, and after Earth's most severe extinction. Science Advances 1: e1500470",
+    "https://en.wikipedia.org/wiki/Permian%E2%80%93Triassic_extinction_event"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.antartida_gelo",
+   "campo": "texto",
+   "atual": "A Antártida se separa da América do Sul e da Austrália. Uma corrente fria passa a girar à sua volta e ela se cobre de gelo. O planeta entra numa 'casa de gelo'.",
+   "proposto": "O CO₂ do ar cai abaixo de um limite e, em poucas centenas de milhares de anos, a Antártida se cobre de gelo. A abertura das passagens para a América do Sul e a Austrália, que deixou uma corrente fria girar à sua volta, ajudou, mas a queda do CO₂ parece ter sido o fator principal. O planeta entra numa 'casa de gelo'.",
+   "motivo": "A explicação só pelas correntes oceânicas é a hipótese antiga (Kennett, anos 1970). Modelos e reconstruções de CO₂ mostram que a queda do CO₂ foi decisiva, e a corrente circumpolar plena pode ter se formado só depois de 34 Ma.",
+   "fontes": [
+    "DeConto, R.M. & Pollard, D. 2003. Rapid Cenozoic glaciation of Antarctica induced by declining atmospheric CO2. Nature 421: 245-249",
+    "Pagani, M. et al. 2011. The role of carbon dioxide during the onset of Antarctic glaciation. Science 334: 1261-1264"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.flores",
+   "campo": "locais",
+   "atual": [
+    [
+     120.8,
+     41.5,
+     "Liaoning, China (Archaefructus)"
+    ]
+   ],
+   "proposto": [
+    [
+     34.65,
+     31.55,
+     "Israel (pólen de ~135 Ma)"
+    ],
+    [
+     120.8,
+     41.5,
+     "Liaoning, China (Archaefructus, ~125 Ma)"
+    ]
+   ],
+   "motivo": "Archaefructus (Formação Yixian) tem ~125 Ma, mais novo que o evento (130 Ma). O pólen de angiosperma mais antigo bem aceito (~136-130 Ma) vem de Israel, Itália e Inglaterra.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Archaefructus",
+    "Brenner, G.J. 1996. Evidence for the earliest stage of angiosperm pollen evolution: a paleoequatorial section from Israel. In: Flowering Plant Origin, Evolution & Phylogeny, Chapman & Hall"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.cooksonia",
+   "campo": "locais",
+   "atual": [
+    [
+     -3.5,
+     52.0,
+     "País de Gales"
+    ]
+   ],
+   "proposto": [
+    [
+     -7.9,
+     52.8,
+     "Devilsbit, Irlanda (~430 Ma)"
+    ],
+    [
+     -3.5,
+     52.0,
+     "País de Gales (~420 Ma)"
+    ]
+   ],
+   "motivo": "Os Cooksonia mais antigos (~430 Ma, fim do Wenlock) vêm da Irlanda e da República Tcheca; os clássicos do País de Gales são mais novos (~425-415 Ma).",
+   "fontes": [
+    "Edwards, D. & Feehan, J. 1980. Records of Cooksonia-type sporangia from late Wenlock strata in Ireland. Nature 287: 41-42",
+    "https://en.wikipedia.org/wiki/Cooksonia"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "ROTAS.galapagos",
+   "campo": "texto",
+   "atual": "As Galápagos são vulcões que saíram do mar há menos de 4 milhões de anos. Tentilhões chegaram voando; tartarugas e iguanas, flutuando desde a América do Sul. Os únicos mamíferos nativos são morcegos e pequenos ratos-do-arroz, que chegaram flutuando.",
+   "proposto": "As Galápagos são vulcões que saíram do mar há menos de 4 milhões de anos. Tentilhões chegaram voando; tartarugas e iguanas, flutuando desde a América do Sul. Os únicos mamíferos nativos são morcegos, pequenos ratos-do-arroz (que chegaram flutuando) e leões e lobos-marinhos, que chegaram nadando.",
+   "motivo": "O leão-marinho e o lobo-marinho-de-galápagos são mamíferos nativos. A rota do Havaí já cita a foca-monge, então o texto das Galápagos fica incoerente sem eles.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_sea_lion",
+    "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_fur_seal"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.india.passo1",
+   "campo": "texto",
+   "atual": "A Índia se solta de Madagascar e da Antártida e corre para o norte a até 15 cm por ano, uma das placas mais rápidas da história.",
+   "proposto": "Há ~120 milhões de anos a Índia, ainda grudada em Madagascar, se solta da Antártida e da Austrália. Por volta de 90 milhões de anos se separa também de Madagascar e dispara para o norte, a até 15-20 cm por ano, uma das placas mais rápidas da história.",
+   "motivo": "Em 120 Ma a Índia já se afastava da Antártida/Austrália, mas continuou presa a Madagascar até ~90-88 Ma (vulcanismo do ponto quente de Marion). A velocidade máxima (~65-50 Ma) chegou a ~18-20 cm/ano.",
+   "fontes": [
+    "Storey, M. et al. 1995. Timing of hot spot-related volcanism and the breakup of Madagascar and India. Science 267: 852-855",
+    "Kumar, P. et al. 2007. The rapid drift of the Indian tectonic plate. Nature 449: 894-897"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.india.passo4",
+   "campo": "texto",
+   "atual": "O cume do Everest é calcário do antigo fundo do mar de Tétis. A Índia ainda empurra a Ásia ~5 cm por ano.",
+   "proposto": "O cume do Everest é calcário de um mar raso do Ordoviciano (~470-450 milhões de anos), com pedaços de trilobitas e crinoides, formado na borda norte da Índia, então parte da Gondwana. A Índia ainda empurra a Ásia ~4 cm por ano.",
+   "motivo": "O calcário do cume (Formação Qomolangma) é do Ordoviciano, muito anterior ao oceano de Tétis (Neotétis, aberto no Permiano). A convergência Índia-Eurásia medida por GPS é de ~3,5-4 cm/ano.",
+   "fontes": [
+    "Sakai, H. et al. 2005. Geology of the summit limestone of Mount Qomolangma (Everest) and cooling history of the Yellow Band. Island Arc 14: 297-310",
+    "https://www.montana.edu/everest/facts/summit-limestone.html"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.gelo_sp.passo2",
+   "campo": "texto",
+   "atual": "A Gondwana estava sobre o polo sul. O Sul e o Sudeste do Brasil ficavam a ~50° de latitude sul, cobertos por geleiras como a Antártida hoje.",
+   "proposto": "A Gondwana estava sobre o polo sul. O Sul e o Sudeste do Brasil ficavam a ~50° de latitude sul. Línguas de gelo desciam de terras altas próximas até um mar raso, deixando rochas riscadas e lagos glaciais, e avançavam e recuavam muitas vezes.",
+   "motivo": "A comparação com 'a Antártida hoje' sugere um manto de gelo único e contínuo. Estudos recentes do Grupo Itararé indicam vários lobos e centros de gelo menores, com avanços e recuos, e muitos depósitos formados no mar.",
+   "fontes": [
+    "https://scielo.br/j/bjgeo/a/W6JvjfzQfz6zqMGc7JHr3mx/?lang=en",
+    "Sedimentary record of a fluctuating ice margin from the Pennsylvanian of western Gondwana: Paraná Basin, southern Brazil - https://repositorio.unesp.br/handle/11449/160747"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.gelo_sp.passo3",
+   "campo": "texto",
+   "atual": "Com o movimento das placas e o aquecimento global do fim do Permiano, o gelo some. O mesmo lugar vira um mar interior (onde viveram os mesossauros) e, muito depois, o deserto de Botucatu, cujos arenitos guardam hoje o Aquífero Guarani.",
+   "proposto": "Com a Gondwana se afastando do polo e o clima esquentando, o gelo some do Sul do Brasil ainda no fim do Carbonífero, há ~300 milhões de anos. O mesmo lugar vira um mar interior (onde viveram os mesossauros, ~280 Ma) e, muito depois, o deserto de Botucatu, cujos arenitos guardam hoje o Aquífero Guarani.",
+   "motivo": "O gelo do Brasil sumiu ~45 milhões de anos antes do aquecimento do fim do Permiano (~252 Ma): datações U-Pb restringem a glaciação da Bacia do Paraná ao Carbonífero.",
+   "fontes": [
+    "Griffis, N.P. et al. 2019. Coupled stratigraphic and U-Pb zircon age constraints on the late Paleozoic icehouse-to-greenhouse turnover in south-central Gondwana. Geology 47: 1146-1150 - https://doi.org/10.1130/G46740.1"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.gelo_sp.passo3",
+   "campo": "t",
+   "atual": 250,
+   "proposto": 280,
+   "motivo": "Em 280 Ma o mapa mostra o mar interior dos mesossauros, citado no passo; em 250 Ma ele já não existia.",
+   "fontes": [
+    "Santos, R.V. et al. 2006. SHRIMP U-Pb zircon dating and palynology of bentonitic layers from the Permian Irati Formation, Paraná Basin, Brazil. Gondwana Research 9: 456-463"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS.dinos_rs.passo3",
+   "campo": "texto",
+   "atual": "Como todos os continentes estavam juntos, os dinossauros se espalharam a pé. Em ~20 milhões de anos já havia dinossauros da Alemanha à Antártida.",
+   "proposto": "Como todos os continentes estavam juntos, os dinossauros se espalharam a pé, embora desertos e o calor dos trópicos tenham atrasado sua chegada a algumas regiões. Em ~20 milhões de anos já havia dinossauros da Alemanha à Groenlândia; na Antártida, os mais antigos conhecidos são do início do Jurássico.",
+   "motivo": "Plateosaurus aparece na Alemanha e na Groenlândia há ~214-205 Ma, mas os dinossauros antárticos mais antigos (Cryolophosaurus, Formação Hanson) são do início do Jurássico (~190 Ma), ~40 milhões de anos depois de 233 Ma. Dinossauros também foram raros nos trópicos até o fim do Triássico.",
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Plateosaurus",
+    "https://en.wikipedia.org/wiki/Cryolophosaurus",
+    "Whiteside, J.H. et al. 2015. Extreme ecosystem instability suppressed tropical dinosaur dominance for 30 million years. PNAS 112: 7909-7913"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "vida.js DESCRICOES.Oligoceno",
+   "campo": "texto",
+   "atual": "A Antártida congela e o clima esfria. Macacos e roedores chegam à América do Sul.",
+   "proposto": "A Antártida congela e o clima esfria e seca. Na América do Sul, roedores e macacos vindos da África se espalham, e uma segunda leva de macacos atravessa o Atlântico.",
+   "motivo": "Os roedores chegaram no Eoceno Médio (~41 Ma, Contamana) e os primeiros macacos no fim do Eoceno (~36 Ma), como o próprio mapa mostra nos eventos caviomorfos e macacos. No Oligoceno houve ao menos mais uma travessia (Ucayalipithecus, ~32 Ma).",
+   "fontes": [
+    "Antoine, P.-O. et al. 2012. Middle Eocene rodents from Peruvian Amazonia reveal the pattern and timing of caviomorph origins and biogeography. Proc. R. Soc. B 279: 1319-1326",
+    "Seiffert, E.R. et al. 2020. A parapithecid stem anthropoid of African origin in the Paleogene of South America. Science 368: 194-197"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "vida.js DESCRICOES.Eoceno",
+   "campo": "texto",
+   "atual": "O período mais quente desde os dinossauros. Surgem primatas modernos, cavalos e baleias. A Índia bate na Ásia.",
+   "proposto": "A época mais quente desde os dinossauros. Surgem primatas modernos, cavalos e baleias. A Índia bate na Ásia, e roedores e macacos da África chegam à América do Sul em jangadas de vegetação.",
+   "motivo": "Complementa a correção do Oligoceno, levando a chegada de roedores e macacos para a época certa (o Eoceno é uma época, não um período).",
+   "fontes": [
+    "Antoine et al. 2012, Proc. R. Soc. B 279: 1319-1326",
+    "Bond, M. et al. 2015. Eocene primates of South America and the African origins of New World monkeys. Nature 520: 538-541"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "vida.js DESCRICOES.Calimiano",
+   "campo": "texto",
+   "atual": "Colúmbia se desmancha devagar. Começa o 'bilhão monótono': clima estável e vida quase sem novidades.",
+   "proposto": "Colúmbia se desmancha devagar. Segue o 'bilhão monótono' (de ~1,8 a ~0,8 bilhão de anos): clima estável e vida quase sem novidades.",
+   "motivo": "O 'bilhão monótono' costuma ser datado de ~1,8 a 0,8 Ga; ele já estava em curso no Estateriano, não começa no Calimiano (1,6 Ga).",
+   "fontes": [
+    "Brasier, M.D. & Lindsay, J.F. 1998. A billion years of environmental stability and the emergence of eukaryotes: new data from northern Australia. Geology 26: 555-558",
+    "https://en.wikipedia.org/wiki/Boring_Billion"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.araripe",
+   "campo": "t, texto",
+   "atual": {
+    "t": 113,
+    "texto": "Uma laguna entre a África e o Brasil, que se afastavam, preservou peixes, insetos, flores e pterossauros com detalhes incríveis."
+   },
+   "proposto": {
+    "t": 110,
+    "texto": "Pouco depois do lago do Crato, uma laguna salobra entre a África e o Brasil, que se afastavam, preservou dentro de nódulos de calcário peixes, tubarões, tartarugas, pterossauros e dinossauros como Irritator, com detalhes incríveis."
+   },
+   "motivo": "AJUSTE OPCIONAL, só se o novo evento 'crato' (115 Ma) for aceito: evita repetir insetos e flores e destaca a Formação Romualdo (nódulos com vertebrados), um pouco mais nova.",
+   "fontes": [
+    "Martill, D.M., Bechly, G. & Loveridge, R.F. (eds.) 2007. The Crato Fossil Beds of Brazil. Cambridge University Press",
+    "https://en.wikipedia.org/wiki/Romualdo_Formation"
+   ],
+   "status": "aplicada"
+  }
+ ],
+ "novos_eventos": [
+  {
+   "id": "primeiros_esqueletos",
+   "t": 545,
+   "icone": "🐚",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Primeiros esqueletos, em Corumbá (MS)",
+   "texto": "Há ~550 milhões de anos, Cloudina e Corumbella, achados em Corumbá (MS), estão entre os primeiros animais a fabricar tubos duros com minerais. Uma carapaça protege contra predadores: alguns tubos de Cloudina têm furos que podem ser marcas dos primeiros caçadores. Na Explosão Cambriana, logo depois, esqueletos viram regra.",
+   "locais": [
+    [
+     -57.65,
+     -19.0,
+     "Corumbá, MS (Formação Tamengo)"
+    ],
+    [
+     16.5,
+     -26.0,
+     "Grupo Nama, Namíbia"
+    ]
+   ],
+   "fontes": [
+    "Parry, L.A. et al. 2017. Ichnological evidence for meiofaunal bilaterians from the terminal Ediacaran and earliest Cambrian of Brazil. Nature Ecology & Evolution 1: 1455-1464 (datações U-Pb de 555-541 Ma)",
+    "Walde, D.H.G. et al. 2015 (Corumbella werneri) - https://rigeo.sgb.gov.br/bitstream/doc/16554/1/Walde_et_al_2015.pdf",
+    "Hua, H., Pratt, B.R. & Zhang, L. 2003. Borings in Cloudina shells: complex predator-prey dynamics in the terminal Neoproterozoic. Palaios 18: 454-459"
+   ]
+  },
+  {
+   "id": "biodiversificacao_ordoviciana",
+   "t": 470,
+   "icone": "🦑",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "A grande diversificação do Ordoviciano",
+   "texto": "Depois da Explosão Cambriana vem uma segunda explosão, mais longa: em ~30 milhões de anos, a diversidade de famílias de animais marinhos triplica. Surgem recifes, conchas de todo tipo, plâncton variado e nautiloides de concha reta com vários metros. A biota de Fezouata, no Marrocos, mostra esse mar.",
+   "locais": [
+    [
+     -5.84,
+     30.33,
+     "Fezouata, Marrocos (~480 Ma)"
+    ]
+   ],
+   "fontes": [
+    "Servais, T. et al. 2010. The Great Ordovician Biodiversification Event (GOBE): the palaeoecological dimension. Palaeogeography, Palaeoclimatology, Palaeoecology 294: 99-119",
+    "Van Roy, P. et al. 2010. Ordovician faunas of Burgess Shale type. Nature 465: 215-218"
+   ]
+  },
+  {
+   "id": "mandibulas",
+   "t": 436,
+   "icone": "🐟",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Peixes com mandíbula",
+   "texto": "Peixes completos de ~436 milhões de anos, achados em Chongqing (China), mostram que os peixes com mandíbula já eram variados: pequenos placodermos e parentes dos tubarões. A mandíbula permitiu morder, mastigar e caçar presas maiores. Quase todos os vertebrados de hoje, inclusive nós, herdaram essa invenção.",
+   "locais": [
+    [
+     108.99,
+     28.45,
+     "Xiushan, Chongqing, China"
+    ]
+   ],
+   "fontes": [
+    "Zhu, Y.-A. et al. 2022. The oldest complete jawed vertebrates from the early Silurian of China. Nature 609: 954-958",
+    "Andreev, P.S. et al. 2022. Spiny chondrichthyan from the lower Silurian of South China. Nature 609: 969-974",
+    "https://www.smithsonianmag.com/science-nature/haul-of-fossil-fish-pushes-back-the-origin-of-teeth-and-jaws-180980849/"
+   ]
+  },
+  {
+   "id": "animais_terra",
+   "t": 425,
+   "icone": "🐛",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Primeiros animais em terra firme",
+   "texto": "Kampecaris, um piolho-de-cobra (diplópode) de ~425 milhões de anos da ilha de Kerrera, na Escócia, é um dos animais terrestres mais antigos conhecidos. Artrópodes que respiravam ar foram os primeiros bichos a viver fora da água, entre musgos e as primeiras plantas com vasos. Os vertebrados só chegariam dezenas de milhões de anos depois.",
+   "locais": [
+    [
+     -5.55,
+     56.39,
+     "Kerrera, Escócia"
+    ]
+   ],
+   "fontes": [
+    "Brookfield, M.E. et al. 2020. Myriapod divergence times differ between molecular clock and fossil evidence: U/Pb zircon ages of the earliest fossil millipede-bearing sediments and their significance. Historical Biology - https://doi.org/10.1080/08912963.2020.1761351",
+    "https://www.jsg.utexas.edu/news/2020/05/worlds-oldest-bug-is-fossil-millipede-from-scotland/"
+   ]
+  },
+  {
+   "id": "gelo_devoniano",
+   "t": 362,
+   "icone": "🧊",
+   "tipo": "clima",
+   "prio": 3,
+   "titulo": "Geleiras no Piauí",
+   "texto": "No fim do Devoniano, parte da Gondwana se aproxima do polo sul e geleiras cobrem áreas do Brasil, da Bolívia e do Peru. Em Brejo do Piauí (PI) há um piso de rocha riscado pelo gelo, e na Bacia do Amazonas há depósitos glaciais com centenas de metros. Esse frio coincide com o último pulso da extinção do Devoniano.",
+   "locais": [
+    [
+     -42.83,
+     -8.2,
+     "Brejo do Piauí, PI"
+    ],
+    [
+     -55.0,
+     -2.0,
+     "Bacia do Amazonas, PA"
+    ]
+   ],
+   "fontes": [
+    "Isaacson, P.E. et al. 2008. Late Devonian-earliest Mississippian glaciation in Gondwanaland and its biogeographic consequences. Palaeogeography, Palaeoclimatology, Palaeoecology 268: 126-142",
+    "Caputo, M.V. & Ponciano, L.C.M.O. 2013 (pavimento estriado de Calembre) - https://rigeo.cprm.gov.br/bitstream/doc/24299.5/3/informe_deget_v3_n1_mar_2022_calembre.pdf",
+    "https://www.scielo.br/j/bjgeo/a/hLQC7bdcDrFKVNbQWnZC4LN/abstract/?lang=en"
+   ]
+  },
+  {
+   "id": "chuvas_carniano",
+   "t": 234,
+   "icone": "🌧️",
+   "tipo": "clima",
+   "prio": 2,
+   "titulo": "O Episódio Pluvial do Carniano",
+   "texto": "Por 1 a 2 milhões de anos, a Pangeia fica mais quente e muito mais chuvosa, provavelmente por causa de enormes erupções vulcânicas (Wrangellia, hoje no Alasca e no Canadá). Muitas espécies somem. Logo depois, dinossauros, crocodilos, tartarugas e as primeiras florestas modernas de coníferas se espalham: os dinossauros do RS aparecem justamente nessa virada.",
+   "locais": [
+    [
+     11.85,
+     46.5,
+     "Dolomitas, Itália"
+    ],
+    [
+     -143.0,
+     61.6,
+     "Wrangellia, Alasca"
+    ]
+   ],
+   "fontes": [
+    "Dal Corso, J. et al. 2020. Extinction and dawn of the modern world in the Carnian (Late Triassic). Science Advances 6: eaba0099",
+    "Mancuso, A.C. et al. 2020. Evidence for the Carnian Pluvial Episode in Gondwana: new multiproxy climate records and their bearing on early dinosaur diversification. Gondwana Research 86: 104-125"
+   ]
+  },
+  {
+   "id": "deserto_botucatu",
+   "t": 136,
+   "icone": "🏜️",
+   "tipo": "clima",
+   "prio": 2,
+   "titulo": "O deserto de Botucatu",
+   "texto": "Boa parte do Centro-Sul do Brasil, com pedaços do Uruguai, do Paraguai, da Argentina e da Namíbia, vira um mar de dunas com mais de 1 milhão de km². Pequenos dinossauros carnívoros e mamíferos primitivos deixaram pegadas na areia, hoje vistas em lajes de arenito de Araraquara (SP). A lava da Serra Geral cobriu as dunas, e essa areia guarda hoje a água do Aquífero Guarani.",
+   "locais": [
+    [
+     -48.18,
+     -21.79,
+     "Araraquara, SP"
+    ],
+    [
+     -48.44,
+     -22.89,
+     "Botucatu, SP"
+    ]
+   ],
+   "fontes": [
+    "Leonardi, G. & Carvalho, I.S. 2021. Desert Cretaceous dinosaurs: the Botucatu paleodesert and the footprints across the dunes - https://ouci.dntb.gov.ua/works/4NKN3r6l",
+    "Scherer, C.M.S. 2000. Eolian dunes of the Botucatu Formation (Cretaceous) in southernmost Brazil: morphology and origin. Sedimentary Geology 137: 63-84"
+   ]
+  },
+  {
+   "id": "crato",
+   "t": 115,
+   "icone": "🦗",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Formação Crato: insetos e flores",
+   "texto": "No fundo de um lago raso do sul do Ceará, um calcário finíssimo guardou insetos, aranhas, penas, sapos, lagartos e algumas das plantas com flor mais antigas da América do Sul. Cratolirion, de 115 milhões de anos, é uma monocotiledônea (grupo dos lírios e das palmeiras) preservada inteira, da raiz à flor. É uma janela para o mundo logo depois do surgimento das flores.",
+   "locais": [
+    [
+     -39.68,
+     -7.09,
+     "Nova Olinda e Santana do Cariri, CE"
+    ]
+   ],
+   "fontes": [
+    "Coiffard, C. et al. 2019. Fossil evidence of core monocots in the Early Cretaceous. Nature Plants 5: 691-696",
+    "https://www.museumfuernaturkunde.berlin/en/museum/media/press/oldest-completely-preserved-lily-discovered",
+    "Martill, Bechly & Loveridge (eds.) 2007. The Crato Fossil Beds of Brazil. Cambridge University Press"
+   ]
+  },
+  {
+   "id": "floresta_neotropical",
+   "t": 58,
+   "icone": "🌴",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Nasce a floresta tropical moderna",
+   "texto": "O asteroide derrubou as florestas da América do Sul tropical, que levaram ~6 milhões de anos para se refazer. Voltaram diferentes: dominadas por plantas com flor, como leguminosas e palmeiras, com copa fechada e vários andares, o modelo da Amazônia de hoje. Em Cerrejón, na Colômbia, essa floresta de 58 milhões de anos abrigava a cobra gigante Titanoboa.",
+   "locais": [
+    [
+     -72.67,
+     11.08,
+     "Cerrejón, Colômbia"
+    ]
+   ],
+   "fontes": [
+    "Carvalho, M.R. et al. 2021. Extinction at the end-Cretaceous and the origin of modern Neotropical rainforests. Science 372: 63-68",
+    "Wing, S.L. et al. 2009. Late Paleocene fossils from the Cerrejón Formation, Colombia, are the earliest record of Neotropical rainforest. PNAS 106: 18627-18632",
+    "Head, J.J. et al. 2009. Giant boid snake from the Palaeocene neotropics reveals hotter past equatorial temperatures. Nature 457: 715-717"
+   ]
+  },
+  {
+   "id": "itaborai",
+   "t": 52,
+   "icone": "🐾",
+   "tipo": "vida",
+   "prio": 3,
+   "titulo": "Bacia de Itaboraí (RJ)",
+   "texto": "Numa pequena bacia de calcário perto de Itaboraí (RJ), de ~53 a 50 milhões de anos, estão dezenas de espécies de mamíferos: parentes dos gambás (alguns dos mais antigos conhecidos), tatus primitivos e 'ungulados' nativos que não deixaram descendentes. A América do Sul já era uma ilha e criava sua própria fauna.",
+   "locais": [
+    [
+     -42.87,
+     -22.8,
+     "São José de Itaboraí, RJ"
+    ]
+   ],
+   "fontes": [
+    "https://en.wikipedia.org/wiki/Itabora%C3%AD_Formation",
+    "Oliveira, E.V. & Goin, F.J. 2011. A reassessment of bunodont metatherians from the Paleogene of Itaboraí (Brazil) (idade de 53-50 Ma)",
+    "Woodburne, M.O. et al. 2014. Paleogene land mammal faunas of South America; a response to global climatic changes and indigenous floral diversity. Journal of Mammalian Evolution 21: 1-73"
+   ]
+  },
+  {
+   "id": "gigantes_acre",
+   "t": 8,
+   "icone": "🐊",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Gigantes do Acre",
+   "texto": "Onde hoje é o Acre havia um enorme pantanal de rios e lagos. Ali viviam o jacaré Purussaurus, um dos maiores crocodilianos de todos os tempos (de 8 a 12 m, conforme a estimativa), a tartaruga Stupendemys, com casco de até ~3 m, e roedores gigantes. Quando os Andes subiram e o rio Amazonas passou a correr para o Atlântico, esse mundo acabou.",
+   "locais": [
+    [
+     -68.0,
+     -9.5,
+     "Rios Acre e Purus, AC (Formação Solimões)"
+    ]
+   ],
+   "fontes": [
+    "Aureliano, T. et al. 2015. Morphometry, bite-force, and paleobiology of the Late Miocene caiman Purussaurus brasiliensis. PLOS ONE 10: e0117944 - https://pmc.ncbi.nlm.nih.gov/articles/PMC4331287",
+    "Cadena, E.-A. et al. 2020. The anatomy, paleobiology, and evolutionary relationships of the largest extinct side-necked turtle. Science Advances 6: eaay4593",
+    "Hoorn, C. et al. 2010. Amazonia through time: Andean uplift, climate change, landscape evolution, and biodiversity. Science 330: 927-931"
+   ]
+  },
+  {
+   "id": "pantanal",
+   "t": 2.5,
+   "icone": "💧",
+   "tipo": "geo",
+   "prio": 3,
+   "titulo": "Nasce o Pantanal",
+   "texto": "O Pantanal é uma planície jovem que afunda devagar. Pela hipótese mais citada, um último 'aperto' dos Andes, há ~2,5 milhões de anos, dobrou a crosta e abriu essa bacia rasa, que todo ano se enche de água e sedimentos. A idade exata e a causa ainda são discutidas.",
+   "locais": [
+    [
+     -57.0,
+     -18.0,
+     "Pantanal, MT e MS"
+    ]
+   ],
+   "fontes": [
+    "Ussami, N., Shiraiwa, S. & Dominguez, J.M.L. 1999. Basement reactivation in a sub-Andean foreland flexural bulge: the Pantanal wetland, SW Brazil. Tectonics 18: 25-39",
+    "Assine, M.L. et al. 2015. Geology and geomorphology of the Pantanal basin - https://repositorio.unesp.br/items/d8fa4293-0964-432b-841f-1f9e502e6beb"
+   ]
+  }
+ ],
+ "novos_grupos": [
+  {
+   "id": "fungos",
+   "nome": "Fungos",
+   "pai": "eucariontes",
+   "origem": 1000,
+   "fim": null,
+   "cor": "#d7b98e",
+   "icone": "🍄",
+   "pbdb": "Fungi",
+   "texto": "Cogumelos, bolores e leveduras são parentes mais próximos dos animais do que das plantas. Ourasphaira, do Ártico canadense (~1 bilhão de anos), pode ser o fóssil mais antigo do grupo. Em Rhynie, há 407 milhões de anos, já viviam unidos às raízes das plantas, ajudando-as a tirar nutrientes das rochas: sem eles, a conquista da terra teria sido bem mais difícil.",
+   "fontes": [
+    "Loron, C.C. et al. 2019. Early fungi from the Proterozoic era in Arctic Canada. Nature 570: 232-235",
+    "Remy, W. et al. 1994. Four hundred-million-year-old vesicular arbuscular mycorrhizae. PNAS 91: 11841-11843"
+   ]
+  },
+  {
+   "id": "actinopterigios",
+   "nome": "Peixes de nadadeiras raiadas",
+   "pai": "vertebrados",
+   "origem": 425,
+   "fim": null,
+   "cor": "#81d4fa",
+   "icone": "🐡",
+   "pbdb": "Actinopterygii",
+   "texto": "Quase todos os peixes de hoje: sardinha, piranha, tilápia, pirarucu. São mais de 30 mil espécies, cerca de metade de todos os vertebrados. Surgiram no Siluriano e se diversificaram depois das extinções do Devoniano. A Amazônia tem a maior variedade de peixes de água doce do planeta, e o Araripe (CE) guarda peixes fósseis de 110 milhões de anos dentro de nódulos de pedra.",
+   "fontes": [
+    "Sallan, L.C. 2014. Major issues in the origins of ray-finned fish (Actinopterygii) biodiversity. Biological Reviews 89: 950-971",
+    "Dagosta, F.C.P. & de Pinna, M. 2019. The fishes of the Amazon: distribution and biogeographical patterns. Bulletin of the AMNH 431"
+   ]
+  },
+  {
+   "id": "tubaroes",
+   "nome": "Tubarões e raias",
+   "pai": "vertebrados",
+   "origem": 440,
+   "fim": null,
+   "cor": "#607d8b",
+   "icone": "🦈",
+   "pbdb": "Chondrichthyes",
+   "texto": "Peixes com esqueleto de cartilagem. Parentes antigos, como Fanjingshania (China, ~439 milhões de anos), mostram que o grupo é quase tão velho quanto as mandíbulas. Sobreviveram a quatro grandes extinções. O megalodonte, com 15 m ou mais, sumiu há ~3,6 milhões de anos.",
+   "fontes": [
+    "Andreev, P.S. et al. 2022. Spiny chondrichthyan from the lower Silurian of South China. Nature 609: 969-974",
+    "Boessenecker, R.W. et al. 2019. The Early Pliocene extinction of the mega-toothed shark Otodus megalodon. PeerJ 7: e6088",
+    "Cooper, J.A. et al. 2022. The extinct shark Otodus megalodon was a transoceanic superpredator. Science Advances 8: eabm9424"
+   ]
+  },
+  {
+   "id": "tartarugas",
+   "nome": "Tartarugas",
+   "pai": "repteis",
+   "origem": 240,
+   "fim": null,
+   "cor": "#9e9d24",
+   "icone": "🐢",
+   "pbdb": "Testudinata",
+   "texto": "O casco surgiu aos poucos: Pappochelys (240 Ma, Alemanha), provável parente antigo, tinha costelas largas, e Odontochelys (220 Ma, China) só a parte de baixo do casco. As tartarugas viram os dinossauros surgir e sumir e sobreviveram ao asteroide. Stupendemys, do Mioceno da Venezuela, da Colômbia e do Acre, tinha casco de até ~3 m.",
+   "fontes": [
+    "Schoch, R.R. & Sues, H.-D. 2015. A Middle Triassic stem-turtle and the evolution of the turtle body plan. Nature 523: 584-587",
+    "Li, C. et al. 2008. An ancestral turtle from the Late Triassic of southwestern China. Nature 456: 497-501",
+    "Cadena et al. 2020. Science Advances 6: eaay4593"
+   ]
+  },
+  {
+   "id": "crocodilos",
+   "nome": "Crocodilos e parentes",
+   "pai": "repteis",
+   "origem": 232,
+   "fim": null,
+   "cor": "#558b6e",
+   "icone": "🐊",
+   "pbdb": "Crocodylomorpha",
+   "texto": "Crocodilos e jacarés são os parentes vivos mais próximos das aves. Os primeiros, no Triássico, eram pequenos e corriam com patas finas. No Cretáceo do interior de SP e MG viviam crocodilos terrestres, alguns com dentes parecidos com os de mamíferos (Mariliasuchus, Armadillosuchus); no Mioceno do Acre, o gigante Purussaurus.",
+   "fontes": [
+    "Zanno, L.E. et al. 2015. Early crocodylomorph increases top tier predator diversity during rise of dinosaurs. Scientific Reports 5: 9276",
+    "Marinho, T.S. & Carvalho, I.S. 2009. An armadillo-like sphagesaurid crocodyliform from the Late Cretaceous of Brazil. Journal of South American Earth Sciences 27: 36-41",
+    "Aureliano et al. 2015. PLOS ONE 10: e0117944"
+   ]
+  },
+  {
+   "id": "escamados",
+   "nome": "Lagartos e cobras",
+   "pai": "repteis",
+   "origem": 242,
+   "fim": null,
+   "cor": "#aed581",
+   "icone": "🐍",
+   "pbdb": "Squamata",
+   "texto": "O maior grupo de répteis vivos, com mais de 11 mil espécies. Megachirella (~240 Ma, Itália) é o lagarto mais antigo conhecido. As cobras perderam as patas aos poucos: Najash, da Patagônia (~95 Ma), ainda tinha patas traseiras. Titanoboa, da Colômbia (58 Ma), media ~13 m.",
+   "fontes": [
+    "Simões, T.R. et al. 2018. The origin of squamates revealed by a Middle Triassic lizard from the Italian Alps. Nature 557: 706-709",
+    "Garberoglio, F.F. et al. 2019. New skulls and skeletons of the Cretaceous legged snake Najash, and the evolution of the modern snake body plan. Science Advances 5: eaax5833",
+    "Head et al. 2009. Nature 457: 715-717"
+   ]
+  }
+ ],
+ "novas_rotas": [
+  {
+   "id": "ratitas",
+   "grupo": "aves",
+   "mecanismo": "voo",
+   "de": 70,
+   "ate": 40,
+   "nome": "Ratitas: emas, emus e quivis",
+   "texto": "Ema, emu, casuar, quivi e as extintas aves-elefante de Madagascar e moas da Nova Zelândia não voam, mas seus ancestrais voavam, como os inhambus sul-americanos, seus parentes que voam até hoje. O DNA mostra que o quivi é primo da ave-elefante, do outro lado do Índico: eles não foram separados pela quebra da Gondwana, mas chegaram voando aos pedaços dela e perderam o voo várias vezes, depois do fim dos dinossauros.",
+   "ramos": [
+    [
+     [
+      -60.0,
+      -32.0
+     ],
+     [
+      -68.0,
+      -50.0
+     ],
+     [
+      -60.0,
+      -64.0
+     ],
+     [
+      100.0,
+      -72.0
+     ],
+     [
+      135.0,
+      -25.0
+     ]
+    ],
+    [
+     [
+      135.0,
+      -25.0
+     ],
+     [
+      147.0,
+      -38.0
+     ],
+     [
+      172.0,
+      -42.0
+     ]
+    ],
+    [
+     [
+      60.0,
+      -68.0
+     ],
+     [
+      46.5,
+      -19.0
+     ]
+    ]
+   ],
+   "fontes": [
+    "Mitchell, K.J. et al. 2014. Ancient DNA reveals elephant birds and kiwi are sister taxa and clarifies ratite bird evolution. Science 344: 898-900",
+    "Yonezawa, T. et al. 2017. Phylogenomics and morphology of extinct paleognaths reveal the origin and evolution of the ratites. Current Biology 27: 68-77",
+    "Phillips, M.J. et al. 2010. Tinamous and moa flock together: mitochondrial genome sequence analysis reveals independent losses of flight among ratites. Systematic Biology 59: 90-107"
+   ]
+  },
+  {
+   "id": "araucarias",
+   "grupo": "coniferas",
+   "mecanismo": "terra",
+   "de": 190,
+   "ate": 110,
+   "nome": "Araucárias: árvores da Gondwana",
+   "texto": "No Jurássico, araucárias cresciam na Patagônia, na Antártida, na Índia, na Austrália e até na Europa. Quando a Gondwana se partiu, cada pedaço levou suas árvores, que depois sumiram da Antártida congelada e da Índia. Hoje só vivem no hemisfério sul: o pinheiro-do-paraná no Sul do Brasil, a araucária do Chile e espécies na Austrália, Nova Guiné e Nova Caledônia (estas se diversificaram bem mais tarde).",
+   "ramos": [
+    [
+     [
+      -51.0,
+      -26.0
+     ],
+     [
+      -70.0,
+      -45.0
+     ],
+     [
+      -60.0,
+      -64.0
+     ],
+     [
+      100.0,
+      -72.0
+     ],
+     [
+      150.0,
+      -28.0
+     ]
+    ],
+    [
+     [
+      -70.0,
+      -45.0
+     ],
+     [
+      -71.5,
+      -38.5
+     ]
+    ],
+    [
+     [
+      80.0,
+      -68.0
+     ],
+     [
+      87.6,
+      25.0
+     ]
+    ]
+   ],
+   "fontes": [
+    "Kershaw, P. & Wagstaff, B. 2001. The southern conifer family Araucariaceae: history, status, and value for paleoenvironmental reconstruction. Annual Review of Ecology and Systematics 32: 397-414",
+    "Panti, C., Pujana, R.R., Zamaloa, M.C. & Romero, E.J. 2012. Araucariaceae macrofossil record from South America and Antarctica. Alcheringa 36: 1-22",
+    "Kranitz, M.L. et al. 2014. Evolutionary diversification of New Caledonian Araucaria. PLOS ONE 9: e110308"
+   ]
+  },
+  {
+   "id": "onca",
+   "grupo": "placentarios",
+   "mecanismo": "terra",
+   "de": 1.5,
+   "ate": 0.3,
+   "nome": "A onça-pintada, imigrante do norte",
+   "texto": "Os ancestrais da onça (gênero Panthera, o mesmo do leão e do leopardo) viviam na Eurásia. No início das eras glaciais cruzaram a Beríngia; o fóssil mais antigo nas Américas tem ~850 mil anos. Pelo istmo do Panamá chegaram à América do Sul. A onça sumiu de quase toda a América do Norte, mas o Brasil, na Amazônia e no Pantanal, tem hoje as maiores populações.",
+   "ramos": [
+    [
+     [
+      30.0,
+      48.0
+     ],
+     [
+      90.0,
+      50.0
+     ],
+     [
+      140.0,
+      62.0
+     ],
+     [
+      172.0,
+      66.0
+     ],
+     [
+      -165.0,
+      65.0
+     ],
+     [
+      -140.0,
+      62.0
+     ],
+     [
+      -115.0,
+      45.0
+     ],
+     [
+      -100.0,
+      25.0
+     ],
+     [
+      -90.0,
+      16.0
+     ],
+     [
+      -79.5,
+      9.0
+     ],
+     [
+      -70.0,
+      0.0
+     ],
+     [
+      -56.0,
+      -10.0
+     ],
+     [
+      -57.0,
+      -18.0
+     ]
+    ]
+   ],
+   "fontes": [
+    "Eizirik, E. et al. 2001. Phylogeography, population history and conservation genetics of jaguars (Panthera onca). Molecular Ecology 10: 65-79",
+    "The large jaguar that lived in the past of México: a forgotten fossil - https://ri.conicet.gov.ar/handle/11336/143724",
+    "https://en.wikipedia.org/wiki/Jaguar"
+   ]
+  }
+ ],
+ "perspectivas": [
+  {
+   "id": "vida_mais_antiga",
+   "titulo": "Quando surgiu a vida?",
+   "resumo": "Rochas muito antigas foram aquecidas e dobradas por bilhões de anos, então é difícil saber se uma marca foi feita por micróbios ou por química sem vida. Cada nova evidência é muito disputada.",
+   "opcoes": [
+    {
+     "id": "isua",
+     "nome": "3,7 bilhões (Isua)",
+     "padrao": true,
+     "texto": "Rochas de Isua, na Groenlândia, têm grafita com a 'assinatura' química típica da vida e pequenas estruturas em cone que lembram estromatólitos. Críticos mostraram que os cones podem ser só rocha deformada, mas a grafita continua sendo um bom indício. É a versão que está no mapa.",
+     "fontes": [
+      "Nutman, A.P. et al. 2016. Rapid emergence of life shown by discovery of 3,700-million-year-old microbial structures. Nature 537: 535-538",
+      "Allwood, A.C. et al. 2018. Reassessing evidence of life in 3,700-million-year-old rocks of Greenland. Nature 563: 241-244"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "nuvvuagittuq",
+     "nome": "Mais de 4 bilhões (Nuvvuagittuq)",
+     "padrao": false,
+     "texto": "Em rochas do fundo do mar de Nuvvuagittuq, no Quebec (Canadá), há tubinhos e filamentos de óxido de ferro parecidos com os de bactérias de fontes hidrotermais atuais. A idade dessas rochas vai de 3,77 a 4,28 bilhões de anos, conforme o método de datação. Estudos de DNA indicam que o ancestral comum de toda a vida (LUCA) viveu há ~4,2 bilhões de anos, o que torna uma origem tão antiga plausível.",
+     "fontes": [
+      "Dodd, M.S. et al. 2017. Evidence for early life in Earth's oldest hydrothermal vent precipitates. Nature 543: 60-64",
+      "Papineau, D. et al. 2022. Metabolically diverse primordial microbial communities in Earth's oldest seafloor-hydrothermal jasper. Science Advances 8: eabm2296",
+      "Moody, E.R.R. et al. 2024. The nature of the last universal common ancestor and its impact on the early Earth system. Nature Ecology & Evolution 8: 1654-1666"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "vida": {
+        "origem": 4300
+       },
+       "procariontes": {
+        "origem": 4200
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "vida_nuvvuagittuq",
+        "t": 4280,
+        "icone": "🦠",
+        "tipo": "vida",
+        "prio": 1,
+        "titulo": "Vida há mais de 4 bilhões de anos?",
+        "texto": "Rochas de Nuvvuagittuq, no Canadá, guardam tubinhos de ferro que lembram bactérias de fontes hidrotermais. Se a idade máxima (4,28 bilhões de anos) estiver certa, a vida surgiu quando a Terra tinha só ~300 milhões de anos. Muitos cientistas ainda duvidam que sejam fósseis.",
+        "locais": [
+         [
+          -77.7,
+          58.3,
+          "Nuvvuagittuq, Quebec, Canadá"
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "pilbara",
+     "nome": "3,5 bilhões (só Pilbara é seguro)",
+     "padrao": false,
+     "texto": "Para os mais cautelosos, a primeira evidência segura são os estromatólitos e microfósseis de Pilbara, na Austrália, com ~3,48 bilhões de anos, em rochas pouco alteradas. Tudo o que é mais antigo seria 'possível, mas não provado'. A vida pode ser mais velha, mas ainda não dá para confirmar.",
+     "fontes": [
+      "Allwood, A.C. et al. 2006. Stromatolite reef from the Early Archaean era of Australia. Nature 441: 714-718",
+      "Allwood et al. 2018. Nature 563: 241-244"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "vida": {
+        "origem": 3500
+       },
+       "procariontes": {
+        "origem": 3480
+       }
+      },
+      "eventos": {
+       "vida_isua": {
+        "titulo": "Isua: sinais de vida em dúvida",
+        "texto": "Rochas de Isua, na Groenlândia, com 3,7 bilhões de anos, têm grafita e estruturas que lembram estromatólitos, mas podem ser só rocha deformada pelo calor e pela pressão. Ainda não são aceitas como prova de vida."
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "bola_de_neve",
+   "titulo": "A Terra congelou por inteiro?",
+   "resumo": "Há rochas deixadas por geleiras de ~700 e ~640 milhões de anos que se formaram perto do equador, então o gelo foi enorme. O debate é se sobrou mar aberto em algum lugar. (O gelo desenhado no mapa é o mesmo nas duas opções.)",
+   "opcoes": [
+    {
+     "id": "dura",
+     "nome": "Bola de neve 'dura'",
+     "padrao": true,
+     "texto": "O gelo cobriu todos os oceanos, com metros ou até centenas de metros de espessura, por milhões de anos. Evidências: rochas de geleira ao nível do mar perto do equador e, logo acima delas, camadas de calcário que indicam um degelo rápido num mundo com muito CO₂ de vulcões. A vida teria resistido em fontes termais, poças de degelo e frestas no gelo.",
+     "fontes": [
+      "Hoffman, P.F. et al. 1998. A Neoproterozoic snowball Earth. Science 281: 1342-1346",
+      "Hoffman, P.F. et al. 2017. Snowball Earth climate dynamics and Cryogenian geology-geobiology. Science Advances 3: e1600983"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "lamacenta",
+     "nome": "Bola de 'lama': faixa de mar aberto",
+     "padrao": false,
+     "texto": "Uma faixa de mar aberto, ou de gelo fino, teria ficado perto do equador. Modelos de clima têm dificuldade em congelar o planeta todo, e algas e outros seres complexos atravessaram as glaciações sem grandes extinções, o que é mais fácil com luz e mar aberto. Sedimentos marinhos da China sugerem mar aberto até em latitudes médias no fim da glaciação Marinoana.",
+     "fontes": [
+      "Hyde, W.T. et al. 2000. Neoproterozoic 'snowball Earth' simulations with a coupled climate/ice-sheet model. Nature 405: 425-429",
+      "Song, H. et al. 2023. Nature Communications (mar aberto em latitudes médias na glaciação Marinoana) - https://phys.org/news/2023-04-snowball-earth-slushy.html"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "sturtiana": {
+        "texto": "Rodínia se parte e o gelo avança até perto do equador por ~60 milhões de anos (glaciação Sturtiana), e de novo na Marinoana (650-635 Ma). Mas uma faixa de mar aberto ou de gelo fino perto do equador pode ter ficado livre, servindo de refúgio para algas e outros seres."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "cinturao_mar_aberto",
+        "t": 640,
+        "icone": "🌊",
+        "tipo": "clima",
+        "prio": 2,
+        "titulo": "Um cinturão de mar aberto?",
+        "texto": "Rochas marinhas do sul da China, do fim da glaciação Marinoana, indicam mar sem gelo e com vida, longe do equador. Na versão 'lamacenta', a Terra nunca congelou por inteiro: uma faixa de água aberta deu abrigo às algas.",
+        "locais": [
+         [
+          110.5,
+          28.0,
+          "Sul da China"
+         ]
+        ]
+       }
+      ],
+      "clima": {
+       "bola_de_neve_lat": 15
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "primeiros_animais",
+   "titulo": "Quando surgiram os animais?",
+   "resumo": "Os primeiros animais eram pequenos e moles, e quase não viram fóssil. Fósseis, moléculas antigas e relógios de DNA dão idades diferentes.",
+   "opcoes": [
+    {
+     "id": "ediacara",
+     "nome": "~575 milhões (Ediacara)",
+     "padrao": true,
+     "texto": "Os fósseis de animais mais aceitos começam com a biota de Ediacara, há ~575 milhões de anos. Em 2018, moléculas de colesterol animal foram achadas em fósseis de Dickinsonia, confirmando que eram animais. Antes disso, não há fóssil de corpo animal indiscutível. É a versão que está no mapa.",
+     "fontes": [
+      "Bobrovskiy, I. et al. 2018. Ancient steroids establish the Ediacaran fossil Dickinsonia as one of the earliest animals. Science 361: 1246-1249"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "biomarcadores",
+     "nome": "~650 milhões (moléculas de esponja)",
+     "padrao": false,
+     "texto": "Rochas de Omã com 650 a 635 milhões de anos guardam esteroides que hoje, em quantidade, só esponjas fabricam. Se forem mesmo de esponjas, os animais já existiam durante as glaciações globais. Críticos lembram que algumas algas e protistas produzem moléculas parecidas.",
+     "fontes": [
+      "Love, G.D. et al. 2009. Fossil steroids record the appearance of Demospongiae during the Cryogenian period. Nature 457: 718-721",
+      "Zumberge, J.A. et al. 2018. Demosponge steroid biomarker 26-methylstigmastane provides evidence for Neoproterozoic animals. Nature Ecology & Evolution 2: 1709-1714",
+      "Nettersheim, B.J. et al. 2019. Putative sponge biomarkers in unicellular Rhizaria question an early rise of animals. Nature Ecology & Evolution 3: 577-581"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "animais": {
+        "origem": 650
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "esponjas_biomarcadores",
+        "t": 650,
+        "icone": "🧽",
+        "tipo": "vida",
+        "prio": 2,
+        "titulo": "Sinais químicos de esponjas",
+        "texto": "Rochas de Omã com ~650 milhões de anos têm moléculas que hoje só esponjas fabricam em quantidade. Seriam os primeiros sinais de animais, ainda no meio das glaciações globais.",
+        "locais": [
+         [
+          55.5,
+          18.8,
+          "Bacia de sal do sul de Omã"
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "esponjas_890",
+     "nome": "~890 milhões (fósseis de esponja?)",
+     "padrao": false,
+     "texto": "Em recifes de micróbios de 890 milhões de anos no noroeste do Canadá, Elizabeth Turner (2021) achou redes de fibras parecidas com o esqueleto de esponjas córneas atuais. Relógios de DNA também põem a origem dos animais entre ~800 e 650 milhões de anos. Muitos especialistas acham que as fibras podem ser só de micróbios.",
+     "fontes": [
+      "Turner, E.C. 2021. Possible poriferan body fossils in early Neoproterozoic microbial reefs. Nature 596: 87-91",
+      "dos Reis, M. et al. 2015. Uncertainty in the timing of origin of animals and the limits of precision in molecular timescales. Current Biology 25: 2939-2950"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "animais": {
+        "origem": 890
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "esponjas_890",
+        "t": 890,
+        "icone": "🧽",
+        "tipo": "vida",
+        "prio": 2,
+        "titulo": "Esponjas de 890 milhões de anos?",
+        "texto": "Em recifes antigos dos Montes Mackenzie, no Canadá, há redes de fibras que lembram o esqueleto de esponjas. Se forem mesmo esponjas, os animais surgiram 300 milhões de anos antes da biota de Ediacara.",
+        "locais": [
+         [
+          -128.5,
+          64.0,
+          "Montes Mackenzie, Canadá"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "tetrapodes",
+   "titulo": "Quando os vertebrados ganharam pernas?",
+   "resumo": "Os esqueletos contam uma história arrumada, mas pegadas fósseis às vezes aparecem antes dos esqueletos que deveriam tê-las deixado.",
+   "opcoes": [
+    {
+     "id": "tiktaalik",
+     "nome": "Fim do Devoniano (esqueletos)",
+     "padrao": true,
+     "texto": "Esqueletos mostram a passagem de peixe para tetrápode entre ~385 e 365 milhões de anos: Tiktaalik (375 Ma), depois Acanthostega e Ichthyostega (365 Ma). Nessa visão, as pernas surgiram no fim do Devoniano, e os primeiros amniotas (ovo com casca) vieram bem depois, há ~318 milhões de anos, como Hylonomus. É a versão que está no mapa.",
+     "fontes": [
+      "Daeschler, E.B., Shubin, N.H. & Jenkins, F.A. 2006. A Devonian tetrapod-like fish and the evolution of the tetrapod body plan. Nature 440: 757-763"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "pegadas",
+     "nome": "Meio do Devoniano (pegadas)",
+     "padrao": false,
+     "texto": "Pegadas com dedos em Zachełmie, na Polônia, têm ~390 milhões de anos, 15 milhões a mais que Tiktaalik, e foram deixadas à beira de lagos temporários. Em 2025, pegadas com garras de ~355 milhões de anos na Austrália foram atribuídas a um amniota. Se estiverem certas, os tetrápodes surgiram no meio do Devoniano, e Tiktaalik é um sobrevivente tardio de uma forma de transição.",
+     "fontes": [
+      "Niedźwiedzki, G. et al. 2010. Tetrapod trackways from the early Middle Devonian period of Poland. Nature 463: 43-48",
+      "Qvarnström, M. et al. 2018. Scientific Reports 8: 1074 (Zachełmie: lagos temporários) - https://pmc.ncbi.nlm.nih.gov/articles/PMC5773519",
+      "Long, J.A. et al. 2025. Earliest amniote tracks recalibrate the timeline of tetrapod evolution. Nature 641: 1193-1200"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "tetrapodes": {
+        "origem": 390
+       },
+       "amniotas": {
+        "origem": 355
+       }
+      },
+      "eventos": {
+       "tiktaalik": {
+        "texto": "Tiktaalik (375 Ma), achado no Ártico do Canadá, que então ficava perto do equador, é meio peixe, meio anfíbio. Mas, se as pegadas da Polônia (390 Ma) forem de tetrápodes, ele é um sobrevivente tardio: uma forma de transição que ainda vivia quando outros tetrápodes já andavam por aí."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "zachelmie",
+        "t": 390,
+        "icone": "🐾",
+        "tipo": "vida",
+        "prio": 2,
+        "titulo": "Pegadas de Zachełmie",
+        "texto": "Numa pedreira da Polônia há pegadas com dedos de ~390 milhões de anos, deixadas à beira de lagos temporários. Seriam dos primeiros tetrápodes, 15 milhões de anos antes de Tiktaalik. Alguns pesquisadores acham que podem ser marcas de peixes.",
+        "locais": [
+         [
+          20.67,
+          50.98,
+          "Zachełmie, Polônia"
+         ]
+        ]
+       },
+       {
+        "id": "pegadas_amniota",
+        "t": 355,
+        "icone": "🐾",
+        "tipo": "vida",
+        "prio": 3,
+        "titulo": "Pegadas com garras na Austrália",
+        "texto": "Uma laje de ~355 milhões de anos achada perto de Mansfield (Austrália) tem pegadas com garras, típicas de amniotas, os animais do ovo com casca. Elas empurrariam a origem dos répteis para ~35 milhões de anos antes de Hylonomus.",
+        "locais": [
+         [
+          146.08,
+          -37.05,
+          "Mansfield, Victoria, Austrália"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "origem_dinossauros",
+   "titulo": "Onde e quando surgiram os dinossauros?",
+   "resumo": "Os dinossauros indiscutíveis mais antigos (~233-230 milhões de anos) estão no sul da Pangeia, mas há fósseis mais velhos e duvidosos na África e enormes regiões com rochas do Triássico pouco estudadas.",
+   "opcoes": [
+    {
+     "id": "sul_pangeia",
+     "nome": "Sul da Pangeia (RS e Argentina)",
+     "padrao": true,
+     "texto": "Os dinossauros mais antigos aceitos por todos estão no Rio Grande do Sul, na Argentina e no Zimbábue, numa faixa de latitudes médias do sul da Pangeia, há ~233-230 milhões de anos. A explicação mais simples é que surgiram nessa região e só depois se espalharam, contidos no começo por faixas de clima. É a versão que está no mapa.",
+     "fontes": [
+      "Langer, M.C. et al. 2010. The origin and early evolution of dinosaurs. Biological Reviews 85: 55-110",
+      "Griffin, C.T. et al. 2022. Africa's oldest dinosaurs reveal early suppression of dinosaur distribution. Nature 609: 313-319"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "nyasasaurus",
+     "nome": "Mais cedo, na Tanzânia (~243 Ma)",
+     "padrao": false,
+     "texto": "Nyasasaurus, da Tanzânia, tem ~243 milhões de anos e alguns traços de dinossauro no braço e na coluna. Pode ser o dinossauro mais antigo ou um parente muito próximo; há poucos ossos para decidir. Parentes próximos da mesma região, como Asilisaurus, mostram que a linhagem já existia uns 10 milhões de anos antes dos fósseis do RS.",
+     "fontes": [
+      "Nesbitt, S.J. et al. 2013. The earliest dinosaur? A Middle Triassic dinosauriform from Tanzania. Biology Letters 9: 20120949",
+      "Nesbitt, S.J. et al. 2010. Ecologically distinct dinosaurian sister group shows early diversification of Ornithodira. Nature 464: 95-98"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "dinossauros": {
+        "origem": 243
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "nyasasaurus",
+        "t": 243,
+        "icone": "🦴",
+        "tipo": "vida",
+        "prio": 2,
+        "titulo": "Nyasasaurus: dinossauro mais antigo?",
+        "texto": "Ossos de ~243 milhões de anos da Tanzânia têm traços de dinossauro. Se Nyasasaurus for mesmo um dinossauro, o grupo é ~10 milhões de anos mais velho do que os fósseis do RS e da Argentina.",
+        "locais": [
+         [
+          34.9,
+          -10.6,
+          "Bacia do Ruhuhu, Tanzânia"
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "tropical",
+     "nome": "Perto do equador (hipótese de 2025)",
+     "padrao": false,
+     "texto": "Um estudo de 2025 levou em conta que quase não há rochas do Triássico estudadas perto do antigo equador. Os modelos indicam que os dinossauros podem ter surgido em regiões quentes e secas da Gondwana tropical, onde hoje estão a Amazônia, o Saara e a África central. Ainda não há nenhum fóssil para confirmar.",
+     "fontes": [
+      "Heath, J.A., Cooper, R., Upchurch, P. & Mannion, P.D. 2025. Accounting for sampling heterogeneity suggests a low paleolatitude origin for dinosaurs. Current Biology 35: 941-953",
+      "https://www.sci.news/paleontology/gondwana-dinosaurs-13606.html"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "dinossauros": {
+        "texto": "Talvez tenham surgido nas regiões quentes e secas perto do equador da Gondwana, onde hoje estão a Amazônia e o Saara, quase sem fósseis do Triássico. Os mais antigos conhecidos estão no RS e na Argentina, talvez só porque é onde há rochas dessa idade bem estudadas. Depois caminharam pelo supercontinente até ocupar todos os cantos."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "berco_tropical",
+        "t": 240,
+        "icone": "❓",
+        "tipo": "vida",
+        "prio": 2,
+        "titulo": "Um berço tropical escondido?",
+        "texto": "Modelos que corrigem a falta de coletas sugerem que os primeiros dinossauros viviam perto do equador da Gondwana, em áreas quentes e secas. Essas rochas, hoje sob a Amazônia e o Saara, ainda não revelaram dinossauros do Triássico.",
+        "locais": [
+         [
+          -60.0,
+          -5.0,
+          "Amazônia (hipótese)"
+         ],
+         [
+          10.0,
+          20.0,
+          "Saara (hipótese)"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "extincao_kpg",
+   "titulo": "O que matou os dinossauros?",
+   "resumo": "Há 66 milhões de anos aconteceram duas catástrofes quase ao mesmo tempo: o asteroide de Chicxulub e os derrames de lava do Deccan, na Índia. O debate é quanto cada uma pesou.",
+   "opcoes": [
+    {
+     "id": "ambos",
+     "nome": "Os dois juntos",
+     "padrao": true,
+     "texto": "O asteroide deu o golpe principal, mas os vulcões do Deccan já despejavam lava e gases havia centenas de milhares de anos, deixando o clima instável. Para muitos cientistas, os dois somaram forças; alguns sugerem até que o impacto acelerou as erupções. É a versão que está no mapa.",
+     "fontes": [
+      "Richards, M.A. et al. 2015. Triggering of the largest Deccan eruptions by the Chicxulub impact. GSA Bulletin 127: 1507-1520",
+      "Sprain, C.J. et al. 2019. The eruptive tempo of Deccan volcanism in relation to the Cretaceous-Paleogene boundary. Science 363: 866-870"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "asteroide",
+     "nome": "Foi o asteroide",
+     "padrao": false,
+     "texto": "A extinção foi súbita e coincide com a camada de irídio e a cratera de Chicxulub. Estudos de 2020 indicam que a maior parte dos gases do Deccan saiu bem antes do impacto, sem causar extinção em massa. Poeira, fuligem e enxofre do impacto escureceram o céu e derrubaram as cadeias de alimento.",
+     "fontes": [
+      "Alvarez, L.W. et al. 1980. Extraterrestrial cause for the Cretaceous-Tertiary extinction. Science 208: 1095-1108",
+      "Schulte, P. et al. 2010. The Chicxulub asteroid impact and mass extinction at the Cretaceous-Paleogene boundary. Science 327: 1214-1218",
+      "Hull, P.M. et al. 2020. On impact and volcanism across the Cretaceous-Paleogene boundary. Science 367: 266-272"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "chicxulub": {
+        "texto": "Um asteroide de ~10 km cai no México. Poeira, fuligem e enxofre escurecem o céu por anos, o planeta esfria e as cadeias de alimento desabam: somem os dinossauros não-avianos, os pterossauros e as amonites. Os mamíferos herdam o planeta.",
+        "locais": [
+         [
+          -89.5,
+          21.3,
+          "Chicxulub, México"
+         ]
+        ]
+       }
+      }
+     }
+    },
+    {
+     "id": "deccan",
+     "nome": "Foram os vulcões",
+     "padrao": false,
+     "texto": "Para uma minoria de cientistas, os grandes culpados foram os derrames do Deccan: mais de 1 milhão de km³ de lava e enormes quantidades de CO₂ e enxofre, em pulsos que começaram antes e continuaram depois do impacto. Datações mostram um grande pulso pouco antes do fim do Cretáceo. O asteroide teria sido só o último golpe sobre ecossistemas já em crise.",
+     "fontes": [
+      "Schoene, B. et al. 2019. U-Pb constraints on pulsed eruption of the Deccan Traps across the end-Cretaceous mass extinction. Science 363: 862-866",
+      "Keller, G. et al. 2018. Environmental changes during the Cretaceous-Paleogene mass extinction and Paleocene-Eocene Thermal Maximum: implications for the Anthropocene. Gondwana Research 56: 69-89"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "chicxulub": {
+        "texto": "Um asteroide de ~10 km cai no México sobre um mundo já abalado pelos vulcões do Deccan, na Índia. Para alguns cientistas, foi só o último golpe: os gases dos vulcões já vinham mudando o clima e acidificando o mar. Somem os dinossauros não-avianos, os pterossauros e as amonites."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "deccan",
+        "t": 66.4,
+        "icone": "🌋",
+        "tipo": "extincao",
+        "prio": 1,
+        "titulo": "Os vulcões do Deccan",
+        "texto": "Na Índia, fissuras derramam mais de 1 milhão de km³ de lava em menos de 1 milhão de anos, formando camadas de basalto de até 2 km de espessura. Os gases fazem o clima oscilar e o mar ficar mais ácido.",
+        "locais": [
+         [
+          73.7,
+          18.0,
+          "Gates Ocidentais (Mahabaleshwar), Índia"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "origem_flores",
+   "titulo": "Quando surgiram as plantas com flor?",
+   "resumo": "Darwin chamou de 'mistério abominável' o aparecimento rápido das flores nos fósseis. Os relógios de DNA dizem que elas são bem mais antigas do que os fósseis mostram.",
+   "opcoes": [
+    {
+     "id": "fosseis",
+     "nome": "Começo do Cretáceo (fósseis)",
+     "padrao": true,
+     "texto": "Os grãos de pólen e as flores mais antigos são do início do Cretáceo (~135 milhões de anos, em Israel, Itália e Inglaterra), e as flores se diversificam muito rápido depois disso. Para muitos paleobotânicos, elas surgiram pouco antes e evoluíram depressa. É a versão que está no mapa.",
+     "fontes": [
+      "Friis, E.M., Crane, P.R. & Pedersen, K.R. 2011. Early Flowers and Angiosperm Evolution. Cambridge University Press",
+      "Coiro, M., Doyle, J.A. & Hilton, J. 2019. How deep is the conflict between molecular and fossil evidence on the age of angiosperms? New Phytologist 223: 83-99"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "relogio",
+     "nome": "Escondidas no Triássico ou Jurássico (DNA)",
+     "padrao": false,
+     "texto": "Relógios moleculares, que medem as diferenças no DNA das plantas atuais, põem a origem das plantas com flor entre ~250 e 150 milhões de anos. Elas teriam passado dezenas de milhões de anos raras, pequenas e em ambientes onde quase não se formam fósseis. Alguns fósseis do Jurássico, como Nanjinganthus (China), foram propostos como flores, mas são muito contestados.",
+     "fontes": [
+      "Barba-Montoya, J. et al. 2018. Constraining uncertainty in the timescale of angiosperm evolution and the veracity of a Cretaceous Terrestrial Revolution. New Phytologist 218: 819-834",
+      "Li, H.-T. et al. 2019. Origin of angiosperms and the puzzle of the Jurassic gap. Nature Plants 5: 461-470",
+      "Fu, Q. et al. 2018. An unexpected noncarpellate epigynous flower from the Jurassic of China. eLife 7: e38827"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "angiospermas": {
+        "origem": 210,
+        "texto": "Pelo relógio do DNA, surgiram no Triássico ou no Jurássico e passaram dezenas de milhões de anos raras e escondidas. Só no início do Cretáceo ficaram comuns e, junto com os insetos polinizadores, dominaram o planeta. Hoje são ~90% das plantas."
+       }
+      },
+      "eventos": {
+       "flores": {
+        "texto": "As plantas com flor, talvez já existentes havia muito tempo, ficam comuns e, junto com abelhas e outros insetos, mudam a paisagem do planeta."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "nanjinganthus",
+        "t": 174,
+        "icone": "🧬",
+        "tipo": "vida",
+        "prio": 2,
+        "titulo": "Uma flor do Jurássico?",
+        "texto": "Nanjinganthus, da China, com ~174 milhões de anos, foi descrito como uma flor. Se for mesmo, as plantas com flor existiam 40 milhões de anos antes dos fósseis aceitos, como prevê o relógio do DNA. Muitos botânicos discordam dessa interpretação.",
+        "locais": [
+         [
+          118.8,
+          32.1,
+          "Nanjing, China"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "istmo_panama",
+   "titulo": "Quando o istmo do Panamá se fechou?",
+   "resumo": "A ponte de terra entre as Américas mudou a fauna dos dois continentes e as correntes do oceano. Geólogos discordam se ela surgiu há ~3 ou há mais de 10 milhões de anos.",
+   "opcoes": [
+    {
+     "id": "recente",
+     "nome": "Há ~2,8 milhões de anos",
+     "padrao": true,
+     "texto": "Para a maioria dos pesquisadores, o istmo se fechou de vez há ~2,8 milhões de anos: é quando mamíferos terrestres passam a cruzar em massa e os seres marinhos do Caribe e do Pacífico se separam. Antes havia ilhas e um mar raso que poucos animais atravessavam, como as preguiças, que chegaram à América do Norte há ~9 milhões de anos. É a versão que está no mapa.",
+     "fontes": [
+      "O'Dea, A. et al. 2016. Formation of the Isthmus of Panama. Science Advances 2: e1600883 - https://pmc.ncbi.nlm.nih.gov/articles/PMC4988774",
+      "Woodburne, M.O. 2010. The Great American Biotic Interchange: dispersals, tectonics, climate, sea level and holding pens. Journal of Mammalian Evolution 17: 245-264"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "antigo",
+     "nome": "Há 15-10 milhões de anos",
+     "padrao": false,
+     "texto": "Grãos de zircão de rochas do Panamá aparecem em rios da Colômbia de 15-13 milhões de anos, sinal de que a terra já estava ligada. Estudos de DNA de plantas e animais também indicam muitas travessias bem antes de 3 milhões de anos. O grande intercâmbio teria começado aos poucos e explodido só quando o clima das eras glaciais abriu savanas no caminho.",
+     "fontes": [
+      "Montes, C. et al. 2015. Middle Miocene closure of the Central American Seaway. Science 348: 226-229",
+      "Bacon, C.D. et al. 2015. Biological evidence supports an early and complex emergence of the Isthmus of Panama. PNAS 112: 6110-6115"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "panama": {
+        "t": 10,
+        "texto": "Para alguns geólogos, a América Central já encostava na América do Sul há 15-10 milhões de anos. Animais começam a passar aos poucos; o Grande Intercâmbio só explode quando as eras glaciais abrem savanas no caminho, há ~2,7 milhões de anos: tatus e preguiças sobem, onças, lobos, lhamas e mastodontes descem."
+       }
+      },
+      "rotas": {
+       "gabi_sul": {
+        "de": 9
+       },
+       "gabi_norte": {
+        "de": 7
+       }
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

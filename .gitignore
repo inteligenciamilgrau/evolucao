@@ -15,3 +15,6 @@ desktop.ini
 .vscode/
 .idea/
 *.log
+
+# Material de referência local (não vai para o site)
+referencias/

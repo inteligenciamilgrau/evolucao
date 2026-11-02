@@ -32,6 +32,10 @@ ANOS_GRADE = [1850, 1880, 1900, 1925, 1950, 1975, 2000, 2021]
 ANOS_PAISES = list(range(-10000, 0, 1000)) + list(range(0, 1800, 100)) + [1750, 1800, 1850]
 ANOS_MUNDO = ANOS_PAISES + [1900, 1920, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2023]
 COLONIZADOS = {"North America", "South America", "Oceania"}  # padrão de 1850 é colonial
+# A HYDE dá 18,7 milhões ao Brasil em 1500, muito acima das estimativas mais citadas
+# (2 a 5 milhões). O Brasil é corrigido e o excedente vai para os outros países americanos,
+# mantendo o total das Américas (~60 milhões, como em Koch et al. 2019).
+CORRECAO_1500 = {"BRA": 3.5e6}
 CODIGOS_NE = {"KOS": "OWID_KOS", "SOL": "SOM", "CYN": "CYP", "SDS": "SSD", "SAH": "ESH", "PSX": "PSE",
               "KAB": "KAZ", "ESB": "CYP", "WSB": "CYP", "CNM": "CYP", "IOA": "AUS", "ATC": "AUS"}
 
@@ -74,6 +78,23 @@ def ler_owid():
             if chave and linha["population_historical"]:
                 series[chave][int(linha["year"])] = float(linha["population_historical"])
     return series
+
+
+def corrigir_americas_1500(owid, americanos):
+    """Aplica CORRECAO_1500 aos anos até 1500, mantendo o total das Américas."""
+    i1500 = 1500
+    total = sum(owid[c][i1500] for c in americanos if c in owid and i1500 in owid[c])
+    fixos = {c: v for c, v in CORRECAO_1500.items() if c in owid}
+    resto_antes = total - sum(owid[c][i1500] for c in fixos)
+    resto_depois = total - sum(fixos.values())
+    for c in americanos:
+        if c not in owid or i1500 not in owid[c]:
+            continue
+        fator = fixos[c] / owid[c][i1500] if c in fixos else resto_depois / resto_antes
+        for ano in list(owid[c]):
+            if ano <= 1500:
+                owid[c][ano] *= fator
+    print(f"  Américas em 1500: {total / 1e6:.1f} milhões (Brasil corrigido para {CORRECAO_1500['BRA'] / 1e6} milhões)")
 
 
 def interp_serie(serie, anos):
@@ -172,6 +193,7 @@ def main():
     r_antigo = np.zeros(n)
     tabela = []
     mundo = owid["MUNDO"]
+    corrigir_americas_1500(owid, [c for c in codigos if next(i[1] for i in info if i[0] == c) in ("North America", "South America")])
     for j, codigo in enumerate(codigos):
         m = pais == j
         a_total = area[m].sum()
@@ -206,17 +228,19 @@ def main():
         e[ok] = np.clip(np.round((np.log2(r[ok]) + 12) * 10), 1, 255)
         return e
 
-    # quando os sapiens chegaram a cada célula
-    chegadas = []
-    idx_cheg = {}
+    # quando os sapiens chegaram a cada célula: índice numa tabela de [região, idade]
+    regras = []
+    idx_regra = {}
     cheg = np.zeros(n, dtype=np.uint8)
     for k in range(n):
         codigo, continente, _ = info[pais_ne[k]]
-        v = round(chegada(codigo, continente, float(lon[ix[k]]), float(lat[iy[k]])), 7)
-        if v not in idx_cheg:
-            idx_cheg[v] = len(chegadas)
-            chegadas.append(v)
-        cheg[k] = idx_cheg[v]
+        regiao, v = chegada(codigo, continente, float(lon[ix[k]]), float(lat[iy[k]]))
+        chave = (regiao, round(v, 7))
+        if chave not in idx_regra:
+            idx_regra[chave] = len(regras)
+            regras.append([regiao, round(v, 7)])
+        cheg[k] = idx_regra[chave]
+    assert len(regras) < 256
 
     deltas = np.diff(np.concatenate([[0], indices]))
     assert deltas.max() < 65536
@@ -226,7 +250,8 @@ def main():
         "resolucao": 0.5,
         "celulas": b64(deltas.astype("<u2")),
         "pais": b64(pais),
-        "chegada": b64(cheg), "chegadas": chegadas,
+        "chegada": b64(cheg), "regras": regras,
+        "americas": [j for j, c in enumerate(codigos) if next(i[1] for i in info if i[0] == c) in ("North America", "South America")],
         "r1850": b64(cod_r(r1850)), "rAntigo": b64(cod_r(r_antigo)),
         "anosPaises": ANOS_PAISES, "paises": tabela,
         "grade": {"anos": ANOS_GRADE, "classes": classes},

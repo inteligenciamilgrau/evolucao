@@ -14,12 +14,23 @@ saem da África e ocupam o planeta até os 8 bilhões de hoje.
 | Países e estados de hoje | Cada país (e os estados e macrorregiões de Brasil, EUA, Rússia e China) é cortado pelas placas e viaja junto. Mostra onde cada lugar estava. |
 | Limites de placas | Dorsais, zonas de subducção, falhas transformantes e riftes a cada 5–10 milhões de anos. |
 | Clima | Gelo polar, Terra bola de neve, eras glaciais, mar baixo (Beríngia, Sunda, Sahul) e biomas aproximados pela latitude. |
-| Fósseis | ~370 mil ocorrências reais da Paleobiology Database, de 28 grupos, na posição em que estavam quando o ser vivia. |
+| Fósseis | Centenas de milhares de ocorrências reais da Paleobiology Database, de 34 grupos, na posição em que estavam quando o ser vivia. |
 | Rotas de dispersão | Como cada grupo chegou aonde vive: por terra, em jangadas de vegetação, voando ou levado por humanos. |
 | População humana | Antes de 10 mil a.C., as regiões já ocupadas pelos sapiens; depois, a densidade estimada até hoje (efeito "Terra à noite"). |
-| Migrações humanas | 23 movimentos: saída da África, agricultores neolíticos, bantos, indo-europeus, tupi-guarani, vikings, colonização, tráfico de africanos escravizados, grande imigração, migrações dentro do Brasil... |
-| Povos e cidades | Neandertais, denisovanos e outros humanos arcaicos; povos e civilizações; 53 cidades com data de fundação. |
-| Marcos e histórias | 85 marcos e 13 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado...). |
+| Migrações humanas | 30 movimentos: saída da África, agricultores neolíticos, bantos, indo-europeus, tupi-guarani, vikings, colonização, tráfico de africanos escravizados, grande imigração, migrações dentro do Brasil... |
+| Povos e cidades | Neandertais, denisovanos e outros humanos arcaicos; 39 povos e civilizações; 63 cidades com data de fundação. |
+| Marcos e histórias | 112 marcos e 13 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado...). |
+
+## Debates científicos
+
+Em 17 temas os cientistas ainda discordam (quando surgiu a vida, se a Terra congelou
+inteira, a origem dos dinossauros e das flores, o fim do Cretáceo, a chegada dos humanos
+às Américas e à Austrália, a população das Américas em 1492, a origem das línguas
+indo-europeias...). No botão **⚖️ Debates** a pessoa escolhe qual versão o mapa segue,
+lendo um texto curto sobre cada uma e suas fontes. A escolha muda de verdade o mapa:
+datas dos marcos, rotas, a árvore da vida, quando cada região foi ocupada pelos sapiens,
+a população das Américas e o gelo das glaciações globais. A opção "padrão" é a mais
+aceita hoje. Marcos com debate mostram ⚖️.
 
 A régua do tempo tem três escalas: **tudo** (4,6 bilhões de anos), **humanos** (7 milhões)
 e **história** (de 10.000 a.C. a hoje). O site lembra, no próprio navegador, as camadas
@@ -53,7 +64,27 @@ data/                 dados gerados pelo pipeline (não editar à mão)
 pipeline/             scripts Python que geram data/
   conteudo_fonte.py   <- textos, marcos, rotas, árvore e histórias (edite aqui)
   conteudo_humanos.py <- migrações, povos, cidades, datas de chegada dos sapiens
+  perspectivas.py     <- debates escritos à mão (formato documentado no arquivo)
+  revisoes/*.json     <- revisões científicas: correções registradas, itens novos e debates
+  revisao.py          <- lê e valida as revisões
 ```
+
+## Revisões científicas
+
+O conteúdo foi revisado por dois agentes revisores (Terra e vida; ocupação humana), com
+pesquisa e fontes. Cada revisão fica em `pipeline/revisoes/` como JSON:
+
+- `correcoes`: o que estava errado no conteúdo existente, com o texto proposto, o motivo e
+  as fontes. As correções são aplicadas nos arquivos-fonte e o JSON guarda o registro
+  (`status`: `aplicada` ou `mantida`, com nota).
+- `novos_eventos`, `novos_grupos`, `novas_rotas`, `novas_migracoes`, `novos_povos`,
+  `novas_cidades` e `perspectivas`: lidos diretamente pelo pipeline, com as fontes de cada
+  item (as dos marcos aparecem no painel de detalhe).
+
+Para uma nova revisão, basta pôr outro `.json` na pasta e rodar `pipeline/conteudo.py`.
+O `revisao.py` valida antes de gerar o site: ids repetidos, referências inexistentes,
+regiões de chegada inválidas, debates sem exatamente uma opção padrão, coordenadas e
+tempos fora do intervalo, emojis de bandeira (não aparecem no Windows).
 
 ## Como regenerar os dados
 
@@ -89,7 +120,8 @@ de conteúdo e rode `conteudo.py` e `rotacoes.py`.
 - Os biomas são uma aproximação pela latitude e pela temperatura global da época.
 - As rotas de dispersão e as migrações são esquemáticas: mostram o caminho geral.
 - Ocorrências de fósseis próximas no espaço e no tempo foram agrupadas para o mapa ficar leve.
-- População antes de 1850: totais por país distribuídos pelo padrão de 1850 (nas
+- População antes de 1850: totais por país distribuídos pelo padrão de 1850. O Brasil em 1500
+  foi corrigido para 3,5 milhões (a HYDE dava 18,7), mantendo o total das Américas (nas
   Américas e na Oceania, misturado com uma distribuição uniforme). Antes de 10.000 a.C.,
   só as datas de chegada; os números do Pleistoceno são muito incertos.
 

@@ -12,7 +12,7 @@
     Riaciano: "Depois da glaciação Huroniana, a atmosfera já tem oxigênio de forma permanente.",
     Orosiriano: "Colisões de continentes erguem montanhas e montam o supercontinente Colúmbia. Grandes impactos de asteroides.",
     Estateriano: "Colúmbia está formado. Aparecem as primeiras células complexas (eucariontes).",
-    Calimiano: "Colúmbia se desmancha devagar. Começa o 'bilhão monótono': clima estável e vida quase sem novidades.",
+    Calimiano: "Colúmbia se desmancha devagar. Segue o 'bilhão monótono' (de ~1,8 a ~0,8 bilhão de anos): clima estável e vida quase sem novidades.",
     Ectasiano: "Mares rasos cobertos de tapetes de micróbios. As algas começam a aparecer.",
     Esteniano: "Rodínia se monta com as colisões Grenville. Surgem algas multicelulares com reprodução sexuada.",
     Toniano: "Rodínia, cercado pelo oceano Mirovia. Os eucariontes se diversificam.",
@@ -28,8 +28,8 @@
     Jurássico: "A Pangeia se divide em Laurásia e Gondwana. Dinossauros gigantes, primeiras aves, mares cheios de répteis.",
     Cretáceo: "Os continentes se afastam e o mar está alto e quente. Surgem as flores. Termina com o asteroide.",
     Paleoceno: "Florestas cobrem o mundo. Mamíferos ainda pequenos se diversificam depois do asteroide.",
-    Eoceno: "O período mais quente desde os dinossauros. Surgem primatas modernos, cavalos e baleias. A Índia bate na Ásia.",
-    Oligoceno: "A Antártida congela e o clima esfria. Macacos e roedores chegam à América do Sul.",
+    Eoceno: "A época mais quente desde os dinossauros. Surgem primatas modernos, cavalos e baleias. A Índia bate na Ásia, e roedores e macacos da África chegam à América do Sul em jangadas de vegetação.",
+    Oligoceno: "A Antártida congela e o clima esfria e seca. Na América do Sul, roedores e macacos vindos da África se espalham, e uma segunda leva de macacos atravessa o Atlântico.",
     Mioceno: "Andes e Himalaia sobem, savanas se espalham, símios se diversificam. A África encosta na Eurásia.",
     Plioceno: "O istmo do Panamá une as Américas. Hominíneos bípedes como Lucy andam pela África.",
     Pleistoceno: "As eras glaciais vão e voltam. Megafauna pelo mundo, e o gênero Homo se espalha.",
@@ -63,12 +63,36 @@
       fossilPorGrupo.set(f.id, f);
       gruposAtivos.add(f.id);
     }
-    EVO.Regua.definirEventos(dados.eventos.map((e) => ({ t: e.t, icone: e.icone, titulo: e.titulo, prio: e.prio, id: e.id })));
+    marcosNaRegua();
     EVO.Mapa.registrar({ ordem: 10, desenhar: desenharRotas, escolher: escolherRota });
     EVO.Mapa.registrar({ ordem: 20, desenhar: desenharFosseis, escolher: escolherFossil });
     EVO.Mapa.registrar({ ordem: 25, desenhar: desenharCidades, escolher: escolherCidade });
     EVO.Mapa.registrar({ ordem: 30, desenhar: desenharSitios, escolher: escolherSitio });
     montarArvore();
+  }
+
+  function marcosNaRegua() {
+    EVO.Regua.definirEventos(dados.eventos.map((e) => ({ t: e.t, icone: e.icone, titulo: e.titulo, prio: e.prio, id: e.id })));
+  }
+
+  /** Recarrega depois que um debate mudou o conteúdo (marcos, grupos, rotas). */
+  function recarregar() {
+    grupoPorId.clear();
+    for (const g of dados.grupos) grupoPorId.set(g.id, g);
+    marcosNaRegua();
+    montarArvore();
+    atualizar(app.estado.tempo);
+  }
+
+  const selos = (tipo, id) => (EVO.Perspectivas ? EVO.Perspectivas.selos(tipo, id) : "");
+
+  /** Fonte como link (só http/https) ou texto escapado. */
+  function fonteHtml(f) {
+    const texto = String(f);
+    if (!/^https?:\/\//i.test(texto)) return esc(texto);
+    let rotulo = texto;
+    try { rotulo = new URL(texto).hostname.replace(/^www\./, ""); } catch (e) { /* mantém o texto */ }
+    return `<a href="${esc(texto)}" target="_blank" rel="noopener noreferrer">${esc(rotulo)}</a>`;
   }
 
   // ------------------------------------------------------------------ utilidades
@@ -358,6 +382,7 @@
     el.querySelectorAll("[data-ir]").forEach((b) => (b.onclick = () => { app.tocar && app.tocar(false); app.definirTempo(+b.dataset.ir); }));
     el.querySelectorAll("[data-solo]").forEach((b) => (b.onclick = () => solo(b.dataset.solo)));
     el.querySelectorAll("[data-todos]").forEach((b) => (b.onclick = () => todos()));
+    el.querySelectorAll("[data-debate]").forEach((b) => (b.onclick = () => EVO.Perspectivas.abrir(b.dataset.debate)));
   }
 
   function detalheGrupo(g, extra) {
@@ -366,6 +391,7 @@
       <p class="vazio">${E().formatar(g.origem).replace(" atrás", "")} ${g.fim ? `→ extintos há ${E().formatar(g.fim).replace(" atrás", "")}` : "→ hoje"}${pai ? ` · ramo de ${pai.nome}` : ""}</p>
       <p>${g.texto}</p>
       ${extra ? `<h4>Fóssil selecionado</h4><p>${extra}</p>` : ""}
+      <p>${selos("grupos", g.id)}</p>
       <p style="display:flex;gap:6px;flex-wrap:wrap">${botaoTempo(g.origem, "Ir para a origem")}
       ${fossilPorGrupo.has(g.id) ? `<button class="botao" data-solo="${g.id}">Só estes fósseis</button><button class="botao" data-todos="1">Todos os grupos</button>` : ""}</p>`;
     setTimeout(() => ligarBotoes(document.getElementById("aba-detalhe")));
@@ -377,6 +403,8 @@
       <p class="vazio">${E().formatar(e.t)}</p>
       <p>${e.texto}</p>
       ${e.locais.length ? `<h4>Onde</h4><p>${e.locais.map((l) => l[4]).join(" · ")}</p>` : ""}
+      <p>${selos("eventos", e.id)}</p>
+      ${(e.fontes || []).length ? `<p class="vazio" style="font-size:11px">Fontes: ${e.fontes.map(fonteHtml).join(" · ")}</p>` : ""}
       <p>${botaoTempo(e.t, "Ir para este momento")}</p>`;
     setTimeout(() => ligarBotoes(document.getElementById("aba-detalhe")));
     return html;
@@ -389,6 +417,7 @@
       <p class="vazio">${m.nome} · ${E().formatar(r.de).replace(" atrás", "")} → ${E().formatar(r.ate)}</p>
       <p>${r.texto}</p>
       ${g ? `<p class="vazio">Grupo: ${g.icone} ${g.nome}</p>` : ""}
+      <p>${selos("rotas", r.id)}</p>
       <p>${botaoTempo(r.de, "Ver desde o começo")}</p>`;
     setTimeout(() => ligarBotoes(document.getElementById("aba-detalhe")));
     return html;
@@ -490,7 +519,7 @@
     const depois = ordenados.filter((e) => posSlider(e.t) > p + JANELA).slice(0, 2);
     const cartao = (e, classe) => `<div class="evento ${classe}" data-ev="${e.id}">
         <div class="quando">${E().formatar(e.t)}</div>
-        <div class="titulo"><span class="icone">${e.icone}</span>${e.titulo}</div>
+        <div class="titulo"><span class="icone">${e.icone}</span>${e.titulo}${EVO.Perspectivas && EVO.Perspectivas.debatesDe("eventos", e.id).length ? ' <span title="Há debate científico sobre isto">⚖️</span>' : ""}</div>
         ${classe === "agora" ? `<div class="texto">${e.texto}</div>` : ""}
       </div>`;
     const vivos = dados.grupos.filter((g) => vivo(g, t) && g.id !== "vida");
@@ -580,6 +609,6 @@
     atualizarArvore(app.estado.tempo);
   }
 
-  EVO.Vida = { iniciar, atualizar, legenda, focarEvento, destacar, rotulosPaleo, rotulosPovos, MECANISMOS, grupoPorId,
+  EVO.Vida = { iniciar, atualizar, recarregar, legenda, focarEvento, destacar, rotulosPaleo, rotulosPovos, MECANISMOS, grupoPorId,
     detalheGrupo, gruposDesligados, desligarGrupos };
 })();

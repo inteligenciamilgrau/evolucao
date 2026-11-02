@@ -13,7 +13,10 @@ import requests
 import shapefile
 
 from comum import BRUTOS, NE, escrever_js, placa_do_ponto, registrar_placas
-from conteudo_fonte import GRUPOS
+from conteudo_fonte import GRUPOS as GRUPOS_BASE
+from revisao import carregar_revisoes
+
+GRUPOS = GRUPOS_BASE + carregar_revisoes()["novos_grupos"]
 
 PBDB = BRUTOS / "pbdb"
 URL = "https://paleobiodb.org/data1.2/occs/list.json"

@@ -13,6 +13,8 @@
   let D, n = 0, app;
   let indice, pais, chegada, r1850, rAntigo, classes, area, popsPais;
   let imagem, imgCtx, pixels, dens, camada, tempoCalculado = null;
+  let chegadas = []; // idade de chegada (Ma) de cada regra, já com os ajustes dos debates
+  let americas = new Set(), iBrasil = -1, fatorBrasil = 1, fatorOutros = 1;
   const LUT = [];
 
   function decodificar(b64, Tipo) {
@@ -44,6 +46,9 @@
       area[i] = 6371 * 6371 * 0.5 * rad * Math.abs(Math.sin((lat + 0.25) * rad) - Math.sin((lat - 0.25) * rad));
     }
     popsPais = D.paises.map((p) => p.p);
+    americas = new Set(D.americas || []);
+    iBrasil = D.paises.findIndex((p) => p.c === "BRA");
+    definirAjustes({});
     dens = new Float32Array(n);
     imagem = document.createElement("canvas");
     imagem.width = LARG;
@@ -64,6 +69,43 @@
 
   const ano = (t) => E().ANO - t * 1e6;
 
+  /** Ajustes vindos dos debates: {chegada: {regiao: Ma}, americas1500, brasil1500: pessoas}.
+   *  A data de uma região desloca todas as regras dela juntas (mantém a ordem interna). */
+  function definirAjustes(aj) {
+    const porRegiao = (aj && aj.chegada) || {};
+    const referencia = {};
+    for (const [regiao, idade] of D.regras) referencia[regiao] = Math.max(referencia[regiao] || 0, idade);
+    chegadas = D.regras.map(([regiao, idade]) =>
+      regiao in porRegiao ? Math.max(0.0001, idade + (porRegiao[regiao] - referencia[regiao])) : idade);
+    // população das Américas em 1500: total e Brasil (os outros países completam o total)
+    const baseBr = iBrasil >= 0 ? interpLog(D.anosPaises, popsPais[iBrasil], 1500) : 0;
+    const baseTotal = populacaoAmericas1500();
+    const alvoBr = (aj && aj.brasil1500) || baseBr;
+    const alvoTotal = (aj && aj.americas1500) || baseTotal - baseBr + alvoBr;
+    fatorBrasil = baseBr > 0 ? alvoBr / baseBr : 1;
+    fatorOutros = Math.max(0.01, (alvoTotal - alvoBr) / (baseTotal - baseBr));
+    tempoCalculado = null;
+  }
+
+  /** Fator de um país no ano y (só muda as Américas antes da conquista). */
+  function fatorPais(j, y) {
+    if (!americas.has(j)) return 1;
+    return fatorAmericasNoAno(j === iBrasil ? fatorBrasil : fatorOutros, y);
+  }
+
+  /** Fator do debate até 1500, sumindo até 1650 (quando as epidemias já tinham agido). */
+  function fatorAmericasNoAno(fator, y) {
+    if (fator === 1 || y >= 1650) return 1;
+    if (y <= 1500) return fator;
+    return Math.exp(Math.log(fator) * (1650 - y) / 150);
+  }
+
+  function populacaoAmericas1500() {
+    let soma = 0;
+    for (const j of americas) soma += interpLog(D.anosPaises, popsPais[j], 1500);
+    return soma;
+  }
+
   function interpLog(xs, ys, x) {
     if (x <= xs[0]) return ys[0];
     if (x >= xs[xs.length - 1]) return ys[ys.length - 1];
@@ -79,7 +121,6 @@
     if (t === tempoCalculado) return;
     tempoCalculado = t;
     const y = ano(t);
-    const chegadas = D.chegadas;
     if (y >= 1850) {
       const anos = D.grade.anos;
       let i = 1;
@@ -93,7 +134,7 @@
       }
     } else if (y >= -10000) {
       const anos = D.anosPaises;
-      const porPais = popsPais.map((p, j) => interpLog(anos, p, y) / D.paises[j].a);
+      const porPais = popsPais.map((p, j) => (interpLog(anos, p, y) * fatorPais(j, y)) / D.paises[j].a);
       const mistura = Math.max(0, Math.min(1, (y - 1500) / 350)); // padrão antigo -> 1850
       for (let k = 0; k < n; k++) {
         if (t > chegadas[chegada[k]] + 1e-9) { dens[k] = 0; continue; }
@@ -212,7 +253,14 @@
   function mundo(t) {
     if (!D) return null;
     const y = ano(t);
-    if (y >= -10000) return interpLog(D.mundo.anos, D.mundo.pop, y);
+    if (y >= -10000) {
+      let total = interpLog(D.mundo.anos, D.mundo.pop, y);
+      for (const j of americas) {
+        const f = fatorPais(j, y);
+        if (f !== 1) total += interpLog(D.anosPaises, popsPais[j], y) * (f - 1);
+      }
+      return total;
+    }
     const pl = D.pleistoceno; // [[Ma, pessoas], ...] do mais antigo ao mais recente
     if (t > pl[0][0]) return null;
     for (let i = 1; i < pl.length; i++) {
@@ -235,5 +283,5 @@
     return `${num(Math.round(p / 1e3), 0)} mil`;
   }
 
-  EVO.Populacao = { iniciar, mundo, textoPopulacao };
+  EVO.Populacao = { iniciar, mundo, textoPopulacao, definirAjustes, populacaoAmericas1500 };
 })();

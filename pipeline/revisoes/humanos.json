@@ -1,0 +1,2670 @@
+{
+ "sobre": {
+  "tema": "Ocupação humana: origem do Homo sapiens, migrações, povos, cidades e população",
+  "revisor": "agente revisor (Claude), com pesquisa na web",
+  "data": "2026-11-02",
+  "como_usar": "Correções já aplicadas nos arquivos-fonte (ver status). Itens novos e perspectivas são lidos por pipeline/revisao.py."
+ },
+ "correcoes": [
+  {
+   "alvo": "DADOS.populacao_BRA_1500",
+   "campo": "população do Brasil (e distribuição entre países americanos) em 1500 na camada",
+   "atual": "Série OWID/HYDE 3.3 usada pelo mapa: Brasil 18,7 milhões em 1500 (0,89 milhão em 1600); México 24,5 milhões; EUA 1,9 milhão; total das Américas ≈ 60,2 milhões.",
+   "proposto": "Corrigir a incoerência texto x mapa: (a) reescalar o Brasil antes de 1500 para algo entre 3 e 5 milhões (redistribuindo ou não o excedente), ou (b) manter a camada e mudar os textos para citar o valor do mapa e explicar que a divisão da HYDE entre países americanos é muito incerta. No mínimo, avisar isso no painel da camada.",
+   "motivo": "EVENTOS.cabral e a história 'Como o Brasil foi povoado' dizem 2 a 5 milhões de indígenas em 1500, mas a camada mostra 18,7 milhões, mais que o triplo das estimativas altas usuais para o território (Hemming: ~2,4 milhões; Denevan: ~5,7 milhões para toda a Amazônia; Clement et al. 2015: ~8 milhões para a Amazônia). Ao mesmo tempo, a HYDE dá só 1,9 milhão aos EUA, no limite inferior da literatura (Thornton: mais de 7 milhões). O leitor vê o mapa contradizer o texto. Atenção: a opção 'populacao.americas_1500' reescala todos os países juntos e não corrige essa distribuição.",
+   "fontes": [
+    "https://ourworldindata.org/grapher/population (série 'population_historical', HYDE 3.3) — arquivo pipeline/brutos/populacao/owid_population.csv",
+    "Hemming, J. (1978) Red Gold: The Conquest of the Brazilian Indians",
+    "Denevan, W. (org.) (1992) The Native Population of the Americas in 1492, 2ª ed.",
+    "Clement, C. R. et al. (2015) Proc. R. Soc. B 282: 20150813, doi:10.1098/rspb.2015.0813",
+    "Thornton, R. (1987) American Indian Holocaust and Survival"
+   ],
+   "status": "aplicada",
+   "nota": "Aplicada no pipeline (populacao.py, CORRECAO_1500): Brasil com 3,5 milhões em 1500, total das Américas mantido."
+  },
+  {
+   "alvo": "HISTORIAS_HUMANAS.ocupacao[3]",
+   "campo": "texto (passo 'A agricultura concentra gente', t=A(-3500))",
+   "atual": "... Surgem as cidades. O mundo tem ~15 milhões de pessoas.",
+   "proposto": "... Surgem as cidades. O mundo tem algumas dezenas de milhões de pessoas (~35 milhões nos dados do mapa; estimativas mais antigas falam em 10 a 15 milhões).",
+   "motivo": "Os dados que o próprio mapa usa (OWID/HYDE 3.3) dão 28,9 milhões em 4000 a.C. e 44,6 milhões em 3000 a.C. (~36 milhões em 3500 a.C.). O valor de ~15 milhões vem de estimativas antigas (McEvedy & Jones). O texto deve bater com a camada ou explicar a diferença.",
+   "fontes": [
+    "https://ourworldindata.org/grapher/population (série 'population_historical', HYDE 3.3) — arquivo pipeline/brutos/populacao/owid_population.csv",
+    "McEvedy, C. & Jones, R. (1978) Atlas of World Population History"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS_HUMANAS.ocupacao[4]",
+   "campo": "texto (passo '1500: o mundo se conecta')",
+   "atual": "~500 milhões de pessoas, quase todas no Velho Mundo. As Américas tinham talvez 50 milhões, e as epidemias trazidas pelos europeus matariam a maioria em um século.",
+   "proposto": "~500 milhões de pessoas, quase todas no Velho Mundo. As Américas tinham ~60 milhões nos dados do mapa (as estimativas vão de menos de 10 a mais de 100 milhões), e epidemias, guerras e trabalho forçado matariam cerca de 90% delas em um século.",
+   "motivo": "Alinha com a série do mapa (60,2 milhões em 1500 e 10,1 milhões em 1600, somando os países americanos) e com Koch et al. 2019 (60,5 milhões; ~56 milhões de mortes até 1600). As mortes não foram só por doenças.",
+   "fontes": [
+    "https://ourworldindata.org/grapher/population (série 'population_historical', HYDE 3.3) — arquivo pipeline/brutos/populacao/owid_population.csv",
+    "Koch, A. et al. (2019) Quaternary Science Reviews 207: 13–36, doi:10.1016/j.quascirev.2018.12.004"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "HISTORIAS_HUMANAS.ocupacao[0]",
+   "campo": "texto (passo 'Só na África')",
+   "atual": "Há 200 mil anos, todos os Homo sapiens viviam na África, talvez uns 100 a 200 mil.",
+   "proposto": "Há 200 mil anos, quase todos os Homo sapiens viviam na África, talvez uns 100 a 200 mil (alguns grupos podem já ter chegado a Israel e à Grécia).",
+   "motivo": "A mandíbula de Misliya (Israel) tem 177–194 mil anos, e o crânio Apidima 1 (Grécia) foi datado de ~210 mil anos (identificação debatida).",
+   "fontes": [
+    "Hershkovitz, I. et al. (2018) Science 359: 456–459, doi:10.1126/science.aap8369",
+    "Harvati, K. et al. (2019) Nature 571: 500–504, doi:10.1038/s41586-019-1376-z"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.neandertais",
+   "campo": "texto",
+   "atual": "... Cruzaram com os sapiens: quem não é africano tem ~2% de DNA neandertal.",
+   "proposto": "... Cruzaram com os sapiens: pessoas de origem não africana têm ~1 a 2% de DNA neandertal, e até os africanos têm um pouco, trazido por migrações de volta à África.",
+   "motivo": "'Quem não é africano' é impreciso (brasileiros, por exemplo, têm ancestralidade mista) e ignora que populações africanas também carregam DNA neandertal (~0,3–0,5%).",
+   "fontes": [
+    "Chen, L. et al. (2020) Cell 180: 677–687, doi:10.1016/j.cell.2020.01.012",
+    "Prüfer, K. et al. (2017) Science 358: 655–658"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "GRUPOS.denisovanos",
+   "campo": "texto",
+   "atual": "Conhecidos quase só pelo DNA de um dedo e alguns dentes, da Sibéria ao Tibete. Os povos da Melanésia e da Austrália carregam até 5% de DNA denisovano.",
+   "proposto": "Conhecidos primeiro pelo DNA de um dedo da caverna Denisova (Sibéria). Em 2025, proteínas e DNA identificaram como denisovanos uma mandíbula de Taiwan e, provavelmente, o crânio de Harbin (China, mais de 146 mil anos), dando enfim um rosto a eles. Povos da Melanésia, da Austrália e das Filipinas carregam até ~5% de DNA denisovano.",
+   "motivo": "Texto desatualizado. A mandíbula Penghu 1 foi identificada por proteínas (Tsutaya et al. 2025) e o crânio de Harbin por proteínas e DNA mitocondrial (Fu et al. 2025); a de Harbin ainda tem críticos. Os Ayta Magbukon (Filipinas) têm a maior ancestralidade denisovana conhecida.",
+   "fontes": [
+    "Tsutaya, T. et al. (2025) Science 388: 176–180 (Penghu 1)",
+    "Fu, Q. et al. (2025) Science, 'The proteome of the late Middle Pleistocene Harbin individual'",
+    "Fu, Q. et al. (2025) Cell, 'Denisovan mitochondrial DNA from dental calculus of the >146,000-year-old Harbin cranium'",
+    "Larena, M. et al. (2021) Current Biology 31: 4219–4230"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "POVOS.Denisovanos",
+   "campo": "texto",
+   "atual": "Humanos da Ásia conhecidos sobretudo pelo DNA, achado na caverna Denisova (Sibéria) e no Tibete.",
+   "proposto": "Humanos da Ásia conhecidos primeiro pelo DNA da caverna Denisova (Sibéria). Hoje há fósseis no Tibete, em Taiwan e, provavelmente, o crânio de Harbin (China).",
+   "motivo": "Mesma atualização de GRUPOS.denisovanos (descobertas de 2025).",
+   "fontes": [
+    "Tsutaya, T. et al. (2025) Science 388: 176–180",
+    "Fu, Q. et al. (2025) Science e Cell (crânio de Harbin)"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.sulawesi",
+   "campo": "titulo, texto, t, locais",
+   "atual": "titulo 'A arte mais antiga'; t=0.051; texto 'Pinturas de animais e mãos em cavernas de Sulawesi (Indonésia) têm mais de 50 mil anos, mais antigas que as da Europa.'",
+   "proposto": "titulo 'As pinturas rupestres mais antigas'; t=0.068; texto 'Um estêncil de mão na ilha de Muna, perto de Sulawesi (Indonésia), tem pelo menos 67.800 anos (estudo de 2026), e uma cena com porcos e figuras humanas em Sulawesi tem 51.200 anos. São mais antigas que as pinturas das cavernas da Europa e mostram que quem seguia rumo à Austrália já fazia arte.'; locais [[122.6, -4.9, 'Liang Metanduno, ilha de Muna'], [119.6, -5.0, 'Leang Karampuang, Sulawesi']]",
+   "motivo": "Novo recorde publicado em janeiro de 2026. Além disso, 'a arte mais antiga' é enganoso: gravuras abstratas de Blombos (África do Sul, ~75–100 mil anos) e uma concha riscada por Homo erectus em Java (~500 mil anos) são mais antigas; o recorde de Sulawesi é de pintura em caverna.",
+   "fontes": [
+    "Oktaviana, A. A. et al. (2026) Nature, 'Rock art from at least 67,800 years ago in Sulawesi'",
+    "Oktaviana, A. A. et al. (2024) Nature 631: 814–818, doi:10.1038/s41586-024-07541-7",
+    "Joordens, J. et al. (2015) Nature 518: 228–231"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.erectus",
+   "campo": "texto",
+   "atual": "O primeiro humano a deixar a África chega à Geórgia (Dmanisi), à China e a Java, caminhando.",
+   "proposto": "Um dos primeiros humanos a deixar a África chega à Geórgia (Dmanisi, 1,8 milhão de anos), à China e a Java, caminhando. Ferramentas de 2,1 milhões de anos em Shangchen (China) sugerem que outros hominíneos saíram antes.",
+   "motivo": "As ferramentas de Shangchen são mais antigas que Dmanisi; não se sabe quem as fez.",
+   "fontes": [
+    "Zhu, Z. et al. (2018) Nature 559: 608–612, doi:10.1038/s41586-018-0299-4"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.saida_africa",
+   "campo": "texto",
+   "atual": "Grupos de sapiens deixam a África pelo sul da Arábia e seguem a costa até a Ásia. Encontram e cruzam com neandertais e denisovanos.",
+   "proposto": "Grupos de sapiens deixam a África, talvez pelo sul do mar Vermelho e pela costa da Arábia, talvez pelo Sinai, e chegam à Ásia. Encontram e cruzam com neandertais (há ~45–49 mil anos, segundo o DNA) e com denisovanos.",
+   "motivo": "A rota (sul x norte) e a data ainda são debatidas (ver perspectiva 'saida_africa'); o DNA de genomas antigos data a mistura com neandertais em ~45–49 mil anos.",
+   "fontes": [
+    "Sümer, A. P. et al. (2025) Nature 638, doi:10.1038/s41586-024-08420-x",
+    "Iasi, L. N. M. et al. (2024) Science 386: eadq3010"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_estepes",
+   "campo": "texto",
+   "atual": "... se espalham pela Europa e pela Ásia Central até a Índia. Deles vêm as línguas indo-europeias, como o português.",
+   "proposto": "Povos das estepes ao norte do mar Negro (cultura Yamnaya), com cavalos e carroças, se espalham pela Europa; seus descendentes (culturas Sintashta e Andronovo) chegam à Ásia Central e, por volta de 1500 a.C., ao sul da Ásia. Para a maioria dos especialistas, foram eles que espalharam as línguas indo-europeias, como o português, mas essa origem ainda é debatida.",
+   "motivo": "O texto apresenta uma hipótese como fato (ver perspectiva 'linguas_indoeuropeias'), e não foram os Yamnaya que chegaram à Índia, mas populações derivadas, séculos depois.",
+   "fontes": [
+    "Narasimhan, V. et al. (2019) Science 365: eaat7487",
+    "Lazaridis, I. et al. (2025) Nature 639, doi:10.1038/s41586-024-08531-5"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "POVOS.Indo-europeus",
+   "campo": "texto",
+   "atual": "Pastores das estepes cujas línguas deram origem do português ao hindi.",
+   "proposto": "Pastores das estepes que, para a maioria dos pesquisadores, espalharam as línguas que vão do português ao hindi.",
+   "motivo": "Mesma ressalva de MIGRACOES.h_estepes.",
+   "fontes": [
+    "Haak, W. et al. (2015) Nature 522: 207–211",
+    "Heggarty, P. et al. (2023) Science 381: eabg0818"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "POVOS.Sumérios",
+   "campo": "texto",
+   "atual": "Inventaram a escrita cuneiforme, a roda e as primeiras cidades.",
+   "proposto": "Inventaram a escrita cuneiforme e estiveram entre os primeiros a viver em cidades e a usar a roda.",
+   "motivo": "A origem da roda de veículos é disputada: rodas e carroças aparecem quase ao mesmo tempo (~3500–3300 a.C.) na Mesopotâmia, no Cáucaso e na Europa Central (vaso de Bronocice, na Polônia; roda dos pântanos de Liubliana, ~3150 a.C.).",
+   "fontes": [
+    "Anthony, D. (2007) The Horse, the Wheel, and Language, cap. 4",
+    "Bakker, J. A. et al. (1999) Antiquity 73: 778–790"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "POVOS.Maias",
+   "campo": "de, ate, texto",
+   "atual": "de=A(-750), ate=A(1524), texto 'Cidades como Tikal, com escrita, astronomia e o conceito de zero.'",
+   "proposto": "de=A(-1000) (0.003025), ate=A(1697) (0.000328), texto 'Cidades como Tikal, com escrita, astronomia e o conceito de zero. O último reino maia independente (Nojpetén) caiu em 1697, e milhões de pessoas ainda falam línguas maias.'",
+   "motivo": "Já havia arquitetura monumental maia em ~1000–800 a.C. (Aguada Fénix, Ceibal). 1524 é a conquista dos k'iche' por Alvarado, não o fim dos maias, que existem até hoje.",
+   "fontes": [
+    "Inomata, T. et al. (2020) Nature 582: 530–533",
+    "Jones, G. D. (1998) The Conquest of the Last Maya Kingdom"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "POVOS.Incas",
+   "campo": "texto",
+   "atual": "Império andino com 40.000 km de estradas, do Equador ao Chile.",
+   "proposto": "Império andino com ~30 mil km de estradas (o Qhapaq Ñan), do sul da Colômbia ao centro do Chile e da Argentina.",
+   "motivo": "A UNESCO fala em ~30 mil km, e o império ia além do Equador e do Chile.",
+   "fontes": [
+    "UNESCO, Qhapaq Ñan, Andean Road System (2014), https://whc.unesco.org/en/list/1459"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "POVOS.Coissãs",
+   "campo": "texto",
+   "atual": "Povos do sul da África com as linhagens genéticas mais antigas entre os humanos vivos.",
+   "proposto": "Povos do sul da África cujos ancestrais foram os primeiros a se separar dos demais humanos vivos, há mais de 200 mil anos.",
+   "motivo": "Todas as linhagens vivas têm a mesma idade; o que os coissãs têm é a separação mais antiga. A frase atual pode sugerir, sem querer, que seriam 'mais primitivos'.",
+   "fontes": [
+    "Schlebusch, C. et al. (2017) Science 358: 652–655"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_siberia",
+   "campo": "texto",
+   "atual": "Caçadores de mamutes chegam ao sul da Sibéria há 45 mil anos (Ust-Ishim)...",
+   "proposto": "Caçadores de mamutes chegam ao oeste da Sibéria há 45 mil anos (Ust-Ishim)...",
+   "motivo": "Ust'-Ishim fica na região de Omsk, no oeste da Sibéria (57,7° N).",
+   "fontes": [
+    "Fu, Q. et al. (2014) Nature 514: 445–449"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.bantos",
+   "campo": "texto",
+   "atual": "... levando inhame, ferro e as línguas bantas, hoje faladas por ~350 milhões de pessoas.",
+   "proposto": "... levando inhame, cerâmica e as línguas bantas, hoje faladas por ~350 milhões de pessoas. O ferro foi adotado mais tarde, por volta de 1000–500 a.C.",
+   "motivo": "Em 3000 a.C. não havia metalurgia do ferro na África subsaariana; ela aparece entre ~1000 e 500 a.C.",
+   "fontes": [
+    "Grollemund, R. et al. (2015) PNAS 112: 13296–13301",
+    "Bostoen, K. (2018) 'The Bantu Expansion', Oxford Research Encyclopedia of African History"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.madagascar",
+   "campo": "texto",
+   "atual": "Navegadores vindos de Bornéu, a 6.000 km, estão entre os primeiros a se fixar em Madagascar.",
+   "proposto": "Navegadores vindos do sul de Bornéu, a mais de 7.000 km, estão entre os primeiros a se fixar em Madagascar. Lá se misturam a povos bantos da África Oriental: os malgaxes de hoje têm as duas ancestralidades, e sua língua é parente do ma'anyan, de Bornéu.",
+   "motivo": "A distância real (sul de Bornéu–Madagascar) é de ~7.300 km, e o texto omitia a metade africana da história.",
+   "fontes": [
+    "Pierron, D. et al. (2017) PNAS 114: E6498–E6506",
+    "Brucato, N. et al. (2016) Molecular Biology and Evolution 33: 2396–2400",
+    "Adelaar, A. (2009) 'Towards an integrated theory about the Indonesian migrations to Madagascar'"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.luzia",
+   "campo": "texto",
+   "atual": "Um dos esqueletos mais antigos das Américas, encontrado em Lagoa Santa (MG). Na mesma época, a Serra da Capivara (PI) estava cheia de pinturas rupestres.",
+   "proposto": "Um dos esqueletos mais antigos das Américas (~11.500 anos), encontrado na Lapa Vermelha IV, na região de Lagoa Santa (MG). O DNA de outros esqueletos da região mostrou que esses povos eram parentes dos indígenas atuais. O crânio de Luzia foi recuperado, em fragmentos, após o incêndio do Museu Nacional (2018). Na mesma época, a Serra da Capivara (PI) já era habitada.",
+   "motivo": "(1) Lagoa Santa é a região; o sítio é a Lapa Vermelha IV. (2) A ideia muito divulgada de que Luzia teria 'traços africanos ou australianos' foi revista pelo DNA. (3) A maioria das pinturas da Serra da Capivara não tem data direta: dizer que a serra 'estava cheia' de pinturas há 11.500 anos é exagero.",
+   "fontes": [
+    "Fontugne, M. (2013) Radiocarbon 55, 'New radiocarbon ages of Luzia Woman, Lapa Vermelha IV site'",
+    "Posth, C. et al. (2018) Cell 175: 1185–1197",
+    "Moreno-Mayar, J. V. et al. (2018) Science 362: eaav2621"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.holoceno",
+   "campo": "texto",
+   "atual": "O gelo derrete, o mar sobe 120 m e as pontes de terra afundam. Somem a megafauna: preguiças gigantes, mastodontes e tigres-dentes-de-sabre.",
+   "proposto": "O gelo derrete, o mar sobe 120 m e as pontes de terra afundam. Some boa parte da megafauna: preguiças gigantes, mastodontes e tigres-dentes-de-sabre. A causa foi a caça humana, o clima ou os dois? Os cientistas ainda discutem.",
+   "motivo": "Erro de concordância ('Somem a megafauna') e a afirmação esconde um debate científico vivo sobre as causas.",
+   "fontes": [
+    "Barnosky, A. et al. (2004) Science 306: 70–75",
+    "Prates, L. & Perez, S. I. (2021) Nature Communications 12: 2175"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.agricultura",
+   "campo": "texto",
+   "atual": "No Crescente Fértil, na China, nos Andes, na Mesoamérica e na Amazônia, humanos domesticam plantas e animais.",
+   "proposto": "No Crescente Fértil, na China, nos Andes, na Mesoamérica, na Amazônia, na Nova Guiné, na África (Sahel e Etiópia) e no leste da América do Norte, humanos domesticam plantas e animais, cada região por conta própria.",
+   "motivo": "Faltavam outros centros independentes de domesticação aceitos pela literatura.",
+   "fontes": [
+    "Larson, G. et al. (2014) PNAS 111: 6139–6146"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.lapita",
+   "campo": "texto",
+   "atual": "Povos austronésios saem de Taiwan e, com canoas de casco duplo, ocupam ilhas cada vez mais distantes...",
+   "proposto": "Descendentes de austronésios que saíram de Taiwan há ~5 mil anos chegam à Melanésia (cultura Lapita, ~1350 a.C.) e, com canoas oceânicas, ocupam ilhas cada vez mais distantes, levando porcos, cães, galinhas e ratos.",
+   "motivo": "O evento está em 1300 a.C., mas a saída de Taiwan foi ~3000–2500 a.C.; em 1300 a.C. o marco é a cultura Lapita. O tipo exato de canoa Lapita não é conhecido.",
+   "fontes": [
+    "Kirch, P. V. (2017) On the Road of the Winds, 2ª ed.",
+    "Bellwood, P. (2017) First Islanders"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "EVENTOS.abolicao",
+   "campo": "texto",
+   "atual": "O Brasil é o último país das Américas a abolir a escravidão.",
+   "proposto": "Depois de décadas de fugas, quilombos, revoltas e campanha abolicionista, a Lei Áurea liberta as ~700 mil pessoas ainda escravizadas. O Brasil é o último país das Américas a abolir a escravidão, e os libertos não recebem terra nem qualquer reparação.",
+   "motivo": "Falta contexto essencial: a abolição resultou também da luta das pessoas escravizadas e do movimento abolicionista (havia ~720 mil escravizados na matrícula de 1887), e a ausência de reparação ajuda a explicar desigualdades que persistem.",
+   "fontes": [
+    "Conrad, R. (1972) The Destruction of Brazilian Slavery, 1850–1888",
+    "Alonso, A. (2015) Flores, votos e balas: o movimento abolicionista brasileiro (1868–88)"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_africanos",
+   "campo": "texto",
+   "atual": "... Mais da metade dos brasileiros têm ancestrais africanos.",
+   "proposto": "... No Censo 2022, 55,5% dos brasileiros se declararam pretos ou pardos, e estudos de DNA mostram ancestralidade africana na grande maioria da população.",
+   "motivo": "A frase atual subestima: estudos genômicos acham ancestralidade africana em quase todos os brasileiros, inclusive em muitos que se declaram brancos. O dado do IBGE (pardos 45,3%, pretos 10,2%) é mais preciso.",
+   "fontes": [
+    "IBGE, Censo Demográfico 2022: identificação étnico-racial (dez. 2023)",
+    "Kehdy, F. et al. (2015) PNAS 112: 8696–8701"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_espanhois",
+   "campo": "texto",
+   "atual": "Depois de Colombo (1492), os espanhóis conquistam o Caribe, os astecas (1521) e os incas (1532). As epidemias trazidas por eles matam a maior parte dos povos nativos.",
+   "proposto": "Depois de Colombo (1492), os espanhóis conquistam o Caribe, derrubam o império asteca (1521), com a ajuda de povos indígenas inimigos dos astecas, e iniciam a conquista do império inca (1532). Epidemias, guerras e trabalho forçado matam a maior parte dos povos nativos.",
+   "motivo": "Precisão histórica (a conquista inca só terminou em 1572, e aliados como os tlaxcaltecas foram decisivos) e causas múltiplas da mortalidade.",
+   "fontes": [
+    "Restall, M. (2003) Seven Myths of the Spanish Conquest",
+    "Livi-Bacci, M. (2008) Conquest: The Destruction of the American Indios"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_australia",
+   "campo": "texto",
+   "atual": "... A colonização desaloja os aborígenes, que viviam ali havia 60 mil anos, e os maoris.",
+   "proposto": "... A colonização toma as terras dos aborígenes, que viviam ali havia mais de 50 mil anos, e depois as dos maoris; violência e epidemias reduzem drasticamente essas populações.",
+   "motivo": "'Desaloja' suaviza massacres e epidemias documentados. Os '60 mil anos' também conflitam com POVOS ('mais de 50 mil') e com o debate sobre a data de chegada.",
+   "fontes": [
+    "Ryan, L. et al., Colonial Frontier Massacres in Australia 1788–1930, Univ. de Newcastle, https://c21ch.newcastle.edu.au/colonialmassacres/",
+    "Clarkson, C. et al. (2017) Nature 547: 306–310"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_brasil_interno",
+   "campo": "texto",
+   "atual": "... O Brasil passa de rural a 85% urbano.",
+   "proposto": "... O Brasil passa de 31% urbano (1940) a 84% urbano (2010).",
+   "motivo": "Números dos censos do IBGE; os 85% só foram atingidos depois da janela da rota (1940–1990).",
+   "fontes": [
+    "IBGE, Censos Demográficos 1940 e 2010 (taxa de urbanização)"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "MIGRACOES.h_nordicos",
+   "campo": "texto",
+   "atual": "... e chegam à Terra Nova, no Canadá (~1000), 500 anos antes de Colombo.",
+   "proposto": "... e chegam à Terra Nova, no Canadá (há madeira cortada por eles em 1021), quase 500 anos antes de Colombo.",
+   "motivo": "Data precisa obtida pelo pico de radiocarbono de 993 d.C. nos anéis da madeira de L'Anse aux Meadows.",
+   "fontes": [
+    "Kuitems, M. et al. (2022) Nature 601: 388–391, doi:10.1038/s41586-021-03972-8"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "CIDADES.Machu Picchu",
+   "campo": "fundacao",
+   "atual": "1450",
+   "proposto": "1420",
+   "motivo": "Datações por radiocarbono (AMS) de sepultamentos mostram ocupação desde pelo menos ~1420.",
+   "fontes": [
+    "Burger, R. L. et al. (2021) Antiquity 95: 1265–1279"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "CHEGADA.FRO",
+   "campo": "idade (regra {'FRO'})",
+   "atual": "A(800)",
+   "proposto": "A(500)",
+   "motivo": "Grãos de cevada queimados e DNA de ovelhas em sedimentos de lago mostram gente nas Faroé por volta de 500 d.C., séculos antes dos vikings.",
+   "fontes": [
+    "Church, M. J. et al. (2013) Quaternary Science Reviews 77: 228–232",
+    "Curtin, L. et al. (2021) Communications Earth & Environment 2: 253"
+   ],
+   "status": "aplicada"
+  },
+  {
+   "alvo": "CHEGADA.GBR",
+   "campo": "idade (regra {'GBR'})",
+   "atual": "0.015",
+   "proposto": "0.042 (se a camada marca a primeira chegada) ou manter 0.015 com uma nota (se marca ocupação contínua)",
+   "motivo": "Uma maxila humana de Kent's Cavern tem 44–41 mil anos. A Grã-Bretanha foi abandonada no auge do gelo e reocupada há ~15 mil anos; a camada atual não consegue mostrar esse abandono, então é preciso escolher o critério.",
+   "fontes": [
+    "Higham, T. et al. (2011) Nature 479: 521–524"
+   ],
+   "status": "mantida",
+   "nota": "A camada mostra ocupação contínua; a Grã-Bretanha foi abandonada no auge do gelo e reocupada há ~15 mil anos, por isso fica 0,015 Ma."
+  }
+ ],
+ "novos_eventos": [
+  {
+   "id": "blombos",
+   "t": 0.075,
+   "icone": "🖍️",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Os primeiros desenhos",
+   "texto": "Na caverna de Blombos (África do Sul), sapiens gravaram padrões em pedaços de ocre e usaram contas de conchas furadas há ~75 a 100 mil anos. Um traço em X, feito com um 'lápis' de ocre há ~73 mil anos, é o desenho mais antigo conhecido. O pensamento simbólico já existia na África antes da grande saída.",
+   "locais": [
+    [
+     21.22,
+     -34.41,
+     "Caverna de Blombos, África do Sul"
+    ]
+   ],
+   "fontes": [
+    "Henshilwood, C. et al. (2018) Nature 562: 115–118",
+    "Henshilwood, C. et al. (2002) Science 295: 1278–1280"
+   ]
+  },
+  {
+   "id": "denisovanos_rosto",
+   "t": 0.146,
+   "icone": "💀",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "O rosto dos denisovanos",
+   "texto": "Em 2025, proteínas e DNA de um crânio achado em Harbin (China), com mais de 146 mil anos, indicaram que ele era denisovano, e uma mandíbula pescada no mar perto de Taiwan também foi identificada como denisovana. Pela primeira vez, essa espécie conhecida quase só pelo DNA ganhou um rosto: crânio grande e baixo, sobrancelhas salientes e dentes enormes. Alguns pesquisadores ainda pedem mais provas para o crânio de Harbin.",
+   "locais": [
+    [
+     126.6,
+     45.75,
+     "Harbin, China"
+    ],
+    [
+     119.5,
+     23.4,
+     "Canal de Penghu, Taiwan"
+    ],
+    [
+     84.68,
+     51.4,
+     "Caverna Denisova, Rússia"
+    ]
+   ],
+   "fontes": [
+    "Fu, Q. et al. (2025) Science (proteoma de Harbin) e Cell (DNA mitocondrial de Harbin)",
+    "Tsutaya, T. et al. (2025) Science 388: 176–180"
+   ]
+  },
+  {
+   "id": "lapa_do_santo",
+   "t": 0.0105,
+   "icone": "⚱️",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Lapa do Santo: rituais dos primeiros brasileiros",
+   "texto": "Num abrigo de pedra em Matozinhos (MG), grupos de caçadores-coletores viveram por mais de 3 mil anos, a partir de ~12 mil anos atrás. Ali estão uma das gravuras rupestres datadas mais antigas das Américas e sepultamentos com rituais complexos, como uma cabeça com mãos cortadas, de ~9 mil anos. O DNA desses povos de Lagoa Santa mostrou que eram parentes dos indígenas atuais, e não de uma 'onda' vinda da África ou da Austrália, como se chegou a supor pelo formato dos crânios.",
+   "locais": [
+    [
+     -44.03,
+     -19.48,
+     "Lapa do Santo, Matozinhos (MG)"
+    ]
+   ],
+   "fontes": [
+    "Neves, W. et al. (2012) PLOS ONE 7: e32228",
+    "Strauss, A. et al. (2015) PLOS ONE 10: e0137456",
+    "Posth, C. et al. (2018) Cell 175: 1185–1197",
+    "Moreno-Mayar, J. V. et al. (2018) Science 362: eaav2621"
+   ]
+  },
+  {
+   "id": "amazonia_domestica",
+   "t": 0.0104,
+   "icone": "🌱",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "A Amazônia domestica plantas",
+   "texto": "No sudoeste da Amazônia (Llanos de Mojos, na Bolívia, perto de Rondônia), povos indígenas já cultivavam mandioca e abóbora há ~10 mil anos, em ilhas de floresta criadas por eles. A Amazônia é um dos berços independentes da agricultura: dela vêm a mandioca, o cacau e a pupunha.",
+   "locais": [
+    [
+     -65.0,
+     -13.5,
+     "Llanos de Mojos, Bolívia"
+    ],
+    [
+     -63.0,
+     -10.5,
+     "Rondônia"
+    ]
+   ],
+   "fontes": [
+    "Lombardo, U. et al. (2020) Nature 581: 190–193",
+    "Clement, C. R. et al. (2015) Proc. R. Soc. B 282: 20150813",
+    "Zarrillo, S. et al. (2018) Nature Ecology & Evolution 2: 1879–1888"
+   ]
+  },
+  {
+   "id": "caral",
+   "ano": -2600,
+   "icone": "🏛️",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Caral: a cidade mais antiga das Américas",
+   "texto": "No vale do Supe, no Peru, ergue-se Caral, com pirâmides e praças, na mesma época das pirâmides do Egito. A civilização Caral-Supe (ou Norte Chico) floresceu entre ~3000 e 1800 a.C., sem cerâmica, com pesca, algodão e trocas entre o litoral e o interior.",
+   "locais": [
+    [
+     -77.52,
+     -10.89,
+     "Caral, Peru"
+    ]
+   ],
+   "fontes": [
+    "Shady Solís, R. et al. (2001) Science 292: 723–726",
+    "UNESCO, Sacred City of Caral-Supe (2009), https://whc.unesco.org/en/list/1269"
+   ]
+  },
+  {
+   "id": "amazonia_urbana",
+   "ano": -500,
+   "icone": "🌳",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Cidades-jardim na Amazônia",
+   "texto": "Mapas feitos com laser (lidar) revelaram no vale do Upano (Equador) mais de 6 mil plataformas de terra ligadas por estradas retas, ocupadas de ~500 a.C. a ~600 d.C. Na Bolívia, a cultura Casarabe (500–1400 d.C.) construiu centros com pirâmides de terra, canais e represas. A floresta 'intocada' era, em muitos lugares, uma paisagem construída por povos indígenas.",
+   "locais": [
+    [
+     -78.12,
+     -2.31,
+     "Vale do Upano, Equador"
+    ],
+    [
+     -64.82,
+     -14.79,
+     "Casarabe, Bolívia"
+    ]
+   ],
+   "fontes": [
+    "Rostain, S. et al. (2024) Science 383: 183–189",
+    "Prümers, H. et al. (2022) Nature 606: 325–328"
+   ]
+  },
+  {
+   "id": "rota_seda",
+   "ano": -130,
+   "icone": "🐫",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "A Rota da Seda",
+   "texto": "Depois das missões do enviado Zhang Qian (~130 a.C.), a China dos Han passa a se ligar à Ásia Central, à Pérsia e ao Mediterrâneo por caravanas. Por essa rede de cidades-oásis, como Samarcanda, passaram seda, papel, cavalos, o budismo, o islã e, mais tarde, a peste.",
+   "locais": [
+    [
+     108.94,
+     34.34,
+     "Chang'an (Xi'an), China"
+    ],
+    [
+     66.96,
+     39.65,
+     "Samarcanda, Uzbequistão"
+    ]
+   ],
+   "fontes": [
+    "Hansen, V. (2012) The Silk Road: A New History",
+    "UNESCO, Silk Roads: the Routes Network of Chang'an-Tianshan Corridor (2014)"
+   ]
+  },
+  {
+   "id": "comercio_indico",
+   "ano": 1000,
+   "icone": "🧭",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "O Índico, um mar de comércio",
+   "texto": "Aproveitando os ventos das monções, que mudam de direção a cada estação, navegadores árabes, persas, indianos, malaios e suaílis ligavam a África Oriental à Índia, à Indonésia e à China. Portos como Kilwa, Calicute e Malaca enriqueciam com ouro, marfim, especiarias, tecidos e porcelana, e também com o comércio de pessoas escravizadas. Entre 1405 e 1433, as frotas do chinês Zheng He chegaram à costa da África.",
+   "locais": [
+    [
+     39.51,
+     -8.96,
+     "Kilwa, Tanzânia"
+    ],
+    [
+     75.78,
+     11.25,
+     "Calicute, Índia"
+    ],
+    [
+     102.25,
+     2.19,
+     "Malaca, Malásia"
+    ]
+   ],
+   "fontes": [
+    "Chaudhuri, K. N. (1985) Trade and Civilisation in the Indian Ocean",
+    "Beaujard, P. (2019) The Worlds of the Indian Ocean",
+    "Horton, M. & Middleton, J. (2000) The Swahili"
+   ]
+  },
+  {
+   "id": "peste_negra",
+   "ano": 1347,
+   "icone": "🐀",
+   "tipo": "humano",
+   "prio": 1,
+   "titulo": "A Peste Negra",
+   "texto": "A bactéria da peste (Yersinia pestis), vinda da Ásia Central pelas rotas de comércio, chega ao Mediterrâneo em 1347 em navios que saíam da Crimeia. Em cinco anos mata de um terço à metade dos europeus, talvez 25 a 50 milhões de pessoas, além de multidões no Oriente Médio e no norte da África. A população da Europa leva quase dois séculos para se recuperar.",
+   "locais": [
+    [
+     74.7,
+     42.8,
+     "Vale do Chüy, Quirguistão (origem provável)"
+    ],
+    [
+     35.38,
+     45.03,
+     "Caffa (Feodosia), Crimeia"
+    ],
+    [
+     15.55,
+     38.19,
+     "Messina, Itália"
+    ]
+   ],
+   "fontes": [
+    "Spyrou, M. et al. (2022) Nature 606: 718–724",
+    "Benedictow, O. (2004) The Black Death 1346–1353: The Complete History",
+    "Bos, K. et al. (2011) Nature 478: 506–510"
+   ]
+  },
+  {
+   "id": "grande_morte",
+   "ano": 1520,
+   "icone": "🦠",
+   "tipo": "humano",
+   "prio": 1,
+   "titulo": "A Grande Morte nas Américas",
+   "texto": "A varíola chega ao México em 1520 e devasta Tenochtitlan durante o cerco espanhol; depois vêm sarampo, gripe e tifo. Sem imunidade a essas doenças e sofrendo guerras, fome, escravização e trabalho forçado, os povos indígenas perdem cerca de 90% da população em um século. Foi uma das maiores catástrofes demográficas da história.",
+   "locais": [
+    [
+     -99.13,
+     19.43,
+     "Tenochtitlan, México"
+    ],
+    [
+     -71.97,
+     -13.53,
+     "Cusco, Peru"
+    ]
+   ],
+   "fontes": [
+    "Koch, A. et al. (2019) Quaternary Science Reviews 207: 13–36",
+    "Livi-Bacci, M. (2008) Conquest: The Destruction of the American Indios",
+    "Crosby, A. (1972) The Columbian Exchange"
+   ]
+  },
+  {
+   "id": "palmares",
+   "ano": 1650,
+   "icone": "✊",
+   "tipo": "humano",
+   "prio": 1,
+   "titulo": "Palmares e os quilombos",
+   "texto": "Na Serra da Barriga (AL), pessoas que fugiram da escravidão formaram o Quilombo dos Palmares, uma rede de aldeias com milhares de habitantes que resistiu por quase um século (c. 1600–1694). Seu líder mais conhecido, Zumbi, foi morto em 20 de novembro de 1695, data do Dia da Consciência Negra, feriado nacional desde 2024. Quilombos surgiram por todo o Brasil, e o Censo 2022 contou pela primeira vez os quilombolas: 1,33 milhão de pessoas.",
+   "locais": [
+    [
+     -36.08,
+     -9.17,
+     "Serra da Barriga, União dos Palmares (AL)"
+    ]
+   ],
+   "fontes": [
+    "Gomes, F. dos S. (2005) Palmares: escravidão e liberdade no Atlântico Sul",
+    "Lei nº 14.759, de 21/12/2023 (feriado nacional de 20 de novembro)",
+    "IBGE, Censo Demográfico 2022: quilombolas (jul. 2023)"
+   ]
+  },
+  {
+   "id": "ouro_minas",
+   "ano": 1700,
+   "icone": "⛏️",
+   "tipo": "humano",
+   "prio": 1,
+   "titulo": "O ouro de Minas e a interiorização",
+   "texto": "Entre 1693 e 1695, bandeirantes paulistas, que também capturavam e escravizavam indígenas, acham ouro no atual Minas Gerais. Em poucas décadas, centenas de milhares de portugueses e de africanos escravizados vão para as minas, surgem vilas como Vila Rica (Ouro Preto, 1711) e a colonização chega a Goiás e Mato Grosso. O eixo do Brasil se desloca para o Sudeste, e em 1763 a capital passa de Salvador para o Rio de Janeiro.",
+   "locais": [
+    [
+     -43.5,
+     -20.39,
+     "Ouro Preto (Vila Rica), MG"
+    ],
+    [
+     -50.14,
+     -15.93,
+     "Vila Boa de Goiás, GO"
+    ],
+    [
+     -56.1,
+     -15.6,
+     "Cuiabá, MT"
+    ]
+   ],
+   "fontes": [
+    "Boxer, C. R. (1962) The Golden Age of Brazil, 1695–1750",
+    "Fausto, B. (2012) História do Brasil, 14ª ed."
+   ]
+  },
+  {
+   "id": "censo_1872",
+   "ano": 1872,
+   "icone": "📊",
+   "tipo": "humano",
+   "prio": 3,
+   "titulo": "O primeiro censo do Brasil",
+   "texto": "O primeiro recenseamento do Brasil conta 9,9 milhões de habitantes. Cerca de 1,5 milhão (15%) eram pessoas escravizadas, e 58% da população era preta ou parda. A província mais populosa era Minas Gerais, herança do ciclo do ouro, e quase 90% da população vivia no Nordeste e no Sudeste.",
+   "locais": [
+    [
+     -43.17,
+     -22.91,
+     "Rio de Janeiro (capital do Império)"
+    ]
+   ],
+   "fontes": [
+    "IBGE, Recenseamento Geral do Império de 1872",
+    "IBGE, 'Censo 2022: população parda supera a branca pela primeira vez desde 1872' (Agência Brasil, dez. 2023)"
+   ]
+  },
+  {
+   "id": "mundo_urbano",
+   "ano": 2007,
+   "icone": "🌆",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Metade da humanidade nas cidades",
+   "texto": "Por volta de 2007, pela primeira vez, mais da metade das pessoas do mundo passa a viver em cidades. O Brasil fez essa virada antes: era 31% urbano em 1940, passou a ter maioria urbana no censo de 1970 e chegou a 84% em 2010. Hoje, cidades como Tóquio, Délhi, Xangai e São Paulo passam de 20 milhões de habitantes com suas regiões metropolitanas.",
+   "locais": [
+    [
+     139.69,
+     35.69,
+     "Tóquio"
+    ],
+    [
+     77.21,
+     28.61,
+     "Délhi"
+    ],
+    [
+     -46.63,
+     -23.55,
+     "São Paulo"
+    ]
+   ],
+   "fontes": [
+    "ONU/DESA (2018) World Urbanization Prospects",
+    "IBGE, Censos Demográficos 1940, 1970 e 2010"
+   ]
+  },
+  {
+   "id": "indigenas_hoje",
+   "ano": 2022,
+   "icone": "🪶",
+   "tipo": "humano",
+   "prio": 1,
+   "titulo": "Povos indígenas do Brasil hoje",
+   "texto": "O Censo 2022 contou 1.694.836 indígenas (0,83% da população), de 391 povos, falando 295 línguas. Pouco mais da metade vive na Amazônia Legal; os povos mais numerosos são os Tikuna, os Kokama e os Makuxi. Depois de cinco séculos de mortes e perda de terras, a população indígena voltou a crescer.",
+   "locais": [
+    [
+     -68.5,
+     -3.8,
+     "Alto Solimões (AM), terra dos Tikuna"
+    ],
+    [
+     -60.5,
+     4.3,
+     "Raposa Serra do Sol (RR)"
+    ],
+    [
+     -54.5,
+     -22.2,
+     "Mato Grosso do Sul (Guarani Kaiowá)"
+    ]
+   ],
+   "fontes": [
+    "IBGE, Censo 2022: indígenas (ago. 2023)",
+    "IBGE, Censo 2022: etnias e línguas indígenas (24 out. 2025), https://anda.ibge.gov.br/en/agencia-news/2184-news-agency/news/44866-2022-census-brazil-has-391-indigenous-ethnicities-and-295-indigenous-languages"
+   ]
+  }
+ ],
+ "novas_migracoes": [
+  {
+   "id": "h_expansao_arabe",
+   "grupo": "sapiens",
+   "mecanismo": "terra",
+   "de_ano": 632,
+   "ate_ano": 750,
+   "nome": "Expansão árabe e do islã",
+   "texto": "Em pouco mais de um século após a morte de Maomé (632), exércitos e comerciantes árabes levam o islã e a língua árabe da Arábia ao Oriente Médio, ao norte da África, à Península Ibérica (711) e à Ásia Central. O português guarda centenas de palavras de origem árabe, como açúcar, arroz e alface.",
+   "ramos": [
+    [
+     [
+      39.83,
+      21.42
+     ],
+     [
+      36.29,
+      33.51
+     ],
+     [
+      44.4,
+      33.3
+     ],
+     [
+      51.4,
+      35.7
+     ],
+     [
+      59.6,
+      36.3
+     ],
+     [
+      66.96,
+      39.65
+     ]
+    ],
+    [
+     [
+      39.83,
+      21.42
+     ],
+     [
+      31.23,
+      30.01
+     ],
+     [
+      20.07,
+      32.12
+     ],
+     [
+      10.1,
+      35.68
+     ],
+     [
+      -5.8,
+      35.77
+     ],
+     [
+      -5.35,
+      36.14
+     ],
+     [
+      -4.78,
+      37.88
+     ]
+    ]
+   ],
+   "fontes": [
+    "Kennedy, H. (2007) The Great Arab Conquests",
+    "Hoyland, R. (2015) In God's Path"
+   ]
+  },
+  {
+   "id": "h_rota_seda",
+   "grupo": "sapiens",
+   "mecanismo": "terra",
+   "de_ano": -130,
+   "ate_ano": 1450,
+   "nome": "Rota da Seda",
+   "texto": "Caravanas de camelos ligam a China ao Mediterrâneo por oásis da Ásia Central. Mercadores sogdianos, persas e chineses levam seda, papel e especiarias, e com eles viajam religiões, ideias e doenças.",
+   "ramos": [
+    [
+     [
+      108.94,
+      34.34
+     ],
+     [
+      103.83,
+      36.06
+     ],
+     [
+      94.66,
+      40.14
+     ],
+     [
+      89.19,
+      42.95
+     ],
+     [
+      75.99,
+      39.47
+     ],
+     [
+      66.96,
+      39.65
+     ],
+     [
+      61.84,
+      37.66
+     ],
+     [
+      51.4,
+      35.6
+     ],
+     [
+      44.58,
+      33.09
+     ],
+     [
+      38.27,
+      34.55
+     ],
+     [
+      36.16,
+      36.2
+     ]
+    ],
+    [
+     [
+      36.16,
+      36.2
+     ],
+     [
+      32.5,
+      37.9
+     ],
+     [
+      28.98,
+      41.01
+     ]
+    ]
+   ],
+   "fontes": [
+    "Hansen, V. (2012) The Silk Road: A New History",
+    "UNESCO (2014) Silk Roads: Chang'an-Tianshan Corridor"
+   ]
+  },
+  {
+   "id": "h_moncoes",
+   "grupo": "sapiens",
+   "mecanismo": "barco",
+   "de_ano": 700,
+   "ate_ano": 1500,
+   "nome": "As rotas das monções no Índico",
+   "texto": "As velas aproveitam os ventos das monções: para leste no verão, para oeste no inverno. Mercadores árabes, persas, indianos, malaios e suaílis circulam entre a África Oriental, a Arábia, a Índia, Malaca e a China, e comunidades de comerciantes se fixam em portos distantes.",
+   "ramos": [
+    [
+     [
+      39.51,
+      -8.96
+     ],
+     [
+      39.67,
+      -4.05
+     ],
+     [
+      45.34,
+      2.04
+     ],
+     [
+      51.0,
+      11.5
+     ],
+     [
+      54.1,
+      16.9
+     ],
+     [
+      58.4,
+      23.6
+     ],
+     [
+      56.45,
+      27.1
+     ]
+    ],
+    [
+     [
+      58.4,
+      23.6
+     ],
+     [
+      66.0,
+      20.0
+     ],
+     [
+      72.8,
+      18.9
+     ],
+     [
+      75.78,
+      11.25
+     ]
+    ],
+    [
+     [
+      75.78,
+      11.25
+     ],
+     [
+      79.9,
+      6.9
+     ],
+     [
+      95.3,
+      5.55
+     ],
+     [
+      102.25,
+      2.19
+     ],
+     [
+      106.7,
+      10.0
+     ],
+     [
+      113.26,
+      23.13
+     ],
+     [
+      118.59,
+      24.9
+     ]
+    ]
+   ],
+   "fontes": [
+    "Chaudhuri, K. N. (1985) Trade and Civilisation in the Indian Ocean",
+    "Beaujard, P. (2019) The Worlds of the Indian Ocean"
+   ]
+  },
+  {
+   "id": "h_ouro_interior",
+   "grupo": "sapiens",
+   "mecanismo": "terra",
+   "de_ano": 1690,
+   "ate_ano": 1760,
+   "nome": "Rumo às minas: a interiorização do Brasil",
+   "texto": "A descoberta do ouro leva paulistas, portugueses e africanos escravizados para Minas Gerais e, depois, Goiás e Mato Grosso. Caminhos ligam as minas ao Rio de Janeiro (Caminho Novo), a São Paulo e à Bahia (pelo rio São Francisco), e as 'monções' paulistas descem os rios até Cuiabá. Pela primeira vez, a colonização sai do litoral.",
+   "ramos": [
+    [
+     [
+      -46.63,
+      -23.55
+     ],
+     [
+      -45.4,
+      -22.7
+     ],
+     [
+      -44.26,
+      -21.14
+     ],
+     [
+      -43.5,
+      -20.39
+     ]
+    ],
+    [
+     [
+      -43.17,
+      -22.91
+     ],
+     [
+      -43.35,
+      -21.76
+     ],
+     [
+      -43.5,
+      -20.39
+     ]
+    ],
+    [
+     [
+      -38.51,
+      -12.97
+     ],
+     [
+      -41.5,
+      -11.5
+     ],
+     [
+      -43.2,
+      -13.3
+     ],
+     [
+      -44.4,
+      -16.5
+     ],
+     [
+      -43.5,
+      -20.39
+     ]
+    ],
+    [
+     [
+      -46.63,
+      -23.55
+     ],
+     [
+      -47.4,
+      -20.5
+     ],
+     [
+      -48.3,
+      -17.8
+     ],
+     [
+      -50.14,
+      -15.93
+     ]
+    ],
+    [
+     [
+      -46.63,
+      -23.55
+     ],
+     [
+      -48.3,
+      -22.7
+     ],
+     [
+      -51.3,
+      -20.7
+     ],
+     [
+      -53.5,
+      -21.3
+     ],
+     [
+      -55.0,
+      -19.0
+     ],
+     [
+      -57.0,
+      -17.5
+     ],
+     [
+      -56.1,
+      -15.6
+     ]
+    ]
+   ],
+   "fontes": [
+    "Boxer, C. R. (1962) The Golden Age of Brazil",
+    "Holanda, S. B. de (1945) Monções"
+   ]
+  },
+  {
+   "id": "h_borracha",
+   "grupo": "sapiens",
+   "mecanismo": "navio",
+   "de_ano": 1870,
+   "ate_ano": 1912,
+   "nome": "Nordestinos e o ciclo da borracha",
+   "texto": "Fugindo da grande seca de 1877–1879 e atraídos pela borracha, ~300 a 500 mil nordestinos, sobretudo cearenses, sobem o Amazonas de navio até os seringais do Pará, do Amazonas e do Acre. Muitos trabalhavam presos a dívidas com os seringalistas, e povos indígenas da região foram expulsos ou escravizados. Na Segunda Guerra, outros ~55 mil 'soldados da borracha' fariam o mesmo caminho.",
+   "ramos": [
+    [
+     [
+      -38.52,
+      -3.72
+     ],
+     [
+      -41.5,
+      -2.3
+     ],
+     [
+      -44.3,
+      -1.8
+     ],
+     [
+      -48.5,
+      -1.46
+     ],
+     [
+      -51.5,
+      -1.0
+     ],
+     [
+      -54.7,
+      -2.44
+     ],
+     [
+      -60.02,
+      -3.12
+     ]
+    ],
+    [
+     [
+      -60.02,
+      -3.12
+     ],
+     [
+      -62.5,
+      -4.5
+     ],
+     [
+      -64.8,
+      -7.0
+     ],
+     [
+      -67.81,
+      -9.97
+     ]
+    ],
+    [
+     [
+      -60.02,
+      -3.12
+     ],
+     [
+      -61.5,
+      -5.5
+     ],
+     [
+      -63.9,
+      -8.76
+     ]
+    ]
+   ],
+   "fontes": [
+    "Weinstein, B. (1983) The Amazon Rubber Boom, 1850–1920",
+    "Secreto, M. V. (2007) Soldados da borracha: trabalhadores entre o sertão e a Amazônia no governo Vargas"
+   ]
+  },
+  {
+   "id": "h_particao",
+   "grupo": "sapiens",
+   "mecanismo": "terra",
+   "de_ano": 1947,
+   "ate_ano": 1948,
+   "nome": "A Partição da Índia",
+   "texto": "Com a independência e a divisão entre Índia e Paquistão (1947), cerca de 15 milhões de pessoas cruzam as novas fronteiras: hindus e sikhs para a Índia, muçulmanos para o Paquistão. A violência matou de centenas de milhares a até 2 milhões de pessoas. Foi um dos maiores deslocamentos forçados do século XX.",
+   "ramos": [
+    [
+     [
+      73.05,
+      33.6
+     ],
+     [
+      74.34,
+      31.55
+     ],
+     [
+      75.86,
+      30.9
+     ],
+     [
+      77.21,
+      28.61
+     ]
+    ],
+    [
+     [
+      77.21,
+      28.61
+     ],
+     [
+      76.0,
+      29.8
+     ],
+     [
+      74.34,
+      31.55
+     ],
+     [
+      71.5,
+      29.4
+     ],
+     [
+      67.0,
+      24.86
+     ]
+    ],
+    [
+     [
+      88.36,
+      22.57
+     ],
+     [
+      89.5,
+      23.3
+     ],
+     [
+      90.41,
+      23.81
+     ]
+    ]
+   ],
+   "fontes": [
+    "Khan, Y. (2007) The Great Partition",
+    "Bharadwaj, P., Khwaja, A. & Mian, A. (2008) Economic and Political Weekly 43(35): 39–49"
+   ]
+  },
+  {
+   "id": "h_china_cidades",
+   "grupo": "sapiens",
+   "mecanismo": "terra",
+   "de_ano": 1980,
+   "ate_ano": 2020,
+   "nome": "Do campo às cidades na China",
+   "texto": "Com as reformas econômicas, perto de 300 milhões de trabalhadores migram do interior rural para as fábricas e cidades da costa chinesa, como Shenzhen, Xangai e Pequim. Em números, é a maior migração da história. A China passa de 19% urbana (1980) para 64% (2020).",
+   "ramos": [
+    [
+     [
+      104.07,
+      30.67
+     ],
+     [
+      108.9,
+      26.5
+     ],
+     [
+      113.26,
+      23.13
+     ],
+     [
+      114.06,
+      22.54
+     ]
+    ],
+    [
+     [
+      113.65,
+      34.76
+     ],
+     [
+      117.3,
+      32.0
+     ],
+     [
+      121.47,
+      31.23
+     ]
+    ],
+    [
+     [
+      113.65,
+      34.76
+     ],
+     [
+      116.4,
+      39.9
+     ]
+    ],
+    [
+     [
+      112.94,
+      28.23
+     ],
+     [
+      113.26,
+      23.13
+     ]
+    ]
+   ],
+   "fontes": [
+    "Escritório Nacional de Estatística da China (2021) Relatório de monitoramento dos trabalhadores migrantes 2020",
+    "Chan, K. W. (2013) Eurasian Geography and Economics 54: 1–15"
+   ]
+  }
+ ],
+ "novos_povos": [
+  {
+   "n": "Caral-Supe",
+   "de_ano": -3000,
+   "ate_ano": -1800,
+   "pos": [
+    -77.52,
+    -10.89
+   ],
+   "arcaico": false,
+   "texto": "A civilização mais antiga das Américas, com pirâmides no litoral do Peru.",
+   "fontes": [
+    "Shady Solís, R. et al. (2001) Science 292: 723–726"
+   ]
+  },
+  {
+   "n": "Lapita",
+   "de_ano": -1350,
+   "ate_ano": -500,
+   "pos": [
+    165.0,
+    -12.0
+   ],
+   "arcaico": false,
+   "texto": "Ceramistas e navegadores, ancestrais dos polinésios, que saltaram das ilhas Bismarck até Fiji, Tonga e Samoa.",
+   "fontes": [
+    "Kirch, P. V. (2017) On the Road of the Winds",
+    "Sheppard, P. (2011) 'Lapita colonization across the Near/Remote Oceania boundary', Current Anthropology 52"
+   ]
+  },
+  {
+   "n": "Fenícios",
+   "de_ano": -1200,
+   "ate_ano": -146,
+   "pos": [
+    35.5,
+    33.9
+   ],
+   "arcaico": false,
+   "texto": "Navegadores do atual Líbano que fundaram Cartago e espalharam pelo Mediterrâneo o alfabeto do qual descendem o grego e o latino.",
+   "fontes": [
+    "Aubet, M. E. (2001) The Phoenicians and the West, 2ª ed."
+   ]
+  },
+  {
+   "n": "Suaílis",
+   "de_ano": 800,
+   "ate": 0,
+   "pos": [
+    39.5,
+    -6.5
+   ],
+   "arcaico": false,
+   "texto": "Cidades mercantis da costa leste da África, como Kilwa e Mombaça, ligadas ao comércio do Índico. O suaíli é hoje uma das línguas mais faladas da África.",
+   "fontes": [
+    "Horton, M. & Middleton, J. (2000) The Swahili"
+   ]
+  },
+  {
+   "n": "Upano",
+   "de_ano": -500,
+   "ate_ano": 600,
+   "pos": [
+    -78.12,
+    -2.31
+   ],
+   "arcaico": false,
+   "texto": "Construtores das cidades mais antigas conhecidas da Amazônia, reveladas por mapas a laser no Equador.",
+   "fontes": [
+    "Rostain, S. et al. (2024) Science 383: 183–189"
+   ]
+  },
+  {
+   "n": "Casarabe",
+   "de_ano": 500,
+   "ate_ano": 1400,
+   "pos": [
+    -64.82,
+    -14.79
+   ],
+   "arcaico": false,
+   "texto": "Sociedade amazônica da Bolívia que ergueu centros com pirâmides de terra, canais e represas.",
+   "fontes": [
+    "Prümers, H. et al. (2022) Nature 606: 325–328"
+   ]
+  },
+  {
+   "n": "Palmares (quilombo)",
+   "de_ano": 1600,
+   "ate_ano": 1695,
+   "pos": [
+    -36.08,
+    -9.17
+   ],
+   "arcaico": false,
+   "texto": "O maior quilombo das Américas, formado por pessoas que fugiram da escravidão; resistiu por quase um século em Alagoas.",
+   "fontes": [
+    "Gomes, F. dos S. (2005) Palmares"
+   ]
+  }
+ ],
+ "novas_cidades": [
+  {
+   "nome": "Caral",
+   "lon": -77.52,
+   "lat": -10.89,
+   "fundacao": -2600,
+   "abandono": -1800,
+   "fontes": [
+    "Shady Solís, R. et al. (2001) Science 292: 723–726"
+   ]
+  },
+  {
+   "nome": "Jenné-Jeno",
+   "lon": -4.53,
+   "lat": 13.89,
+   "fundacao": -250,
+   "abandono": 1400,
+   "fontes": [
+    "McIntosh, S. K. & McIntosh, R. J. (1980) Prehistoric Investigations in the Region of Jenne, Mali"
+   ]
+  },
+  {
+   "nome": "Samarcanda",
+   "lon": 66.96,
+   "lat": 39.65,
+   "fundacao": -700,
+   "abandono": null,
+   "fontes": [
+    "UNESCO, Samarkand – Crossroad of Cultures (2001), https://whc.unesco.org/en/list/603"
+   ]
+  },
+  {
+   "nome": "Chan Chan",
+   "lon": -79.07,
+   "lat": -8.11,
+   "fundacao": 850,
+   "abandono": 1470,
+   "fontes": [
+    "UNESCO, Chan Chan Archaeological Zone, https://whc.unesco.org/en/list/366"
+   ]
+  },
+  {
+   "nome": "Kilwa Kisiwani",
+   "lon": 39.51,
+   "lat": -8.96,
+   "fundacao": 900,
+   "abandono": null,
+   "fontes": [
+    "Chittick, N. (1974) Kilwa: An Islamic Trading City on the East African Coast",
+    "UNESCO, https://whc.unesco.org/en/list/144"
+   ]
+  },
+  {
+   "nome": "Malaca",
+   "lon": 102.25,
+   "lat": 2.19,
+   "fundacao": 1400,
+   "abandono": null,
+   "fontes": [
+    "UNESCO, Melaka and George Town, https://whc.unesco.org/en/list/1223"
+   ]
+  },
+  {
+   "nome": "Potosí",
+   "lon": -65.75,
+   "lat": -19.59,
+   "fundacao": 1545,
+   "abandono": null,
+   "fontes": [
+    "UNESCO, City of Potosí, https://whc.unesco.org/en/list/420",
+    "Lane, K. (2019) Potosí: The Silver City That Changed the World"
+   ]
+  },
+  {
+   "nome": "Palmares (Macaco)",
+   "lon": -36.08,
+   "lat": -9.17,
+   "fundacao": 1605,
+   "abandono": 1694,
+   "fontes": [
+    "Gomes, F. dos S. (2005) Palmares"
+   ]
+  },
+  {
+   "nome": "Ouro Preto (Vila Rica)",
+   "lon": -43.5,
+   "lat": -20.39,
+   "fundacao": 1711,
+   "abandono": null,
+   "fontes": [
+    "UNESCO, Historic Town of Ouro Preto, https://whc.unesco.org/en/list/124"
+   ]
+  },
+  {
+   "nome": "Cuiabá",
+   "lon": -56.1,
+   "lat": -15.6,
+   "fundacao": 1719,
+   "abandono": null,
+   "fontes": [
+    "IBGE Cidades, Cuiabá: histórico"
+   ]
+  }
+ ],
+ "perspectivas": [
+  {
+   "id": "origem_sapiens",
+   "titulo": "Onde surgiu o Homo sapiens?",
+   "resumo": "Os fósseis mais antigos da nossa espécie estão espalhados pela África, do Marrocos à África do Sul, e o DNA guarda sinais de populações antigas que se separaram e se juntaram de novo. Por isso não há consenso sobre um 'berço' único.",
+   "opcoes": [
+    {
+     "id": "africa_oriental",
+     "nome": "Berço na África Oriental",
+     "padrao": false,
+     "texto": "Durante décadas, a ideia dominante foi que os sapiens surgiram numa só região, a África Oriental, há ~200 mil anos. Lá estão fósseis como Omo Kibish (Etiópia, pelo menos 233 mil anos) e Herto (~160 mil). Nessa visão, Jebel Irhoud (Marrocos, ~315 mil anos) seria um parente próximo, mas ainda não um sapiens completo, porque tem o crânio alongado.",
+     "fontes": [
+      "White, T. et al. (2003) Nature 423: 742–747 (Herto)",
+      "Vidal, C. et al. (2022) Nature 601: 579–583 (Omo Kibish ≥233 mil anos)",
+      "Cann, R., Stoneking, M. & Wilson, A. (1987) Nature 325: 31–36"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "sapiens": {
+        "t": 0.233,
+        "texto": "Os fósseis mais antigos da nossa espécie com crânio totalmente moderno são de Omo Kibish (Etiópia, pelo menos 233 mil anos) e Herto (~160 mil). Da África Oriental, os sapiens teriam se espalhado pelo continente.",
+        "locais": [
+         [
+          35.9,
+          5.4,
+          "Omo Kibish, Etiópia"
+         ],
+         [
+          40.53,
+          10.28,
+          "Herto, Etiópia"
+         ]
+        ]
+       }
+      },
+      "grupos": {
+       "sapiens": {
+        "origem": 0.233,
+        "texto": "Nossa espécie teria surgido na África Oriental há ~230–200 mil anos e saído dela há ~60 mil, chegando à Austrália de barco e às Américas pela Beríngia."
+       }
+      },
+      "rotas": {
+       "h_africa": {
+        "de": 0.233,
+        "ate": 0.12,
+        "texto": "Da África Oriental, os sapiens se espalham pelo continente, inclusive pelo Saara, que ficava verde nos períodos úmidos, até o Marrocos e a África do Sul.",
+        "ramos": [
+         [
+          [
+           35.9,
+           5.4
+          ],
+          [
+           30.0,
+           12.0
+          ],
+          [
+           15.0,
+           18.0
+          ],
+          [
+           0.0,
+           25.0
+          ],
+          [
+           -8.87,
+           31.85
+          ]
+         ],
+         [
+          [
+           35.9,
+           5.4
+          ],
+          [
+           35.0,
+           -6.0
+          ],
+          [
+           28.0,
+           -14.0
+          ],
+          [
+           24.4,
+           -34.1
+          ]
+         ]
+        ]
+       }
+      },
+      "chegada": {
+       "africa": 0.233
+      }
+     }
+    },
+    {
+     "id": "pan_africana",
+     "nome": "Origem pan-africana",
+     "padrao": true,
+     "texto": "Não haveria um único berço: populações espalhadas pela África trocavam genes de tempos em tempos e, juntas, foram formando a nossa espécie. A evidência são fósseis com traços modernos em lugares distantes e em épocas próximas: Jebel Irhoud (Marrocos, ~315 mil anos), Florisbad (África do Sul, ~260 mil) e Omo Kibish (Etiópia, ≥233 mil), além de ferramentas parecidas por todo o continente. É o que o mapa mostra hoje.",
+     "fontes": [
+      "Hublin, J.-J. et al. (2017) Nature 546: 289–292",
+      "Scerri, E. et al. (2018) Trends in Ecology & Evolution 33: 582–594"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "linhagens_que_se_reuniram",
+     "nome": "Linhagens antigas que se reuniram",
+     "padrao": false,
+     "texto": "Modelos recentes de DNA sugerem que nossos ancestrais se dividiram em duas populações há ~1,5 milhão de anos e voltaram a se misturar há ~300 mil anos; uma delas deu ~80% do nosso genoma. Outro modelo fala num 'tronco' de grupos africanos pouco separados, que trocaram genes por centenas de milhares de anos. Nessa visão, a pergunta 'onde surgiu o sapiens?' não tem resposta de um lugar só.",
+     "fontes": [
+      "Cousins, T., Scally, A. & Durbin, R. (2025) Nature Genetics, 'A structured coalescent model reveals deep ancestral structure shared by all modern humans'",
+      "Ragsdale, A. et al. (2023) Nature 617: 755–763"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "sapiens": {
+        "texto": "Os fósseis mais antigos da nossa espécie são de Jebel Irhoud, no Marrocos. O DNA sugere que viemos da fusão de linhagens africanas que ficaram separadas por mais de um milhão de anos e voltaram a se misturar há ~300 mil anos."
+       }
+      },
+      "grupos": {
+       "sapiens": {
+        "texto": "Nossa espécie se formou na África há ~300 mil anos, a partir de linhagens antigas que se reuniram. Saiu do continente há ~60 mil anos, chegando à Austrália de barco e às Américas pela Beríngia."
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "saida_africa",
+   "titulo": "Quando os sapiens saíram da África?",
+   "resumo": "Há fósseis de sapiens fora da África com mais de 100 mil anos, mas o DNA de quase todos os não africanos aponta para uma saída principal bem mais recente. As datas de sítios na Ásia e na Austrália puxam para um lado ou para o outro.",
+   "opcoes": [
+    {
+     "id": "saida_principal_65",
+     "nome": "Saída principal há ~65 mil anos",
+     "padrao": true,
+     "texto": "Grupos saíram da África há ~60 a 75 mil anos, provavelmente pelo sul do mar Vermelho, e seguiram a costa até a Ásia e a Austrália. Saídas anteriores, como a de Skhul e Qafzeh (Israel, ~100–130 mil anos), não deixaram descendentes visíveis. Apoiam essa data sítios antigos na Ásia, como Tam Pa Ling (Laos, ~70 mil anos), e Madjedbebe (Austrália, ~65 mil). É o que o mapa mostra hoje.",
+     "fontes": [
+      "Freidline, S. et al. (2023) Nature Communications 14 (Tam Pa Ling, Laos)",
+      "Clarkson, C. et al. (2017) Nature 547: 306–310",
+      "Mellars, P. et al. (2013) PNAS 110: 10699–10704"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "saida_tardia_50",
+     "nome": "Saída mais tardia, ~50 mil anos",
+     "padrao": false,
+     "texto": "Genomas antigos mostram que todos os não africanos vivos descendem de uma população que se misturou com neandertais há ~45 a 49 mil anos, pouco depois de sair da África. Para esses pesquisadores, a grande saída foi há ~50 a 55 mil anos, talvez pelo Sinai, e os fósseis mais antigos fora da África seriam de grupos sem descendentes. A Austrália teria sido alcançada só há ~47 a 50 mil anos.",
+     "fontes": [
+      "Sümer, A. P. et al. (2025) Nature 638, doi:10.1038/s41586-024-08420-x",
+      "Iasi, L. N. M. et al. (2024) Science 386: eadq3010",
+      "O'Connell, J. F. et al. (2018) PNAS 115: 8482–8490"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "saida_africa": {
+        "t": 0.052,
+        "texto": "Grupos de sapiens deixam a África, talvez pelo Sinai, e se espalham rapidamente pela Ásia. Logo depois cruzam com neandertais (há ~45 a 49 mil anos): todos os não africanos de hoje carregam esse DNA."
+       }
+      },
+      "rotas": {
+       "sapiens_saida": {
+        "de": 0.055,
+        "ate": 0.045,
+        "texto": "Pelo Sinai e pelo Oriente Médio, depois pelo sul da Ásia e pelo Sudeste Asiático. A travessia final até a Austrália foi de barco.",
+        "ramos": [
+         [
+          [
+           32.0,
+           27.0
+          ],
+          [
+           33.5,
+           30.5
+          ],
+          [
+           35.0,
+           32.0
+          ],
+          [
+           44.0,
+           33.0
+          ],
+          [
+           52.0,
+           30.0
+          ],
+          [
+           60.0,
+           27.0
+          ],
+          [
+           72.0,
+           22.0
+          ],
+          [
+           80.0,
+           12.0
+          ],
+          [
+           98.0,
+           10.0
+          ],
+          [
+           104.0,
+           1.0
+          ],
+          [
+           115.0,
+           -8.5
+          ]
+         ],
+         [
+          [
+           115.0,
+           -8.5
+          ],
+          [
+           123.0,
+           -10.5
+          ],
+          [
+           132.9,
+           -12.5
+          ],
+          [
+           143.0,
+           -33.7
+          ]
+         ]
+        ]
+       }
+      },
+      "grupos": {
+       "sapiens": {
+        "texto": "Nossa espécie surgiu na África há ~300 mil anos e saiu dela há ~50 mil, chegando à Austrália de barco e às Américas pela Beríngia."
+       }
+      },
+      "chegada": {
+       "arabia": 0.055,
+       "oriente_medio": 0.052,
+       "asia_sul": 0.05,
+       "sudeste_asiatico": 0.05,
+       "wallacea": 0.048,
+       "sahul": 0.047,
+       "melanesia": 0.045
+      }
+     }
+    },
+    {
+     "id": "varias_ondas",
+     "nome": "Várias ondas desde ~200 mil anos",
+     "padrao": false,
+     "texto": "Para outros, os sapiens saíram da África várias vezes, sempre que o clima úmido abria caminho. Há uma mandíbula em Misliya (Israel, ~180 mil anos), talvez um crânio em Apidima (Grécia, ~210 mil), pegadas em Alathar (Arábia, ~115 mil) e um dedo em Al Wusta (Arábia, ~85 mil). Algumas dessas ondas podem ter chegado ao sul e ao sudeste da Ásia e deixado um pouco de DNA em povos de hoje, mas isso ainda não está provado.",
+     "fontes": [
+      "Hershkovitz, I. et al. (2018) Science 359: 456–459",
+      "Harvati, K. et al. (2019) Nature 571: 500–504",
+      "Stewart, M. et al. (2020) Science Advances 6: eaba8940",
+      "Groucutt, H. et al. (2018) Nature Ecology & Evolution 2: 800–809",
+      "Pagani, L. et al. (2016) Nature 538: 238–242"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "saida_africa": {
+        "texto": "Depois de várias ondas anteriores, a maior saída da África acontece há ~65 mil anos. Grupos seguem pela Arábia e pela costa até a Ásia, encontrando e cruzando com neandertais e denisovanos."
+       }
+      },
+      "rotas": {
+       "h_levante": {
+        "de": 0.19,
+        "ate": 0.09,
+        "texto": "Sapiens já estavam no Levante há ~180 mil anos (Misliya) e de novo há ~130 a 90 mil (Skhul e Qafzeh). Nesta visão, eram ondas que às vezes seguiam adiante, pela Arábia verde."
+       }
+      },
+      "chegada": {
+       "levante": 0.185,
+       "arabia": 0.12,
+       "asia_sul": 0.08,
+       "sudeste_asiatico": 0.075
+      },
+      "eventos_extra": [
+       {
+        "id": "misliya",
+        "t": 0.185,
+        "icone": "🦴",
+        "tipo": "humano",
+        "prio": 2,
+        "titulo": "Sapiens em Israel há ~180 mil anos",
+        "texto": "Uma mandíbula da caverna de Misliya (Israel), com 177 a 194 mil anos, é de Homo sapiens, e um crânio de Apidima (Grécia) pode ter ~210 mil anos. Seriam saídas muito antigas da África, que talvez não tenham deixado descendentes.",
+        "locais": [
+         [
+          34.96,
+          32.69,
+          "Caverna de Misliya, Israel"
+         ],
+         [
+          22.38,
+          36.63,
+          "Apidima, Grécia"
+         ]
+        ]
+       }
+      ],
+      "rotas_extra": [
+       {
+        "id": "sapiens_arabia_verde",
+        "grupo": "sapiens",
+        "mecanismo": "terra",
+        "de": 0.13,
+        "ate": 0.075,
+        "nome": "Pela Arábia verde",
+        "texto": "Em períodos úmidos, a Arábia tinha lagos e rios. Ferramentas em Jebel Faya (~125 mil anos), pegadas em Alathar (~115 mil) e um dedo em Al Wusta (~85 mil) indicariam sapiens ali muito antes da grande saída.",
+        "ramos": [
+         [
+          [
+           33.5,
+           30.0
+          ],
+          [
+           37.9,
+           28.2
+          ],
+          [
+           39.6,
+           27.3
+          ],
+          [
+           47.0,
+           25.0
+          ],
+          [
+           55.8,
+           25.1
+          ]
+         ],
+         [
+          [
+           43.3,
+           12.6
+          ],
+          [
+           45.0,
+           14.5
+          ],
+          [
+           50.0,
+           18.0
+          ],
+          [
+           55.8,
+           25.1
+          ]
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "chegada_australia",
+   "titulo": "Quando os humanos chegaram à Austrália?",
+   "resumo": "As datas de Madjedbebe (~65 mil anos) dividem os arqueólogos. Parte das evidências genéticas e outros sítios apontam para ~50 mil anos, enquanto achados novos, como a arte de Muna, reforçam a data antiga.",
+   "opcoes": [
+    {
+     "id": "cronologia_longa",
+     "nome": "Cronologia longa: 60–65 mil anos",
+     "padrao": true,
+     "texto": "Ferramentas, pigmentos e fogueiras em Madjedbebe, no norte da Austrália, foram datados de ~65 mil anos. Um estudo de 2025 com ~2.500 genomas mitocondriais também apontou chegada a Sahul (Austrália e Nova Guiné unidas) há ~60 mil anos, por duas rotas. E um estêncil de mão em Muna (Indonésia), com pelo menos 67.800 anos, mostra gente na região de passagem muito cedo. É o que o mapa mostra hoje.",
+     "fontes": [
+      "Clarkson, C. et al. (2017) Nature 547: 306–310",
+      "Gandini, F. et al. (2025) Science Advances, doi:10.1126/sciadv.ady9493",
+      "Oktaviana, A. A. et al. (2026) Nature"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "cronologia_curta",
+     "nome": "Cronologia curta: ~47–50 mil anos",
+     "padrao": false,
+     "texto": "Críticos dizem que objetos de Madjedbebe podem ter afundado na areia (por cupins ou pisoteio), parecendo mais antigos do que são. Os sítios mais seguros, como Warratyi e Devil's Lair, têm ~45 a 50 mil anos, e o Lago Mungo, ~42 mil. A data da mistura com neandertais (~47 mil anos), presente também nos aborígenes, combina melhor com uma chegada mais tardia.",
+     "fontes": [
+      "O'Connell, J. F. et al. (2018) PNAS 115: 8482–8490",
+      "Hamm, G. et al. (2016) Nature 539: 280–283",
+      "Bowler, J. et al. (2003) Nature 421: 837–840"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "australia": {
+        "t": 0.049,
+        "texto": "Há ~50 mil anos, mesmo com o mar baixo, foi preciso atravessar o mar entre Sunda e Sahul de barco: a primeira grande navegação da história. Os sítios mais seguros têm de 45 a 50 mil anos.",
+        "locais": [
+         [
+          138.6,
+          -30.5,
+          "Warratyi, Austrália"
+         ],
+         [
+          115.1,
+          -34.1,
+          "Devil's Lair, Austrália"
+         ],
+         [
+          143.0,
+          -33.7,
+          "Lago Mungo, Austrália"
+         ]
+        ]
+       }
+      },
+      "chegada": {
+       "sahul": 0.049
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "primeiros_americanos",
+   "titulo": "Quando os primeiros humanos chegaram às Américas?",
+   "resumo": "Por décadas valeu a regra 'Clovis primeiro' (~13 mil anos), derrubada por sítios como Monte Verde. Hoje a disputa é sobre sítios de mais de 20 mil anos, inclusive no Brasil.",
+   "opcoes": [
+    {
+     "id": "pre_clovis_16",
+     "nome": "~15–17 mil anos, pela costa",
+     "padrao": true,
+     "texto": "Os primeiros americanos teriam descido pela costa do Pacífico assim que o gelo recuou, há ~16 a 17 mil anos. Os sítios bem aceitos são Monte Verde (Chile, 14.500 anos), Cooper's Ferry (EUA, ~16 mil) e Paisley (EUA, ~14.300). A antiga ideia de 'Clovis primeiro' (~13 mil anos) foi abandonada por causa deles, e sítios mais antigos são vistos com cautela. É o que o mapa mostra hoje.",
+     "fontes": [
+      "Dillehay, T. et al. (2015) PLOS ONE 10: e0141923 (Monte Verde)",
+      "Davis, L. et al. (2019) Science 365: 891–897 (Cooper's Ferry)",
+      "Waters, M. (2019) Science 365: eaat5447"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "antes_lgm",
+     "nome": "Antes do auge do gelo: 21–27 mil anos",
+     "padrao": false,
+     "texto": "Pegadas humanas em White Sands (Novo México) foram datadas três vezes, com sementes, pólen e lama, em ~21 a 23 mil anos. No Brasil, ossos de preguiça-gigante furados e polidos em Santa Elina (MT) têm ~25 a 27 mil anos, e na caverna Chiquihuite (México) há pedras lascadas de ~26 mil. Se estiverem certos, gente entrou nas Américas antes do Último Máximo Glacial, em grupos pequenos que deixaram poucos rastros.",
+     "fontes": [
+      "Bennett, M. et al. (2021) Science 373: 1528–1531",
+      "Pigati, J. et al. (2023) Science 382: 73–75",
+      "Holliday, V. et al. (2025) Science Advances (datação da lama de White Sands)",
+      "Pansani, T. et al. (2023) Proc. R. Soc. B 290: 20230316",
+      "Ardelean, C. et al. (2020) Nature 584: 87–92"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "americas": {
+        "t": 0.023,
+        "texto": "Vindos da Sibéria pela Beríngia antes do auge do gelo, pequenos grupos deixam pegadas em White Sands (EUA) há ~21 a 23 mil anos. Mais tarde, há 14.500 anos, Monte Verde (Chile) já tinha um acampamento.",
+        "locais": [
+         [
+          -106.4,
+          32.85,
+          "White Sands, EUA"
+         ],
+         [
+          -101.4,
+          24.6,
+          "Caverna Chiquihuite, México"
+         ],
+         [
+          -73.2,
+          -41.5,
+          "Monte Verde, Chile"
+         ]
+        ]
+       }
+      },
+      "rotas": {
+       "sapiens_america": {
+        "de": 0.032,
+        "ate": 0.0115,
+        "texto": "Caçadores da Sibéria atravessaram a Beríngia antes do auge da era glacial, há mais de 23 mil anos, e se espalharam em pequenos grupos pela costa e pelo interior, chegando ao Brasil."
+       }
+      },
+      "chegada": {
+       "alasca": 0.03,
+       "america_norte": 0.028,
+       "america_central": 0.027,
+       "america_sul": 0.026,
+       "brasil": 0.026
+      },
+      "eventos_extra": [
+       {
+        "id": "santa_elina",
+        "t": 0.026,
+        "icone": "🦥",
+        "tipo": "humano",
+        "prio": 2,
+        "titulo": "Santa Elina, Mato Grosso",
+        "texto": "No abrigo de Santa Elina (MT), três placas ósseas de preguiça-gigante foram furadas e polidas, provavelmente para virar pingentes. As camadas onde estavam têm ~25 a 27 mil anos. Se a interpretação estiver certa, havia gente no Brasil no auge da era glacial.",
+        "locais": [
+         [
+          -56.77,
+          -15.45,
+          "Abrigo Santa Elina, Jangada (MT)"
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "muito_antigo",
+     "nome": "Há 30–50 mil anos (Pedra Furada)",
+     "padrao": false,
+     "texto": "Na Serra da Capivara (PI), a equipe de Niède Guidon datou fogueiras e pedras lascadas da Pedra Furada em mais de 30 mil, e até ~50 mil anos; sítios vizinhos, como a Toca da Tira Peia, teriam ~22 mil. Críticos argumentam que o carvão pode vir de incêndios naturais e que pedras caídas do paredão se quebram parecendo ferramentas. A maioria dos arqueólogos ainda não aceita as datas mais antigas, mas a discussão continua.",
+     "fontes": [
+      "Guidon, N. & Delibrias, G. (1986) Nature 321: 769–771",
+      "Santos, G. M. et al. (2003) Quaternary Science Reviews 22: 2303–2310",
+      "Boëda, E. et al. (2014) Antiquity 88: 927–941",
+      "Lahaye, C. et al. (2013) Journal of Archaeological Science 40: 2840–2847",
+      "Meltzer, D., Adovasio, J. & Dillehay, T. (1994) Antiquity 68: 695–714"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "americas": {
+        "t": 0.05,
+        "texto": "Se as datas da Pedra Furada (PI) estiverem certas, havia gente nas Américas há ~50 mil anos, muito antes do que pensa a maioria dos arqueólogos. Por qual caminho teriam chegado ainda é um mistério.",
+        "locais": [
+         [
+          -42.55,
+          -8.84,
+          "Pedra Furada, PI"
+         ],
+         [
+          -56.07,
+          -34.6,
+          "Arroyo del Vizcaíno, Uruguai"
+         ]
+        ]
+       }
+      },
+      "rotas": {
+       "sapiens_america": {
+        "de": 0.06,
+        "ate": 0.0115,
+        "texto": "Nesta hipótese, os primeiros americanos teriam chegado há mais de 50 mil anos, talvez pela Beríngia num período de clima mais ameno. Teriam deixado poucos rastros, e talvez nenhum descendente."
+       }
+      },
+      "chegada": {
+       "alasca": 0.055,
+       "america_norte": 0.053,
+       "america_central": 0.052,
+       "america_sul": 0.051,
+       "brasil": 0.05
+      },
+      "eventos_extra": [
+       {
+        "id": "santa_elina",
+        "t": 0.026,
+        "icone": "🦥",
+        "tipo": "humano",
+        "prio": 2,
+        "titulo": "Santa Elina, Mato Grosso",
+        "texto": "No abrigo de Santa Elina (MT), três placas ósseas de preguiça-gigante foram furadas e polidas, provavelmente para virar pingentes. As camadas onde estavam têm ~25 a 27 mil anos. Se a interpretação estiver certa, havia gente no Brasil no auge da era glacial.",
+        "locais": [
+         [
+          -56.77,
+          -15.45,
+          "Abrigo Santa Elina, Jangada (MT)"
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "fim_neandertais",
+   "titulo": "Por que os neandertais desapareceram?",
+   "resumo": "Os neandertais sumiram há ~40 mil anos, poucos milênios depois da chegada dos sapiens à Europa. Clima, competição e mistura provavelmente atuaram juntos, mas cada grupo de pesquisa dá mais peso a um fator.",
+   "opcoes": [
+    {
+     "id": "competicao",
+     "nome": "Competição com os sapiens",
+     "padrao": true,
+     "texto": "Os sapiens chegaram em grupos maiores e mais conectados, com armas de arremesso e redes de troca a longa distância. Conviveram com os neandertais por ~3 a 5 mil anos, e nesse período os neandertais foram perdendo território até sumir, há ~40 mil anos. É a leitura mais próxima do texto atual do mapa.",
+     "fontes": [
+      "Higham, T. et al. (2014) Nature 512: 306–309",
+      "Slimak, L. et al. (2022) Science Advances 8: eabj9496 (Grotte Mandrin)"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "clima_populacao",
+     "nome": "Clima instável e populações pequenas",
+     "padrao": false,
+     "texto": "Os neandertais já eram poucos e viviam em grupos isolados, com sinais de consanguinidade no DNA. Mudanças bruscas de clima, como o frio extremo de ~40 mil anos atrás e a erupção dos Campos Flégreos (Itália), teriam dado o golpe final. Alguns grupos podem ter resistido no sul da Península Ibérica até ~37 mil anos.",
+     "fontes": [
+      "Vaesen, K. et al. (2019) PLOS ONE 14: e0225117",
+      "Zilhão, J. et al. (2017) Heliyon 3: e00435",
+      "Slimak, L. et al. (2024) Cell Genomics 4 (neandertal 'Thorin', Grotte Mandrin)"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "neandertais": {
+        "fim": 0.037
+       }
+      },
+      "povos": {
+       "Neandertais": {
+        "ate": 0.037
+       }
+      },
+      "eventos": {
+       "neandertais_fim": {
+        "t": 0.037,
+        "texto": "Depois de ~400 mil anos na Europa, os neandertais, já poucos e isolados, não resistem às mudanças bruscas do clima. Os últimos grupos podem ter vivido no sul da Península Ibérica até ~37 mil anos atrás.",
+        "locais": [
+         [
+          -5.34,
+          36.13,
+          "Gibraltar"
+         ],
+         [
+          -1.5,
+          38.05,
+          "Cueva Antón, Espanha"
+         ]
+        ]
+       }
+      }
+     }
+    },
+    {
+     "id": "absorcao",
+     "nome": "Absorvidos pela mistura",
+     "padrao": false,
+     "texto": "Os neandertais não teriam sido 'eliminados', mas diluídos: eram relativamente poucos e se misturaram aos sapiens, muito mais numerosos. A prova está no nosso DNA: pessoas de origem não africana têm ~1 a 2% de genes neandertais, e um sapiens da Romênia (Oase 1, ~40 mil anos) tinha um ancestral neandertal apenas 4 a 6 gerações antes.",
+     "fontes": [
+      "Fu, Q. et al. (2015) Nature 524: 216–219",
+      "Hajdinjak, M. et al. (2021) Nature 592: 253–257",
+      "Iasi, L. N. M. et al. (2024) Science 386: eadq3010"
+     ],
+     "alteracoes": {
+      "grupos": {
+       "neandertais": {
+        "texto": "Humanos da Europa e da Ásia Ocidental, adaptados ao frio, que enterravam seus mortos e faziam ornamentos. Não sumiram de todo: misturaram-se aos sapiens, e pessoas de origem não africana carregam ~1 a 2% de DNA neandertal."
+       }
+      },
+      "eventos": {
+       "neandertais_fim": {
+        "texto": "Os neandertais deixam de existir como povo há ~40 mil anos, mas seus genes continuam: misturados aos sapiens, muito mais numerosos, eles foram 'absorvidos'. Um sapiens de 40 mil anos da Romênia tinha um ancestral neandertal 4 a 6 gerações antes.",
+        "locais": [
+         [
+          21.85,
+          45.0,
+          "Peștera cu Oase, Romênia"
+         ],
+         [
+          6.9,
+          51.2,
+          "Vale do Neander, Alemanha"
+         ]
+        ]
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "populacao_americas_1492",
+   "titulo": "Quantas pessoas viviam nas Américas em 1492?",
+   "resumo": "Não há censos de antes da conquista: os números vêm de registros coloniais, arqueologia e modelos. As estimativas vão de menos de 10 a mais de 100 milhões, e para o território do Brasil, de 1 a mais de 5 milhões.",
+   "opcoes": [
+    {
+     "id": "baixa",
+     "nome": "Baixa: 8–15 milhões",
+     "padrao": false,
+     "texto": "Estudiosos da primeira metade do século XX, como Kroeber (8,4 milhões) e Rosenblat (13,4 milhões), usaram contagens coloniais feitas já depois das epidemias. Para eles, as Américas eram pouco povoadas fora do México e dos Andes, e o Brasil teria ~1 milhão de indígenas. Hoje a maioria considera esses números baixos demais, porque as doenças chegaram antes dos recenseadores.",
+     "fontes": [
+      "Kroeber, A. (1939) Cultural and Natural Areas of Native North America",
+      "Rosenblat, A. (1954) La población indígena y el mestizaje en América",
+      "Steward, J. (1949) Handbook of South American Indians, vol. 5"
+     ],
+     "alteracoes": {
+      "populacao": {
+       "americas_1500": 12000000,
+       "brasil_1500": 1000000
+      },
+      "eventos": {
+       "cabral": {
+        "texto": "A frota de Cabral chega a Porto Seguro. Pelas estimativas mais baixas, viviam no atual Brasil ~1 milhão de indígenas, de centenas de povos. Nos dois séculos seguintes, guerras, escravização e epidemias matariam a maioria."
+       }
+      }
+     }
+    },
+    {
+     "id": "media",
+     "nome": "Média: 50–60 milhões",
+     "padrao": true,
+     "texto": "Somando 119 estimativas regionais, um estudo de 2019 chegou a ~60 milhões de pessoas (a maioria dos valores entre 45 e 78 milhões); Denevan (1992) propôs ~54 milhões. É a faixa da camada de população do mapa. Para o território do Brasil, as estimativas mais citadas ficam entre 2 e 5 milhões.",
+     "fontes": [
+      "Koch, A. et al. (2019) Quaternary Science Reviews 207: 13–36",
+      "Denevan, W. (1992) The Native Population of the Americas in 1492",
+      "Hemming, J. (1978) Red Gold"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "alta",
+     "nome": "Alta: ~100 milhões",
+     "padrao": false,
+     "texto": "Dobyns (1966) estimou 90 a 112 milhões, supondo que as epidemias se espalharam à frente dos europeus e mataram muitos povos antes de serem contados. A arqueologia recente da Amazônia, com grandes aldeias, estradas e 'terra preta', reforça a ideia de florestas muito mais povoadas: só a Amazônia pode ter tido ~8 milhões de pessoas, e o atual Brasil, mais de 5 milhões.",
+     "fontes": [
+      "Dobyns, H. (1966) Current Anthropology 7: 395–416",
+      "Clement, C. R. et al. (2015) Proc. R. Soc. B 282: 20150813",
+      "Heckenberger, M. et al. (2003) Science 301: 1710–1714"
+     ],
+     "alteracoes": {
+      "populacao": {
+       "americas_1500": 100000000,
+       "brasil_1500": 6000000
+      },
+      "eventos": {
+       "cabral": {
+        "texto": "A frota de Cabral chega a Porto Seguro. Pelas estimativas mais altas, o atual Brasil tinha mais de 5 milhões de indígenas, muitos em grandes aldeias na Amazônia. Nos dois séculos seguintes, guerras, escravização e epidemias matariam a maioria."
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "id": "linguas_indoeuropeias",
+   "titulo": "De onde vêm as línguas indo-europeias?",
+   "resumo": "Línguas faladas por quase metade da humanidade, do português ao hindi, descendem de uma língua ancestral comum. Onde e quando ela era falada é um dos debates mais antigos da linguística, e o DNA antigo reacendeu a discussão.",
+   "opcoes": [
+    {
+     "id": "estepes",
+     "nome": "Estepes, ~3300 a.C. (Yamnaya)",
+     "padrao": true,
+     "texto": "Pastores com cavalos e carroças das estepes ao norte do mar Negro espalharam as línguas indo-europeias pela Europa e pela Ásia. O DNA antigo mostra uma enorme migração das estepes para a Europa há ~5 mil anos, e as línguas da família têm palavras em comum para roda e carroça, invenções de ~3500 a.C. É a hipótese mais aceita e a que o mapa mostra hoje.",
+     "fontes": [
+      "Anthony, D. (2007) The Horse, the Wheel, and Language",
+      "Haak, W. et al. (2015) Nature 522: 207–211"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "anatolia",
+     "nome": "Anatólia, ~7000 a.C. (com a agricultura)",
+     "padrao": false,
+     "texto": "As línguas teriam se espalhado junto com a agricultura, a partir da Anatólia (Turquia), há ~8 a 9 mil anos, sem grandes conquistas. Árvores de línguas calculadas por computador chegaram a datas desse período. Mas o DNA antigo mostra que os primeiros agricultores europeus não carregavam a ancestralidade que costuma acompanhar as línguas indo-europeias, e hoje essa hipótese, na forma original, tem poucos defensores.",
+     "fontes": [
+      "Renfrew, C. (1987) Archaeology and Language",
+      "Bouckaert, R. et al. (2012) Science 337: 957–960"
+     ],
+     "alteracoes": {
+      "rotas": {
+       "h_neolitico": {
+        "texto": "Agricultores da Anatólia se espalham pela Europa, pelo Danúbio e pelo Mediterrâneo, misturando-se aos caçadores-coletores. Levam trigo, cevada, ovelhas, gado e, nesta hipótese, as línguas indo-europeias."
+       },
+       "h_estepes": {
+        "texto": "Povos das estepes (cultura Yamnaya), com cavalos e carroças, se espalham pela Europa e pela Ásia. Nesta hipótese, eles levaram apenas alguns ramos de uma família de línguas que já existia havia milênios."
+       }
+      },
+      "povos": {
+       "Indo-europeus": {
+        "texto": "Pastores das estepes. Na hipótese anatólia, falavam só um dos ramos de línguas indo-europeias que já se espalhavam desde ~7000 a.C."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "anatolia_ie",
+        "t": 0.009025,
+        "icone": "🗣️",
+        "tipo": "humano",
+        "prio": 3,
+        "titulo": "Primeiros indo-europeus na Anatólia?",
+        "texto": "Na hipótese anatólia, os agricultores de aldeias como Çatalhöyük falavam a língua ancestral do português, do grego e do hindi, e a levaram à Europa junto com a lavoura.",
+        "locais": [
+         [
+          32.83,
+          37.67,
+          "Çatalhöyük, Turquia"
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "caucaso_volga",
+     "nome": "Cáucaso–Baixo Volga, ~4400–4000 a.C.",
+     "padrao": false,
+     "texto": "Um estudo de DNA antigo de 2025 encontrou, entre o norte do Cáucaso e o baixo Volga, um povo que seria ancestral tanto dos Yamnaya quanto dos falantes de hitita (Anatólia), o ramo indo-europeu que os Yamnaya não explicam. Outra proposta 'híbrida' (2023), baseada em árvores de línguas, põe a origem ao sul do Cáucaso há ~8 mil anos, com um ramo passando depois pelas estepes. As duas tentam conciliar linguística e DNA.",
+     "fontes": [
+      "Lazaridis, I. et al. (2025) Nature 639, doi:10.1038/s41586-024-08531-5",
+      "Heggarty, P. et al. (2023) Science 381: eabg0818"
+     ],
+     "alteracoes": {
+      "povos": {
+       "Indo-europeus": {
+        "de": 0.006425,
+        "texto": "Descendentes de um povo do Cáucaso e do baixo Volga (~4400 a.C.), que deu origem tanto aos pastores Yamnaya quanto aos hititas da Anatólia."
+       }
+      },
+      "eventos_extra": [
+       {
+        "id": "proto_indo_anatolio",
+        "t": 0.006225,
+        "icone": "🗣️",
+        "tipo": "humano",
+        "prio": 3,
+        "titulo": "O povo do Cáucaso e do Volga",
+        "texto": "Entre o norte do Cáucaso e o baixo Volga, um povo de ~4400 a 4000 a.C. teria falado a língua mãe das línguas indo-europeias e anatólias. Parte dele formou os Yamnaya; outra parte desceu à Anatólia, onde surgiria o hitita.",
+        "locais": [
+         [
+          45.0,
+          45.5,
+          "Entre o Cáucaso e o baixo Volga"
+         ]
+        ]
+       }
+      ],
+      "rotas_extra": [
+       {
+        "id": "ie_anatolia",
+        "grupo": "sapiens",
+        "mecanismo": "terra",
+        "de": 0.006025,
+        "ate": 0.004025,
+        "nome": "Rumo à Anatólia: o ramo hitita",
+        "texto": "Descendentes do povo do Cáucaso e do Volga atravessam o Cáucaso e chegam à Anatólia, onde se falariam o hitita e outras línguas anatólias, as primeiras indo-europeias escritas.",
+        "ramos": [
+         [
+          [
+           45.0,
+           45.5
+          ],
+          [
+           43.8,
+           43.0
+          ],
+          [
+           42.0,
+           41.0
+          ],
+          [
+           38.0,
+           40.0
+          ],
+          [
+           34.62,
+           40.02
+          ]
+         ]
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "contato_polinesio",
+   "titulo": "Polinésios e sul-americanos se encontraram antes de Colombo?",
+   "resumo": "A batata-doce, planta sul-americana, já era cultivada na Polinésia antes dos europeus, e o DNA de alguns polinésios tem um pequeno traço de indígenas americanos. Mas quem navegou até quem, ou se houve mesmo contato, ainda é discutido.",
+   "opcoes": [
+    {
+     "id": "polinesios_foram",
+     "nome": "Polinésios foram à América e voltaram",
+     "padrao": false,
+     "texto": "Os polinésios eram os navegadores mais hábeis da época e chegaram a ilhas remotas como Rapa Nui. Um estudo de DNA de 2020 achou, nas Marquesas e em Rapa Nui, sinais de mistura com indígenas parecidos com os da costa do Pacífico da Colômbia, datada a partir de ~1150. A batata-doce (kumara, palavra parecida com 'cumal' em línguas andinas) teria vindo nessas viagens.",
+     "fontes": [
+      "Ioannidis, A. et al. (2020) Nature 583: 572–577, doi:10.1038/s41586-020-2487-2",
+      "Roullier, C. et al. (2013) PNAS 110: 2205–2210",
+      "Hather, J. & Kirch, P. V. (1991) Antiquity 65: 887–893"
+     ],
+     "alteracoes": {
+      "eventos_extra": [
+       {
+        "id": "contato_polinesio_ida",
+        "t": 0.000875,
+        "icone": "🍠",
+        "tipo": "humano",
+        "prio": 2,
+        "titulo": "Polinésios na América do Sul?",
+        "texto": "Por volta de 1150 a 1250, navegadores polinésios teriam chegado à costa do Pacífico da América do Sul e voltado com batata-doce e com pessoas, ou seus genes. Traços desse encontro estão no DNA de moradores das Marquesas e de Rapa Nui.",
+        "locais": [
+         [
+          -138.65,
+          -10.48,
+          "Fatu Hiva, Marquesas"
+         ],
+         [
+          -109.35,
+          -27.12,
+          "Rapa Nui"
+         ],
+         [
+          -78.8,
+          1.8,
+          "Costa do Pacífico da Colômbia"
+         ]
+        ]
+       }
+      ],
+      "rotas_extra": [
+       {
+        "id": "polinesios_america",
+        "grupo": "sapiens",
+        "mecanismo": "barco",
+        "de": 0.000925,
+        "ate": 0.000625,
+        "nome": "Polinésios até a América?",
+        "texto": "Canoas polinésias teriam cruzado milhares de quilômetros de oceano até a América do Sul e voltado, trazendo a batata-doce.",
+        "ramos": [
+         [
+          [
+           -138.65,
+           -10.48
+          ],
+          [
+           -120.0,
+           -7.0
+          ],
+          [
+           -100.0,
+           -2.0
+          ],
+          [
+           -81.0,
+           1.5
+          ]
+         ],
+         [
+          [
+           -81.0,
+           1.5
+          ],
+          [
+           -95.0,
+           -15.0
+          ],
+          [
+           -109.35,
+           -27.12
+          ]
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "americanos_vieram",
+     "nome": "Indígenas sul-americanos chegaram à Polinésia",
+     "padrao": false,
+     "texto": "Outra leitura do mesmo DNA: balsas de indígenas da costa sul-americana teriam sido levadas por correntes e ventos até a Polinésia oriental, talvez quando os polinésios chegavam ali. Thor Heyerdahl defendeu algo parecido com a expedição Kon-Tiki (1947). Mas não há sítios arqueológicos de povos americanos na Polinésia, e os indígenas da costa não tinham tradição de navegar em mar aberto.",
+     "fontes": [
+      "Ioannidis, A. et al. (2020) Nature 583: 572–577",
+      "Heyerdahl, T. (1952) American Indians in the Pacific"
+     ],
+     "alteracoes": {
+      "eventos_extra": [
+       {
+        "id": "contato_americano_volta",
+        "t": 0.000875,
+        "icone": "🍠",
+        "tipo": "humano",
+        "prio": 2,
+        "titulo": "Sul-americanos na Polinésia?",
+        "texto": "Por volta de 1150, uma ou mais balsas da costa do Pacífico da Colômbia ou do Equador teriam chegado às Marquesas, levando a batata-doce. Seus descendentes se misturaram aos polinésios.",
+        "locais": [
+         [
+          -78.8,
+          1.8,
+          "Costa do Pacífico da Colômbia"
+         ],
+         [
+          -138.65,
+          -10.48,
+          "Fatu Hiva, Marquesas"
+         ]
+        ]
+       }
+      ],
+      "rotas_extra": [
+       {
+        "id": "americanos_polinesia",
+        "grupo": "sapiens",
+        "mecanismo": "barco",
+        "de": 0.000925,
+        "ate": 0.000775,
+        "nome": "Balsas sul-americanas até a Polinésia?",
+        "texto": "Levadas pelas correntes e pelos ventos alísios, balsas sul-americanas poderiam ter chegado à Polinésia oriental.",
+        "ramos": [
+         [
+          [
+           -78.8,
+           1.8
+          ],
+          [
+           -95.0,
+           -4.0
+          ],
+          [
+           -120.0,
+           -8.0
+          ],
+          [
+           -138.65,
+           -10.48
+          ]
+         ]
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "sem_contato",
+     "nome": "Contato ainda não comprovado",
+     "padrao": true,
+     "texto": "Alguns pesquisadores acham que as provas não bastam: o sinal genético é pequeno e poderia ter outras explicações, como a chegada de sul-americanos depois de 1500, em navios europeus. Um estudo de 2018 chegou a propor que a batata-doce cruzou o Pacífico sozinha, com sementes levadas pelo mar ou por aves, muito antes dos humanos. É o que o mapa mostra hoje: nenhuma rota entre a Polinésia e a América.",
+     "fontes": [
+      "Muñoz-Rodríguez, P. et al. (2018) Current Biology 28: 1246–1256",
+      "The Conversation (2020), 'Did ancient Americans settle in Polynesia? The evidence doesn't stack up'"
+     ],
+     "alteracoes": {}
+    }
+   ]
+  },
+  {
+   "id": "povoamento_madagascar",
+   "titulo": "Quando os humanos chegaram a Madagascar?",
+   "resumo": "Madagascar fica a só 400 km da África, mas sua língua vem de Bornéu, a mais de 7.000 km. Marcas em ossos de aves gigantes sugerem visitas muito antigas, mas os sinais seguros de povoamento são bem mais recentes.",
+   "opcoes": [
+    {
+     "id": "muito_cedo",
+     "nome": "Caçadores há ~10 mil anos",
+     "padrao": false,
+     "texto": "Ossos de pássaros-elefante (aves gigantes extintas) com marcas de corte foram datados de ~10.500 anos (2018), e ferramentas de pedra no norte da ilha, de ~4 mil anos. Se forem mesmo obra humana, caçadores-coletores teriam visitado a ilha milênios antes dos agricultores. Críticos dizem que algumas marcas podem ser de roedores, raízes ou das ferramentas de escavação.",
+     "fontes": [
+      "Hansford, J. et al. (2018) Science Advances 4: eaat6925",
+      "Dewar, R. et al. (2013) PNAS 110: 12583–12588"
+     ],
+     "alteracoes": {
+      "chegada": {
+       "madagascar": 0.0105
+      },
+      "eventos": {
+       "madagascar": {
+        "t": 0.0105,
+        "titulo": "Madagascar: caçadores há 10 mil anos?",
+        "texto": "Ossos de pássaros-elefante com marcas de corte sugerem que caçadores visitaram Madagascar há ~10.500 anos, muito antes dos navegadores de Bornéu e dos agricultores bantos.",
+        "locais": [
+         [
+          46.0,
+          -22.5,
+          "Rio Christmas, sul de Madagascar"
+         ],
+         [
+          49.25,
+          -12.3,
+          "Lakaton'i Anja, norte de Madagascar"
+         ]
+        ]
+       }
+      }
+     }
+    },
+    {
+     "id": "meados_1o_milenio",
+     "nome": "Por volta de 500 d.C.",
+     "padrao": true,
+     "texto": "Ossos de hipopótamos-anões com marcas de corte (~2 mil anos) e mudanças na vegetação indicam visitas humanas no início da era cristã, e aldeias com cerâmica e plantas cultivadas aparecem na segunda metade do primeiro milênio. A língua malgaxe é parente do ma'anyan, falado no sul de Bornéu, com palavras do suaíli e de outras línguas bantas. É o que o mapa mostra hoje.",
+     "fontes": [
+      "Burney, D. et al. (2004) Journal of Human Evolution 47: 25–63",
+      "Crowther, A. et al. (2016) PNAS 113: 6635–6640",
+      "Adelaar, A. (2005) 'Malagasy', em Adelaar, A. & Himmelmann, N. (orgs.) The Austronesian Languages of Asia and Madagascar"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "tardio",
+     "nome": "Só por volta de 800–1000 d.C.",
+     "padrao": false,
+     "texto": "Uma revisão de 2018 de quase 1.800 ossos de animais extintos não achou marcas de corte confiáveis antes do fim do primeiro milênio d.C. O DNA mostra que os malgaxes descendem de uma mistura de povos do Sudeste Asiático e da África Oriental, ocorrida há cerca de mil anos ou menos. Para esses pesquisadores, a ocupação permanente começou só nessa época.",
+     "fontes": [
+      "Anderson, A. et al. (2018) PLOS ONE 13: e0204368",
+      "Pierron, D. et al. (2017) PNAS 114: E6498–E6506"
+     ],
+     "alteracoes": {
+      "chegada": {
+       "madagascar": 0.001175
+      },
+      "eventos": {
+       "madagascar": {
+        "t": 0.001175,
+        "texto": "Por volta de 800 a 1000 d.C., navegadores do sul de Bornéu e povos bantos da África Oriental se fixam em Madagascar e se misturam. Os malgaxes de hoje descendem dos dois."
+       }
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

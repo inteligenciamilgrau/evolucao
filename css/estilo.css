@@ -150,6 +150,19 @@ body { display: grid; grid-template-rows: auto 1fr auto; }
 .cartao .emoji { font-size: 26px; }
 .cartao h3 { font-size: 15px; margin: 6px 0 4px; }
 .cartao p { margin: 0; color: var(--texto-2); font-size: 12.5px; }
+/* debates */
+.debate { border-top: 1px solid var(--linha); padding: 14px 0 6px; }
+.debate h3 { font-family: var(--fonte-titulo); font-size: 17px; margin: 0 0 2px; }
+.debate.em-foco h3 { color: var(--destaque); }
+.opcao-debate { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; margin: 6px 0; border: 1px solid var(--linha); border-radius: 10px; cursor: pointer; background: var(--painel-2); }
+.opcao-debate:hover { border-color: #35506f; }
+.opcao-debate.escolhida { border-color: var(--destaque); background: rgba(242, 184, 75, .08); }
+.opcao-debate input { margin-top: 4px; accent-color: var(--destaque); }
+.opcao-debate .texto { display: block; color: #cfd9e6; font-size: 13px; margin-top: 2px; }
+.opcao-debate small { display: block; color: var(--texto-3); margin-top: 4px; font-size: 11px; }
+.opcao-debate small a { color: var(--destaque-2); }
+.opcao-debate .padrao { font-style: normal; font-size: 10px; text-transform: uppercase; letter-spacing: .5px; color: #1a1205; background: var(--destaque); border-radius: 99px; padding: 0 6px; }
+.selo-debate { font-size: 12px; padding: 4px 10px; margin: 2px 4px 2px 0; }
 #cartao-historia { position: absolute; z-index: 20; right: 356px; bottom: 150px; width: min(560px, calc(100% - 32px)); background: rgba(13, 22, 37, .96); border: 1px solid #35506f; border-radius: 14px; padding: 14px 18px 12px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
 #cartao-historia h3 { font-family: var(--fonte-titulo); font-size: 19px; margin: 0 0 4px; }
 #cartao-historia .passo { font-size: 11px; color: var(--destaque); text-transform: uppercase; letter-spacing: 1px; }
