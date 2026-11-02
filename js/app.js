@@ -24,6 +24,7 @@
       { id: "populacao", nome: "População humana", desc: "Densidade estimada (HYDE/ISIMIP). Antes de 10 mil a.C., as regiões já ocupadas pelos sapiens", cor: "#ffad1f", padrao: true },
       { id: "migracoes", nome: "Migrações humanas", desc: "Da saída da África à imigração moderna", cor: "#ce93d8", padrao: true },
       { id: "povos", nome: "Povos e cidades", desc: "Humanos arcaicos, povos, civilizações e cidades com data de fundação", cor: "#ffcc80", padrao: true },
+      { id: "hominideos", nome: "Especial hominídeos", desc: "As espécies humanas dos últimos 7 milhões de anos: onde viviam, quantos eram e onde se encontraram", cor: "#ff7043", padrao: false },
     ] },
     { grupo: "Vida", itens: [
       { id: "fosseis", nome: "Fósseis", desc: "Ocorrências reais da Paleobiology Database, levadas com as placas", cor: "#ff8a65", padrao: true },
@@ -166,6 +167,8 @@
       const id = ev.target.dataset.camada;
       if (!id) return;
       definirCamada(id, ev.target.checked);
+      // durante uma história, a escolha da pessoa vale para os próximos passos
+      EVO.Historias && EVO.Historias.camadaDoUsuario(id, ev.target.checked);
     });
   }
 
@@ -326,6 +329,7 @@
     EVO.Populacao && EVO.Populacao.iniciar({ estado });
     EVO.Vida && EVO.Vida.iniciar({ definirTempo, definirCamada, mostrarDetalhe, abrirAba, estado, legenda, tocar, salvar });
     if (Array.isArray(config.gruposDesligados) && EVO.Vida) EVO.Vida.desligarGrupos(config.gruposDesligados);
+    EVO.Hominideos && EVO.Hominideos.iniciar({ estado, definirCamada });
     EVO.Perspectivas && EVO.Perspectivas.iniciar({ definirTempo, estado });
     if (["agora", "arvore", "detalhe"].includes(config.aba)) abrirAba(config.aba, true);
     EVO.Historias && EVO.Historias.iniciar({ definirTempo, definirCamada, tocar, abrirAba, estado, mostrarDetalhe, salvar });

@@ -221,6 +221,14 @@ CHEGADA = [
     ("ilhas_remotas", {"FLK"}, None, A(1764)), ("ilhas_remotas", {"SGS"}, None, A(1904)),
     ("islandia", {"ISL"}, None, A(874)), ("islandia", {"FRO"}, None, A(500)),
     ("artico_americano", {"GRL"}, None, A(-2500)), ("ilhas_remotas", {"BMU"}, None, A(1612)),
+    ("ilhas_remotas", {"IOT"}, None, A(1783)), ("ilhas_remotas", {"SHN"}, None, A(1815)),
+    ("ilhas_remotas", {"ATF", "HMD"}, None, A(1950)),
+    ("pacifico_remoto", {"WLF"}, None, A(-800)), ("pacifico_remoto", {"NIU"}, None, A(900)),
+    ("pacifico_remoto", {"PCN"}, None, A(1100)), ("pacifico_remoto", {"NFK"}, None, A(1200)),
+    ("caribe", {"ABW", "CUW"}, None, A(-2500)), ("america_norte", {"SPM"}, None, A(-3000)),
+    ("europa_norte", {"JEY", "GGY"}, None, 0.015), ("europa_norte", {"IMN"}, None, A(-8000)),
+    ("europa_norte", {"ALA"}, None, A(-5000)),
+    ("asia_leste", {"MAC", "HKG"}, None, 0.045), ("asia_sul", {"KAS"}, None, 0.065),
     ("caribe", {"BHS", "TCA"}, None, A(800)), ("caribe", {"PRI", "VIR", "VGB"}, None, A(-3000)),
     ("caribe", {"JAM"}, None, A(650)), ("caribe", {"CUB", "HTI", "DOM"}, None, A(-4000)),
     ("caribe", {"CYM"}, None, A(1700)), ("caribe", {"TTO"}, None, A(-5800)),
@@ -231,14 +239,16 @@ CHEGADA = [
     ("artico_siberiano", {"RUS"}, (120.0, 180.0, 40.0, 82.0), 0.032),
     ("artico_siberiano", {"RUS"}, (-180.0, -160.0, 60.0, 72.0), 0.032),
     ("artico_siberiano", {"RUS"}, (0.0, 180.0, 66.0, 82.0), 0.032),
-    ("europa", {"RUS"}, (19.0, 60.0, 40.0, 66.0), 0.045), ("siberia", {"RUS"}, None, 0.045),
+    ("europa", {"RUS"}, (19.0, 60.0, 40.0, 66.0), 0.045),
+    # Sibéria: o oeste primeiro (Ust-Ishim, 45 mil anos), o Baikal e o leste depois (~41 mil)
+    ("siberia", {"RUS"}, (90.0, 180.0, 40.0, 66.0), 0.041), ("siberia", {"RUS"}, None, 0.045),
     ("artico_americano", {"CAN"}, (-142.0, -50.0, 64.0, 84.0), A(-3000)),
     ("alasca", {"CAN"}, (-142.0, -125.0, 58.0, 64.0), 0.014), ("america_norte", {"CAN"}, None, 0.012),
     ("alasca", {"USA"}, (-180.0, -129.0, 51.0, 72.0), 0.017), ("america_norte", {"USA"}, None, 0.016),
     ("america_norte", {"MEX"}, None, 0.015), ("america_central", {"GTM", "BLZ", "SLV", "HND", "NIC", "CRI", "PAN"}, None, 0.0145),
     ("america_sul", {"COL", "VEN", "ECU", "PER", "CHL"}, None, 0.0145), ("brasil", {"BRA"}, None, 0.013),
     ("america_sul", {"ARG"}, None, 0.014), ("america_sul", {"URY", "PRY", "BOL", "GUY", "SUR", "GUF"}, None, 0.012),
-    ("europa", {"BGR", "GRC", "ROU", "SRB", "MKD", "ALB", "MNE", "BIH", "HRV", "SVN", "HUN"}, None, 0.046),
+    ("europa", {"BGR", "GRC", "ROU", "SRB", "MKD", "ALB", "MNE", "BIH", "HRV", "SVN", "HUN", "OWID_KOS"}, None, 0.046),
     ("ilhas_mediterraneo", {"MLT"}, None, A(-5900)), ("ilhas_mediterraneo", {"CYP"}, None, 0.012),
     ("europa", {"ITA", "SMR", "VAT"}, None, 0.044), ("europa", {"ESP", "PRT", "AND", "GIB"}, None, 0.042),
     ("europa", {"FRA", "MCO"}, None, 0.045),
@@ -265,14 +275,15 @@ def chegada(codigo, continente, lon, lat):
             continue
         return regiao, idade
     if continente == "Africa":
-        return "africa", 0.3
+        # origem pan-africana: desde Jebel Irhoud (~315 mil anos) há sapiens por todo o continente
+        return "africa", 0.315
     if continente == "Antarctica":
         return "antartida", A(1900)
     return "outros", 0.045
 
 
 # População mundial antes das estimativas por país (Ma, pessoas). Muito incerta.
-POP_PLEISTOCENO = [(0.3, 1e5), (0.2, 1.5e5), (0.1, 3e5), (0.07, 5e5), (0.05, 1e6), (0.03, 1.5e6),
+POP_PLEISTOCENO = [(0.315, 6e4), (0.3, 1e5), (0.2, 1.5e5), (0.1, 3e5), (0.07, 5e5), (0.05, 1e6), (0.03, 1.5e6),
                    (0.02, 2e6), (0.0135, 3.5e6)]
 
 # ---------------------------------------------------------------------------------------

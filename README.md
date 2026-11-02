@@ -16,14 +16,15 @@ saem da África e ocupam o planeta até os 8 bilhões de hoje.
 | Clima | Gelo polar, Terra bola de neve, eras glaciais, mar baixo (Beríngia, Sunda, Sahul) e biomas aproximados pela latitude. |
 | Fósseis | Centenas de milhares de ocorrências reais da Paleobiology Database, de 34 grupos, na posição em que estavam quando o ser vivia. |
 | Rotas de dispersão | Como cada grupo chegou aonde vive: por terra, em jangadas de vegetação, voando ou levado por humanos. |
-| População humana | Antes de 10 mil a.C., as regiões já ocupadas pelos sapiens; depois, a densidade estimada até hoje (efeito "Terra à noite"). |
+| População humana | Antes da agricultura, as regiões já ocupadas pelos sapiens (caçadores-coletores, mais numerosos nas terras ricas e poucos logo depois de chegar); de 9.000 a 5.000 a.C. o mapa passa aos poucos para a densidade estimada por país, até hoje (efeito "Terra à noite"). |
 | Migrações humanas | 30 movimentos: saída da África, agricultores neolíticos, bantos, indo-europeus, tupi-guarani, vikings, colonização, tráfico de africanos escravizados, grande imigração, migrações dentro do Brasil... |
+| Especial hominídeos | 15 espécies humanas dos últimos 7 milhões de anos como populações que vivem, andam e somem: bolinhas com área proporcional à população em cada região ocupada (ficam enquanto o grupo vive ali), frentes de expansão que andam pelas rotas deixando um rastro de ocupação, contornos com † onde o grupo saiu ou se extinguiu, 🛖 primeiras aldeias e 🌾 centros de agricultura, 🤝 8 encontros (como a "Denny" e a grande mistura com os neandertais) e um gráfico de população. Os sapiens seguem até hoje, com as mesmas datas de chegada da camada de população. Tem história guiada própria. |
 | Povos e cidades | Neandertais, denisovanos e outros humanos arcaicos; 39 povos e civilizações; 63 cidades com data de fundação. |
-| Marcos e histórias | 112 marcos e 13 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado...). |
+| Marcos e histórias | 112 marcos e 14 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado...). |
 
 ## Debates científicos
 
-Em 17 temas os cientistas ainda discordam (quando surgiu a vida, se a Terra congelou
+Em 18 temas os cientistas ainda discordam (quando surgiu a vida, se a Terra congelou
 inteira, a origem dos dinossauros e das flores, o fim do Cretáceo, a chegada dos humanos
 às Américas e à Austrália, a população das Américas em 1492, a origem das línguas
 indo-europeias...). No botão **⚖️ Debates** a pessoa escolhe qual versão o mapa segue,
@@ -55,6 +56,8 @@ js/
   clima.js            gelo, nível do mar, temperatura, vegetação
   mapa.js             desenho do mapa (canvas, projeção Equal Earth)
   populacao.js        ocupação humana (grade de 0,5°)
+  hominideos.js       especial hominídeos (núcleos, frentes, rastros, aldeias, encontros, gráfico)
+  perspectivas.js     debates científicos (opções que mudam o mapa)
   regua.js            régua do tempo
   vida.js             fósseis, marcos, rotas, povos, cidades, árvore da vida, painel "Agora"
   historias.js        histórias guiadas, boas-vindas e ajuda
@@ -67,6 +70,7 @@ pipeline/             scripts Python que geram data/
   perspectivas.py     <- debates escritos à mão (formato documentado no arquivo)
   revisoes/*.json     <- revisões científicas: correções registradas, itens novos e debates
   revisao.py          <- lê e valida as revisões
+  hominideos.py       <- especial hominídeos: espécies, núcleos, rotas, população, encontros, aldeias
 ```
 
 ## Revisões científicas

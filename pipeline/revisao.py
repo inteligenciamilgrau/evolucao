@@ -15,10 +15,12 @@ from pathlib import Path
 
 from conteudo_fonte import EVENTOS, GRUPOS, ROTAS
 from conteudo_humanos import CHEGADA, MIGRACOES, POVOS
+from hominideos import ESPECIES, ROTAS_HOMINIDEOS
 
 PASTA = Path(__file__).resolve().parent / "revisoes"
 LISTAS = ("novos_eventos", "novos_grupos", "novas_rotas", "novas_migracoes", "novos_povos", "novas_cidades", "perspectivas")
-CHAVES_ALTERACOES = {"eventos", "grupos", "rotas", "povos", "chegada", "populacao", "clima", "eventos_extra", "rotas_extra"}
+CHAVES_ALTERACOES = {"eventos", "grupos", "rotas", "povos", "chegada", "populacao", "clima", "hominideos",
+                     "eventos_extra", "rotas_extra"}
 CHAVES_CLIMA = {"bola_de_neve_lat"}
 CHAVES_POPULACAO = {"americas_1500", "brasil_1500"}
 BANDEIRA = re.compile("[\U0001F1E6-\U0001F1FF]")  # emojis de bandeira não aparecem no Windows
@@ -62,7 +64,8 @@ def validar(rev):
     erros = []
     ids_eventos = {e["id"] for e in EVENTOS}
     ids_grupos = {g["id"] for g in GRUPOS}
-    ids_rotas = {r["id"] for r in ROTAS + MIGRACOES}
+    ids_rotas = {r["id"] for r in ROTAS + MIGRACOES + ROTAS_HOMINIDEOS}
+    ids_especies = {e["id"] for e in ESPECIES}
     nomes_povos = {p["n"] for p in POVOS}
     regioes = {regra[0] for regra in CHEGADA} | {"africa"}
 
@@ -134,6 +137,9 @@ def validar(rev):
             for i in alt.get("rotas", {}):
                 if i not in ids_rotas:
                     erros.append(f"{onde}: rota inexistente '{i}'")
+            for i in alt.get("hominideos", {}):
+                if i not in ids_especies:
+                    erros.append(f"{onde}: espécie de hominídeo inexistente '{i}'")
             for i in alt.get("povos", {}):
                 if i not in nomes_povos:
                     erros.append(f"{onde}: povo inexistente '{i}'")

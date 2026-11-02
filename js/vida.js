@@ -240,6 +240,7 @@
     const saida = [];
     for (const p of dados.povos || []) {
       if (t > p.de || t < p.ate - 1e-9) continue;
+      if (p.arcaico && app.estado.camadas.hominideos) continue; // a camada especial já mostra
       const pos = rec(p.pos);
       if (pos) saida.push({ n: p.n, arcaico: !!p.arcaico, pos });
     }
@@ -291,7 +292,9 @@
   // ------------------------------------------------------------------ rotas
   let rotasTela = [];
   function rotaVisivel(r, t) {
-    if (!app.estado.camadas[r.humana ? "migracoes" : "rotas"]) return false;
+    const c = app.estado.camadas;
+    if (r.exclusiva) { if (!c[r.exclusiva]) return false; } // só aparece na camada dela
+    else if (!c[r.humana ? "migracoes" : "rotas"] && !(r.hominideo && c.hominideos)) return false;
     if (destaque) return destaque.rotas.has(r.id) && t <= r.de * 1.6 + 0.0001; // na história, só as do passo
     const dur = r.de - r.ate;
     // depois de chegar, a rota fica um pouco na tela (menos nas rotas recentes)

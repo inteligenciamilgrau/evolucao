@@ -141,6 +141,49 @@ def classe(dens):
     return c
 
 
+def nucleos_de_ocupacao(regra, lons, lats, celulas_por_nucleo=700, maximo=12, raio_max=18.0):
+    """Agrupa as células de cada regra de chegada em núcleos (k-means na esfera) e põe
+    cada núcleo na célula mais central do grupo (nunca no meio do mar). Uma regra com
+    células espalhadas (ilhas distantes umas das outras) ganha mais núcleos, até nenhuma
+    célula ficar a mais de raio_max graus do seu núcleo.
+    Retorna ([[lon, lat, regra, n_celulas], ...], índice do núcleo de cada célula)."""
+    rad = np.radians
+    xyz = np.stack([np.cos(rad(lats)) * np.cos(rad(lons)), np.cos(rad(lats)) * np.sin(rad(lons)), np.sin(rad(lats))], 1)
+    nucleo = np.zeros(len(regra), dtype=np.uint8)
+    nucleos = []
+    rng = np.random.default_rng(7)
+    cos_max = math.cos(math.radians(raio_max))
+
+    def kmeans(pts, k):
+        centros = pts[rng.choice(len(pts), k, replace=False)]
+        for _ in range(25):
+            grupo = np.argmax(pts @ centros.T, axis=1)
+            for j in range(k):
+                membros = pts[grupo == j]
+                if len(membros):
+                    c = membros.sum(0)
+                    centros[j] = c / np.linalg.norm(c)
+        return centros, np.argmax(pts @ centros.T, axis=1)
+
+    for r in np.unique(regra):
+        idx = np.nonzero(regra == r)[0]
+        k = int(max(1, min(maximo, round(len(idx) / celulas_por_nucleo))))
+        pts = xyz[idx]
+        centros, grupo = kmeans(pts, k)
+        while k < min(len(idx), 3 * maximo) and (pts * centros[grupo]).sum(1).min() < cos_max:
+            k += 1
+            centros, grupo = kmeans(pts, k)
+        for j in range(k):
+            membros = idx[grupo == j]
+            if not len(membros):
+                continue
+            medoide = membros[np.argmax(xyz[membros] @ centros[j])]
+            nucleo[membros] = len(nucleos)
+            nucleos.append([round(float(lons[medoide]), 2), round(float(lats[medoide]), 2), int(r), int(len(membros))])
+    assert len(nucleos) < 256
+    return nucleos, nucleo
+
+
 def main():
     baixar()
     grades = ler_grades()
@@ -194,6 +237,30 @@ def main():
     tabela = []
     mundo = owid["MUNDO"]
     corrigir_americas_1500(owid, [c for c in codigos if next(i[1] for i in info if i[0] == c) in ("North America", "South America")])
+
+    # Séries que começam tarde (Irlanda só em 1950, Sérvia e Kosovo em 1800, Sudão do Sul em
+    # 1600...): antes do primeiro ano conhecido a população segue a tendência do continente.
+    # Repetir o primeiro valor para trás punha 2,9 milhões de irlandeses em 10.000 a.C.
+    continente_de = {c: next(i[1] for i in info if i[0] == c) for c in codigos}
+    completas = {}
+    for c in codigos:
+        if c in owid and min(owid[c]) <= ANOS_PAISES[0]:
+            completas.setdefault(continente_de[c], []).append(owid[c])
+
+    def tendencia(continente, anos):
+        series = completas.get(continente) or [mundo]
+        return np.sum([interp_serie(s, anos) for s in series], axis=0).astype(float)
+
+    def serie_completa(codigo, serie):
+        pops = interp_serie(serie, ANOS_PAISES)
+        inicio = min(serie)
+        if inicio <= ANOS_PAISES[0]:
+            return pops
+        ref = tendencia(continente_de[codigo], ANOS_PAISES + [inicio])
+        if ref[-1] <= 0:
+            return pops
+        return [round(serie[inicio] * ref[i] / ref[-1]) if a < inicio else v for i, (a, v) in enumerate(zip(ANOS_PAISES, pops))]
+
     for j, codigo in enumerate(codigos):
         m = pais == j
         a_total = area[m].sum()
@@ -215,7 +282,7 @@ def main():
         r_antigo[m] = ra
         serie = owid.get(codigo)
         if serie:
-            pops = interp_serie(serie, ANOS_PAISES)
+            pops = serie_completa(codigo, serie)
         else:  # sem série: segue o mundo, a partir da soma de 1850
             base = p1850[m].sum() or p2021[m].sum() * 0.1
             pops = [round(base * v / mundo[1850]) for v in interp_serie(mundo, ANOS_PAISES)]
@@ -242,6 +309,9 @@ def main():
         cheg[k] = idx_regra[chave]
     assert len(regras) < 256
 
+    nucleos, nucleo = nucleos_de_ocupacao(cheg, lon[ix], lat[iy])
+    print(f"núcleos de ocupação (bolinhas dos sapiens no especial hominídeos): {len(nucleos)}")
+
     deltas = np.diff(np.concatenate([[0], indices]))
     assert deltas.max() < 65536
     classes = [b64(classe(grades[ano][iy, ix] / area)) for ano in ANOS_GRADE]
@@ -251,6 +321,7 @@ def main():
         "celulas": b64(deltas.astype("<u2")),
         "pais": b64(pais),
         "chegada": b64(cheg), "regras": regras,
+        "nucleos": nucleos, "nucleo": b64(nucleo),
         "americas": [j for j, c in enumerate(codigos) if next(i[1] for i in info if i[0] == c) in ("North America", "South America")],
         "r1850": b64(cod_r(r1850)), "rAntigo": b64(cod_r(r_antigo)),
         "anosPaises": ANOS_PAISES, "paises": tabela,

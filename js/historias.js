@@ -86,7 +86,7 @@
   function comecar(id) {
     const h = historias.find((x) => x.id === id);
     if (!h) return;
-    if (!atual) atual = { camadasOriginais: { ...app.estado.camadas } };
+    if (!atual) atual = { camadasOriginais: { ...app.estado.camadas }, escolhasUsuario: {} };
     atual.h = h;
     app.tocar(false);
     irPasso(0);
@@ -98,6 +98,7 @@
     if (!atual) return;
     cancelarAnimacao();
     for (const [k, v] of Object.entries(atual.camadasOriginais)) app.definirCamada(k, v);
+    for (const [k, v] of Object.entries(atual.escolhasUsuario)) app.definirCamada(k, v);
     EVO.Vida.destacar(null);
     document.getElementById("cartao-historia").hidden = true;
     atual = null;
@@ -120,6 +121,8 @@
     if (passo.grupos && passo.grupos.length) app.definirCamada("fosseis", true);
     if (passo.rotas && passo.rotas.length) app.definirCamada("rotas", true);
     if (passo.eventos && passo.eventos.length) app.definirCamada("sitios", true);
+    // o que a pessoa ligou ou desligou durante a história continua valendo
+    for (const [k, v] of Object.entries(atual.escolhasUsuario)) app.definirCamada(k, v);
     EVO.Vida.destacar({ grupos: passo.grupos, rotas: passo.rotas, eventos: passo.eventos });
     mostrarCartao();
     animarAte(passo);
@@ -182,5 +185,9 @@
     if (ev.code === "ArrowLeft" && atual.i > 0) { ev.stopImmediatePropagation(); irPasso(atual.i - 1); }
   }, true);
 
-  EVO.Historias = { iniciar, boasVindas, ajuda, fechar, abrirLista, comecar, get ativa() { return !!atual; } };
+  function camadaDoUsuario(id, valor) {
+    if (atual) atual.escolhasUsuario[id] = valor;
+  }
+
+  EVO.Historias = { iniciar, boasVindas, ajuda, fechar, abrirLista, comecar, camadaDoUsuario, get ativa() { return !!atual; } };
 })();

@@ -50,6 +50,19 @@
       <button class="botao" data-zoom="0" title="Mapa inteiro">⤢</button>
     </div>
     <div id="legenda"></div>
+    <div id="painel-hominideos" hidden>
+      <div class="cab"><b>🦴 Hominídeos: quantos eram</b><button class="fechar" title="Desligar a camada">×</button></div>
+      <div class="grafico"></div>
+      <div class="vivos"></div>
+      <div class="simbolos">
+        <span><b class="bola g"></b><b class="bola m"></b><b class="bola p"></b> área = população</span>
+        <span><b class="bola anda"></b>— grupo em movimento</span>
+        <span>• • • rastro de ocupação</span>
+        <span><b class="bola tracejada">†</b> deixou a região / extinto</span>
+        <span>🛖 aldeia · 🌾 agricultura · 🤝 encontro</span>
+      </div>
+      <p class="nota">Indivíduos vivos, em ordem de grandeza (estimativas muito incertas). Acima de 20 mil pessoas, a bolinha cresce bem mais devagar que a população.</p>
+    </div>
   </section>
 
   <aside id="painel-info" class="painel">
@@ -70,9 +83,11 @@
     <button id="btn-play" class="botao redondo" title="Reproduzir (espaço)">▶</button>
     <label class="velocidade" title="Velocidade">
       <select id="velocidade">
-        <option value="0.004">lento</option>
-        <option value="0.012" selected>normal</option>
-        <option value="0.035">rápido</option>
+        <option value="0.0004">muito lento</option>
+        <option value="0.0013">lento</option>
+        <option value="0.004" selected>normal</option>
+        <option value="0.012">rápido</option>
+        <option value="0.035">muito rápido</option>
       </select>
     </label>
     <label class="velocidade" title="Intervalo da régua">
@@ -106,6 +121,7 @@
 <script src="js/populacao.js"></script>
 <script src="js/regua.js"></script>
 <script src="js/vida.js"></script>
+<script src="js/hominideos.js"></script>
 <script src="js/historias.js"></script>
 <script src="js/perspectivas.js"></script>
 <script src="js/app.js"></script>

@@ -1649,6 +1649,12 @@
       },
       "chegada": {
        "africa": 0.233
+      },
+      "hominideos": {
+       "sapiens": {
+        "de": 0.233,
+        "sem_frente": []
+       }
       }
      }
     },

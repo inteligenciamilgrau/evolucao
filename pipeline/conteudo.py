@@ -4,10 +4,12 @@ import copy
 from comum import escrever_js, placa_do_ponto, registrar_placas
 from conteudo_fonte import EVENTOS, GRUPOS, HISTORIAS, ROTAS, ROTULOS, A
 from conteudo_humanos import CIDADES, HISTORIAS_HUMANAS, MIGRACOES, POVOS
+from hominideos import ENCONTROS, ESPECIES, FAZENDAS, HISTORIA as HISTORIA_HOMINIDEOS, ROTAS_HOMINIDEOS
 from perspectivas import PERSPECTIVAS
 from revisao import carregar_revisoes
 
 placas = set()
+ROTAS_DE_HOMINIDEOS = {"erectus", "h_africa", "h_levante", "sapiens_saida", "sapiens_europa", "h_siberia"}
 
 
 def ponto(lon, lat, *extra):
@@ -77,7 +79,19 @@ def main():
               for g in GRUPOS + rev["novos_grupos"]]
     eventos = [preparar_evento(dict(e, locais=e.get("locais", []))) for e in EVENTOS + rev["novos_eventos"]]
     rotas = ([preparar_rota(r) for r in ROTAS + rev["novas_rotas"]]
-             + [preparar_rota(m, humana=True) for m in MIGRACOES + rev["novas_migracoes"]])
+             + [preparar_rota(m, humana=True) for m in MIGRACOES + rev["novas_migracoes"]]
+             + [dict(preparar_rota(r), hominideo=True, exclusiva="hominideos") for r in ROTAS_HOMINIDEOS])
+    # rotas de hominíneos que também aparecem na camada especial
+    for r in rotas:
+        if r["id"] in ROTAS_DE_HOMINIDEOS:
+            r["hominideo"] = True
+    hominideos = {
+        "especies": [dict(e, sitios=[ponto(lon, lat, nome, de, ate) for nome, lon, lat, de, ate in e["sitios"]],
+                          nucleos=[ponto(lon, lat, nome, de, ate, peso) for nome, lon, lat, de, ate, peso in e.get("nucleos", [])])
+                     for e in ESPECIES],
+        "fazendas": [dict(f, t=A(f["ano"]), lugar=ponto(f["lon"], f["lat"])) for f in FAZENDAS],
+        "encontros": [dict(e, lugar=ponto(*e["lugar"])) for e in ENCONTROS],
+    }
     rotulos = []
     for r in ROTULOS:
         r = dict(r)
@@ -88,7 +102,7 @@ def main():
     cidades = [ponto(lon, lat, nome, A(de), A(ate) if ate is not None else 0)
                for nome, lon, lat, de, ate in CIDADES + novas_cidades]
     historias = []
-    for h in HISTORIAS + HISTORIAS_HUMANAS:
+    for h in HISTORIAS + HISTORIAS_HUMANAS + [HISTORIA_HOMINIDEOS]:
         h = dict(h)
         h["passos"] = [dict(p, foco=ponto(*p["foco"])) for p in h["passos"]]
         historias.append(h)
@@ -96,7 +110,7 @@ def main():
     registrar_placas("conteudo", placas)
     escrever_js("conteudo", {"grupos": grupos, "eventos": eventos, "rotas": rotas, "rotulos": rotulos,
                              "historias": historias, "povos": povos, "cidades": cidades,
-                             "perspectivas": perspectivas})
+                             "perspectivas": perspectivas, "hominideos": hominideos})
 
 
 if __name__ == "__main__":

@@ -14,7 +14,8 @@
     app = a;
     const c = EVO_DADOS.conteudo;
     lista = c.perspectivas || [];
-    base = { eventos: clone(c.eventos), grupos: clone(c.grupos), rotas: clone(c.rotas), povos: clone(c.povos) };
+    base = { eventos: clone(c.eventos), grupos: clone(c.grupos), rotas: clone(c.rotas), povos: clone(c.povos),
+      especies: clone((c.hominideos || {}).especies || []) };
     try { escolhas = JSON.parse(localStorage.getItem(CHAVE)) || {}; } catch (e) { escolhas = {}; }
     // descarta escolhas de debates ou opções que não existem mais
     for (const id of Object.keys(escolhas)) {
@@ -52,6 +53,7 @@
     substituir(c.grupos, clone(base.grupos));
     substituir(c.rotas, clone(base.rotas));
     substituir(c.povos, clone(base.povos));
+    if (c.hominideos) substituir(c.hominideos.especies, clone(base.especies));
     const ajustes = { chegada: {}, americas1500: null, brasil1500: null };
     const clima = { bolaDeNeveLat: 0 };
     for (const pv of lista) {
@@ -60,6 +62,7 @@
       mesclar(c.grupos, alt.grupos, "id");
       mesclar(c.rotas, alt.rotas, "id");
       mesclar(c.povos, alt.povos, "n");
+      if (c.hominideos) mesclar(c.hominideos.especies, alt.hominideos, "id");
       for (const e of alt.eventos_extra || []) c.eventos.push(clone(e));
       for (const r of alt.rotas_extra || []) c.rotas.push(clone(r));
       Object.assign(ajustes.chegada, alt.chegada || {});
@@ -70,6 +73,7 @@
     EVO.Populacao && EVO.Populacao.definirAjustes(ajustes);
     EVO.Clima && EVO.Clima.definirAjustes(clima);
     EVO.Vida && EVO.Vida.recarregar && EVO.Vida.recarregar();
+    EVO.Hominideos && EVO.Hominideos.recarregar();
     EVO.Mapa && EVO.Mapa.pedir();
   }
 
