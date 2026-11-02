@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<!-- CSP: só arquivos do próprio site + o Cloudflare Web Analytics (configuração automática:
+     o script vem de static.cloudflareinsights.com e os dados vão para /cdn-cgi/rum no próprio domínio) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <title>Evolução: Terra e Vida</title>
 <meta name="description" content="Mapa interativo de 4,6 bilhões de anos: placas tectônicas, fósseis reais, a evolução da vida e a ocupação humana do planeta.">

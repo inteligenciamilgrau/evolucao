@@ -104,8 +104,12 @@ de conteúdo e rode `conteudo.py` e `rotacoes.py`.
 
 ## Segurança
 
-- Página 100% estática, sem servidor, formulários nem chamadas de rede: tudo vem de
-  arquivos do próprio site (há uma Content-Security-Policy que só permite isso).
+- Página 100% estática, sem servidor nem formulários. A Content-Security-Policy (no
+  `index.html`) só permite arquivos do próprio site e o Cloudflare Web Analytics em
+  configuração automática (script de `static.cloudflareinsights.com`, dados enviados ao
+  próprio domínio em `/cdn-cgi/rum`). Scripts embutidos continuam proibidos.
+- Recursos do Cloudflare que injetam script embutido (como *JavaScript Detections*) não
+  são compatíveis com a CSP de um site estático: devem ficar desligados no painel.
 - Textos vindos de dados externos (nomes de fósseis da PBDB) são escapados antes de
   irem para a tela; parâmetros da URL e configurações salvas são validados.
 - As configurações ficam só no `localStorage` do navegador de quem usa.
