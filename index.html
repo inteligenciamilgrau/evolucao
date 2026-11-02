@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Evolução: Terra e Vida</title>
+<meta name="description" content="Mapa interativo de 4,6 bilhões de anos: placas tectônicas, fósseis reais, a evolução da vida e a ocupação humana do planeta.">
+<meta name="theme-color" content="#0a1220">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="icone-180.png">
+<link rel="stylesheet" href="css/estilo.css">
+<script src="js/erros.js"></script>
+</head>
+<body>
+<header id="topo">
+  <div class="marca">
+    <h1>Evolução</h1>
+    <span>4,6 bilhões de anos de Terra e vida</span>
+  </div>
+  <div id="relogio">
+    <div id="tempo-texto">Hoje</div>
+    <div id="chips"></div>
+  </div>
+  <div class="acoes">
+    <button id="btn-historias" class="botao destaque" title="Passeios guiados">Histórias</button>
+    <button id="btn-ajuda" class="botao" title="Como usar">?</button>
+  </div>
+</header>
+
+<main id="corpo">
+  <aside id="painel-camadas" class="painel">
+    <button class="recolher" data-alvo="painel-camadas" title="Recolher">‹</button>
+    <h2>Camadas</h2>
+    <div id="lista-camadas"></div>
+  </aside>
+
+  <section id="palco">
+    <canvas id="mapa"></canvas>
+    <div id="aviso" hidden></div>
+    <div id="dica" hidden></div>
+    <div id="zoom">
+      <button class="botao" data-zoom="1.6" title="Aproximar">+</button>
+      <button class="botao" data-zoom="0.625" title="Afastar">−</button>
+      <button class="botao" data-zoom="0" title="Mapa inteiro">⤢</button>
+    </div>
+    <div id="legenda"></div>
+  </section>
+
+  <aside id="painel-info" class="painel">
+    <button class="recolher" data-alvo="painel-info" title="Recolher">›</button>
+    <nav class="abas">
+      <button data-aba="agora" class="ativa">Agora</button>
+      <button data-aba="arvore">Árvore da vida</button>
+      <button data-aba="detalhe">Detalhe</button>
+    </nav>
+    <div id="aba-agora" class="aba ativa"></div>
+    <div id="aba-arvore" class="aba"></div>
+    <div id="aba-detalhe" class="aba"><p class="vazio">Clique num país, fóssil ou rota no mapa para ver detalhes.</p></div>
+  </aside>
+</main>
+
+<footer id="linha-tempo">
+  <div class="controles">
+    <button id="btn-play" class="botao redondo" title="Reproduzir (espaço)">▶</button>
+    <label class="velocidade" title="Velocidade">
+      <select id="velocidade">
+        <option value="0.004">lento</option>
+        <option value="0.012" selected>normal</option>
+        <option value="0.035">rápido</option>
+      </select>
+    </label>
+    <label class="velocidade" title="Intervalo da régua">
+      <select id="modo-regua">
+        <option value="tudo">tudo</option>
+        <option value="humanos">humanos</option>
+        <option value="historia">história</option>
+      </select>
+    </label>
+  </div>
+  <div id="regua-caixa"><div id="regua-dica" hidden></div><svg id="regua"></svg></div>
+</footer>
+
+<div id="historias" class="modal" hidden></div>
+<div id="cartao-historia" hidden></div>
+<div id="ajuda" class="modal" hidden></div>
+
+<script src="js/vendor/d3.min.js"></script>
+<script src="data/rotacoes.js"></script>
+<script src="data/geo.js"></script>
+<script src="data/limites.js"></script>
+<script src="data/conteudo.js"></script>
+<script src="data/fosseis.js"></script>
+<script src="data/populacao.js"></script>
+<script src="js/escala.js"></script>
+<script src="js/rotacao.js"></script>
+<script src="js/geometria.js"></script>
+<script src="js/clima.js"></script>
+<script src="js/mapa.js"></script>
+<script src="js/populacao.js"></script>
+<script src="js/regua.js"></script>
+<script src="js/vida.js"></script>
+<script src="js/historias.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

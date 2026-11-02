@@ -1,0 +1,4 @@
+# Quebras de linha LF no repositório (o site e os dados são gerados no Windows)
+* text=auto eol=lf
+*.png binary
+*.svg text eol=lf

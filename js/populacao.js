@@ -1,0 +1,239 @@
+/* Ocupação humana: densidade de população numa grade de 0,5°.
+ * 1850–2021: grades do ISIMIP (HYDE). 10.000 a.C.–1850: totais por país (Our World in
+ * Data / HYDE 3.3) distribuídos pelo padrão de cada país. Antes: só onde os sapiens já
+ * tinham chegado, com densidade de caçadores-coletores.
+ * O desenho usa uma imagem 720x360 (lon x lat) copiada linha a linha: na projeção
+ * Equal Earth cada paralelo é uma linha reta horizontal. */
+(function () {
+  const EVO = (window.EVO = window.EVO || {});
+  const E = () => EVO.Escala;
+
+  const LARG = 720, ALT = 360;
+  const DENS_CACADORES = 0.03; // hab/km² típicos de caçadores-coletores
+  let D, n = 0, app;
+  let indice, pais, chegada, r1850, rAntigo, classes, area, popsPais;
+  let imagem, imgCtx, pixels, dens, camada, tempoCalculado = null;
+  const LUT = [];
+
+  function decodificar(b64, Tipo) {
+    const bin = atob(b64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new Tipo(bytes.buffer);
+  }
+
+  function iniciar(a) {
+    app = a;
+    D = EVO_DADOS.populacao;
+    if (!D) return;
+    const deltas = decodificar(D.celulas, Uint16Array);
+    n = deltas.length;
+    indice = new Uint32Array(n);
+    let acc = 0;
+    for (let i = 0; i < n; i++) { acc += deltas[i]; indice[i] = acc; }
+    pais = decodificar(D.pais, Uint8Array);
+    chegada = decodificar(D.chegada, Uint8Array);
+    const decodR = (b64) => Float32Array.from(decodificar(b64, Uint8Array), (e) => (e ? Math.pow(2, e / 10 - 12) : 0));
+    r1850 = decodR(D.r1850);
+    rAntigo = decodR(D.rAntigo);
+    classes = D.grade.classes.map((c) => decodificar(c, Uint8Array));
+    area = new Float32Array(n);
+    for (let i = 0; i < n; i++) {
+      const lat = 89.75 - 0.5 * Math.floor(indice[i] / LARG);
+      const rad = Math.PI / 180;
+      area[i] = 6371 * 6371 * 0.5 * rad * Math.abs(Math.sin((lat + 0.25) * rad) - Math.sin((lat - 0.25) * rad));
+    }
+    popsPais = D.paises.map((p) => p.p);
+    dens = new Float32Array(n);
+    imagem = document.createElement("canvas");
+    imagem.width = LARG;
+    imagem.height = ALT;
+    imgCtx = imagem.getContext("2d");
+    pixels = imgCtx.createImageData(LARG, ALT);
+    // cores: do âmbar transparente (poucos habitantes) ao branco (metrópoles)
+    const rampa = d3.scaleLinear().domain([0, 0.3, 0.55, 0.8, 1])
+      .range(["#8a3b12", "#e8590c", "#ffad1f", "#ffe79a", "#ffffff"]).clamp(true);
+    for (let k = 0; k < 256; k++) {
+      const u = k / 255;
+      const c = d3.rgb(rampa(u));
+      // pouca gente quase transparente; só as regiões densas brilham
+      LUT.push([c.r, c.g, c.b, Math.round(255 * Math.min(0.92, 0.04 + 0.9 * Math.pow(u, 1.5)))]);
+    }
+    EVO.Mapa.registrar({ ordem: 5, desenhar, escolher });
+  }
+
+  const ano = (t) => E().ANO - t * 1e6;
+
+  function interpLog(xs, ys, x) {
+    if (x <= xs[0]) return ys[0];
+    if (x >= xs[xs.length - 1]) return ys[ys.length - 1];
+    let i = 1;
+    while (xs[i] < x) i++;
+    const f = (x - xs[i - 1]) / (xs[i] - xs[i - 1]);
+    const a = ys[i - 1], b = ys[i];
+    return a > 0 && b > 0 ? Math.exp(Math.log(a) * (1 - f) + Math.log(b) * f) : a + (b - a) * f;
+  }
+
+  /** Densidade (hab/km²) de cada célula no tempo t. */
+  function calcular(t) {
+    if (t === tempoCalculado) return;
+    tempoCalculado = t;
+    const y = ano(t);
+    const chegadas = D.chegadas;
+    if (y >= 1850) {
+      const anos = D.grade.anos;
+      let i = 1;
+      while (i < anos.length - 1 && anos[i] < y) i++;
+      const f = Math.max(0, Math.min(1, (y - anos[i - 1]) / (anos[i] - anos[i - 1])));
+      const c0 = classes[i - 1], c1 = classes[i];
+      for (let k = 0; k < n; k++) {
+        const v0 = c0[k] ? (c0[k] - 1) / 40 - 2 : -3, v1 = c1[k] ? (c1[k] - 1) / 40 - 2 : -3;
+        const v = v0 + (v1 - v0) * f;
+        dens[k] = v > -2.2 ? Math.pow(10, v) : 0;
+      }
+    } else if (y >= -10000) {
+      const anos = D.anosPaises;
+      const porPais = popsPais.map((p, j) => interpLog(anos, p, y) / D.paises[j].a);
+      const mistura = Math.max(0, Math.min(1, (y - 1500) / 350)); // padrão antigo -> 1850
+      for (let k = 0; k < n; k++) {
+        if (t > chegadas[chegada[k]] + 1e-9) { dens[k] = 0; continue; }
+        const r = rAntigo[k] + (r1850[k] - rAntigo[k]) * mistura;
+        dens[k] = porPais[pais[k]] * r;
+      }
+    } else {
+      for (let k = 0; k < n; k++) dens[k] = t <= chegadas[chegada[k]] + 1e-9 ? DENS_CACADORES : 0;
+    }
+    // pinta a imagem
+    const px = pixels.data;
+    px.fill(0);
+    if (y < -10000) {
+      // caçadores-coletores: só mostra onde já havia gente
+      for (let k = 0; k < n; k++) {
+        if (!dens[k]) continue;
+        const o = indice[k] * 4;
+        px[o] = 255; px[o + 1] = 173; px[o + 2] = 31; px[o + 3] = 95;
+      }
+      imgCtx.putImageData(pixels, 0, 0);
+      return;
+    }
+    for (let k = 0; k < n; k++) {
+      const d = dens[k];
+      if (d < 0.01) continue;
+      const u = Math.max(0, Math.min(255, Math.round(((Math.log10(d) + 2) / 6.3) * 255)));
+      const cor = LUT[u];
+      const o = indice[k] * 4;
+      px[o] = cor[0]; px[o + 1] = cor[1]; px[o + 2] = cor[2]; px[o + 3] = cor[3];
+    }
+    imgCtx.putImageData(pixels, 0, 0);
+  }
+
+  function desenhar(ctx, proj, t) {
+    if (!D || !app.estado.camadas.populacao || t > 0.32) return;
+    calcular(t);
+    // aparece aos poucos no começo da história humana
+    const alfa = t > 0.25 ? (0.32 - t) / 0.07 : 1;
+    ctx.save();
+    // "Terra à noite": no Holoceno o mapa escurece e as populações brilham
+    const noite = 0.55 * Math.max(0, Math.min(1, (0.012 - t) / 0.006));
+    if (noite > 0) {
+      ctx.beginPath();
+      EVO.Mapa.tracarEsfera(ctx);
+      ctx.fillStyle = `rgba(4,8,18,${noite})`;
+      ctx.fill();
+    }
+    // monta a população projetada numa camada à parte (em pixels do aparelho)
+    const W = ctx.canvas.width, H = ctx.canvas.height;
+    if (!camada || camada.width !== W || camada.height !== H) {
+      camada = document.createElement("canvas");
+      camada.width = W;
+      camada.height = H;
+    }
+    const c2 = camada.getContext("2d");
+    c2.setTransform(1, 0, 0, 1, 0, 0);
+    c2.clearRect(0, 0, W, H);
+    c2.setTransform(ctx.getTransform());
+    // sem suavização: ela misturaria cada linha com as vizinhas transparentes
+    c2.imageSmoothingEnabled = false;
+    for (let row = 0; row < ALT; row++) {
+      const lat = 89.75 - 0.5 * row;
+      const a = proj([-180, lat]), b = proj([180, lat]);
+      const yTopo = proj([0, lat + 0.25])[1], yBase = proj([0, lat - 0.25])[1];
+      // bordas arredondadas iguais entre linhas vizinhas: sem vão e sem sobreposição
+      const y0 = Math.round(yTopo), y1 = Math.round(yBase);
+      if (y1 > y0) c2.drawImage(imagem, 0, row, LARG, 1, a[0], y0, b[0] - a[0], y1 - y0);
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    if (noite > 0) {
+      // brilho em volta das regiões densas, como nas fotos noturnas de satélite
+      ctx.globalCompositeOperation = "lighter";
+      ctx.filter = `blur(${Math.max(2, Math.round(W / 500))}px)`;
+      ctx.globalAlpha = Math.min(1, noite * 1.6) * alfa;
+      ctx.drawImage(camada, 0, 0);
+      ctx.filter = "none";
+      ctx.globalCompositeOperation = "source-over";
+    }
+    ctx.globalAlpha = 0.92 * alfa;
+    ctx.drawImage(camada, 0, 0);
+    ctx.restore();
+  }
+
+  function celulaEm(lon, lat) {
+    const row = Math.floor((90 - lat) / 0.5), col = Math.floor((lon + 180) / 0.5);
+    const alvo = row * LARG + col;
+    let lo = 0, hi = n - 1;
+    while (lo <= hi) {
+      const m = (lo + hi) >> 1;
+      if (indice[m] === alvo) return m;
+      if (indice[m] < alvo) lo = m + 1;
+      else hi = m - 1;
+    }
+    return -1;
+  }
+
+  function textoDensidade(d) {
+    if (d < 0.1) return "menos de 1 pessoa a cada 10 km²";
+    if (d < 1) return `~${Math.round(d * 10)} pessoas a cada 10 km²`;
+    return `~${d < 10 ? d.toFixed(1).replace(".", ",") : Math.round(d).toLocaleString("pt-BR")} hab/km²`;
+  }
+
+  function escolher(x, y, proj) {
+    const t = app.estado.tempo;
+    if (!D || !app.estado.camadas.populacao || t > 0.3) return null;
+    const ll = proj.invert([x, y]);
+    if (!ll) return null;
+    const k = celulaEm(ll[0], ll[1]);
+    if (k < 0 || dens[k] < 0.01) return null;
+    const p = D.paises[pais[k]];
+    const fonte = ano(t) >= 1850 ? "grade ISIMIP/HYDE" : ano(t) >= -10000 ? "estimativa pelo total do país" : "caçadores-coletores (estimativa)";
+    return { html: `<b>${p.n}</b><br>${textoDensidade(dens[k])}<br><span class="sub">${fonte}</span>` };
+  }
+
+  /** População mundial estimada no tempo t (pessoas). */
+  function mundo(t) {
+    if (!D) return null;
+    const y = ano(t);
+    if (y >= -10000) return interpLog(D.mundo.anos, D.mundo.pop, y);
+    const pl = D.pleistoceno; // [[Ma, pessoas], ...] do mais antigo ao mais recente
+    if (t > pl[0][0]) return null;
+    for (let i = 1; i < pl.length; i++) {
+      if (t >= pl[i][0]) {
+        const f = (pl[i - 1][0] - t) / (pl[i - 1][0] - pl[i][0]);
+        return Math.exp(Math.log(pl[i - 1][1]) * (1 - f) + Math.log(pl[i][1]) * f);
+      }
+    }
+    return interpLog(D.mundo.anos, D.mundo.pop, -10000);
+  }
+
+  function textoPopulacao(p) {
+    if (p == null) return "";
+    const num = (v, casas) => v.toLocaleString("pt-BR", { maximumFractionDigits: casas });
+    if (p >= 1e9) return `${num(p / 1e9, 1)} ${p < 2e9 ? "bilhão" : "bilhões"}`;
+    if (p >= 0.995e6) {
+      const m = p / 1e6;
+      return `${num(m, m < 10 ? 1 : 0)} ${m < 1.95 ? "milhão" : "milhões"}`;
+    }
+    return `${num(Math.round(p / 1e3), 0)} mil`;
+  }
+
+  EVO.Populacao = { iniciar, mundo, textoPopulacao };
+})();

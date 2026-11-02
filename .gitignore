@@ -1,0 +1,17 @@
+# Ambientes Python (recriar com pipeline/requirements.txt)
+.venv*/
+__pycache__/
+*.pyc
+
+# Dados brutos e intermediários do pipeline (baixados/gerados por pipeline/construir.py).
+# O site usa só a pasta data/, que vai no repositório.
+pipeline/brutos/
+pipeline/cache/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log

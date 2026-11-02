@@ -1,0 +1,7 @@
+pygplates==1.0.0
+plate-model-manager
+shapely>=2.0
+numpy
+requests
+pyshp
+h5py
