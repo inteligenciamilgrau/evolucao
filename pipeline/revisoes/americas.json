@@ -1,0 +1,330 @@
+{
+ "sobre": {
+  "tema": "Povoamento das Américas, Niède Guidon e a Serra da Capivara: checagem de um vídeo de divulgação",
+  "revisor": "Claude, com pesquisa na web, a pedido do autor do mapa",
+  "data": "2026-11-02",
+  "fonte_checada": "Transcrição automática de um vídeo do YouTube da historiadora e arqueóloga Bia sobre Niède Guidon, a Pedra Furada e a teoria 'Clovis primeiro'",
+  "como_usar": "A checagem abaixo é só registro (o pipeline não a lê). Os eventos novos entram no mapa por pipeline/revisao.py; a história 'Quem chegou primeiro às Américas?' está em conteudo_humanos.py."
+ },
+ "checagem": [
+  {
+   "afirmacao": "O estreito de Bering tem ~85 km e era um corredor de terra há ~14 mil anos.",
+   "veredito": "correto",
+   "explicacao": "O estreito tem ~82–85 km. A ponte de terra (Beríngia) existiu durante boa parte da última glaciação e só foi inundada há ~11 mil anos.",
+   "fontes": [
+    "Jakobsson, M. et al. (2017) Climate of the Past 13: 991–1005"
+   ]
+  },
+  {
+   "afirmacao": "Por volta de 13 mil anos, quando o mar baixou, uma ponte se formou entre a Sibéria e o Alasca, e por ela os povos Clovis passaram.",
+   "veredito": "errado",
+   "explicacao": "A ponte já existia havia dezenas de milhares de anos e, há 13 mil anos, estava afundando. O que se abriu no fim da glaciação foi o corredor sem gelo entre as geleiras do Canadá, que só ficou habitável há ~12.600 anos, tarde demais para os primeiros americanos. Por isso hoje se pensa sobretudo numa descida pela costa do Pacífico.",
+   "fontes": [
+    "Jakobsson, M. et al. (2017) Climate of the Past 13: 991–1005",
+    "Pedersen, M. et al. (2016) Nature 537: 45–49"
+   ]
+  },
+  {
+   "afirmacao": "Alexander von Humboldt, no século XVII, foi quem primeiro propôs uma origem asiática para os indígenas americanos.",
+   "veredito": "errado",
+   "explicacao": "Humboldt viajou pelas Américas em 1799–1804 (fim do século XVIII). A ideia de uma origem asiática por uma passagem ao norte é bem mais antiga: o jesuíta José de Acosta a propôs em 1590.",
+   "fontes": [
+    "Acosta, J. de (1590) Historia natural y moral de las Indias, livro I"
+   ]
+  },
+  {
+   "afirmacao": "No século XIX, Martius e Varnhagen ligavam os indígenas do Brasil a povos do Velho Mundo que teriam se 'degenerado'.",
+   "veredito": "correto em linhas gerais",
+   "explicacao": "É a historiografia do século XIX (Martius, 1845; Varnhagen, 1876). Não entra no mapa.",
+   "fontes": [
+    "Martius, C. F. P. von (1845) Como se deve escrever a história do Brasil, Revista do IHGB 6"
+   ]
+  },
+  {
+   "afirmacao": "A teoria mais aceita aponta a Etiópia como o berço do Homo sapiens.",
+   "veredito": "desatualizado",
+   "explicacao": "Os fósseis mais antigos da espécie são de Jebel Irhoud (Marrocos, ~315 mil anos), e hoje se fala em origem pan-africana. O mapa já mostra isso no debate 'Onde surgiu o Homo sapiens?'.",
+   "fontes": [
+    "Hublin, J.-J. et al. (2017) Nature 546: 289–292",
+    "Scerri, E. et al. (2018) Trends in Ecology & Evolution 33: 582–594"
+   ]
+  },
+  {
+   "afirmacao": "A cultura Clovis, de caçadores de megafauna, tem ~13 mil anos e por décadas foi vista como a dos primeiros americanos ('Clovis primeiro').",
+   "veredito": "correto",
+   "explicacao": "Clovis durou de ~13.050 a 12.750 anos atrás. O consenso 'Clovis primeiro' só caiu em 1997, quando céticos visitaram Monte Verde e aceitaram o sítio.",
+   "fontes": [
+    "Waters, M. et al. (2020) Science Advances 6: eaaz0455",
+    "Meltzer, D. et al. (1997) American Antiquity 62: 659–663"
+   ]
+  },
+  {
+   "afirmacao": "Niède Guidon, franco-brasileira, morreu recentemente aos 92 anos.",
+   "veredito": "correto",
+   "explicacao": "Nasceu em Jaú (SP) em 1933, filha de pai francês, e morreu em 4 de junho de 2025, aos 92 anos, em São Raimundo Nonato (PI).",
+   "fontes": [
+    "Diario de Pernambuco (jun. 2025)",
+    "Pesquisa FAPESP 353 (jul. 2025), obituário"
+   ]
+  },
+  {
+   "afirmacao": "Formou-se em história natural pela USP e em arqueologia pré-histórica na Sorbonne; foi para a França fugindo do regime militar nos anos 1960.",
+   "veredito": "correto",
+   "explicacao": "Em 1964 o regime militar a acusou de subversiva e ela foi para a França, onde fez o doutorado.",
+   "fontes": [
+    "Pesquisa FAPESP 353 (jul. 2025), obituário",
+    "Nova Escola, material 'Mulheres na ciência'"
+   ]
+  },
+  {
+   "afirmacao": "Em 1978 ela organizou a missão francesa que veio estudar as pinturas do Piauí e, no mesmo ano, pediu a proteção da área, o que criou o parque.",
+   "veredito": "impreciso",
+   "explicacao": "Ela viu fotos das pinturas em 1963 (Museu Paulista) e a primeira missão franco-brasileira foi em 1973. Em 1978 o grupo pediu ao governo a criação do parque, criado em 5 de junho de 1979. A UNESCO o declarou Patrimônio da Humanidade em 1991.",
+   "fontes": [
+    "Câmara dos Deputados, entrevista com Niède Guidon (2007)",
+    "Pesquisa FAPESP (2025)",
+    "UNESCO, Serra da Capivara National Park (1991)"
+   ]
+  },
+  {
+   "afirmacao": "Foram estudados mais de 800 sítios, 600 com pinturas rupestres.",
+   "veredito": "desatualizado",
+   "explicacao": "Hoje são mais de mil sítios cadastrados (algumas fontes falam em ~1.300), mais de 600 com pinturas.",
+   "fontes": [
+    "BNDES/Fumdham, Parque Nacional Serra da Capivara",
+    "Agência Senado (abr. 2026)"
+   ]
+  },
+  {
+   "afirmacao": "Em 1986 ela publicou na Nature lareiras e artefatos de 32 mil anos no Boqueirão da Pedra Furada.",
+   "veredito": "correto",
+   "explicacao": "Datas de radiocarbono de carvões das camadas com pedras lascadas.",
+   "fontes": [
+    "Guidon, N. & Delibrias, G. (1986) Nature 321: 769–771"
+   ]
+  },
+  {
+   "afirmacao": "Críticos disseram que as 'fogueiras' e 'ferramentas' eram geofatos, produtos naturais.",
+   "veredito": "correto",
+   "explicacao": "O carvão poderia vir de incêndios naturais e as pedras poderiam ter se quebrado ao cair do paredão.",
+   "fontes": [
+    "Meltzer, D., Adovasio, J. & Dillehay, T. (1994) Antiquity 68: 695–714"
+   ]
+  },
+  {
+   "afirmacao": "As datas foram repetidas num departamento de física nuclear de uma universidade australiana e chegaram a 40 ou 47 mil anos.",
+   "veredito": "correto",
+   "explicacao": "Na Universidade Nacional da Austrália, com um tratamento mais rigoroso do carvão, saíram 41,3 e 47,2 mil anos (idades mínimas) e outras acima de 50 mil, no limite do método. As datas confirmam a idade do carvão; a dúvida continua sendo se as fogueiras eram humanas.",
+   "fontes": [
+    "Santos, G. M. et al. (2003) Quaternary Science Reviews 22: 2303–2310"
+   ]
+  },
+  {
+   "afirmacao": "Monte Verde (Chile) tem ~20 mil anos (número confuso na transcrição).",
+   "veredito": "impreciso",
+   "explicacao": "A camada aceita (MV-II) tem ~14.500 anos. Escavações novas apontam vestígios de até ~18.500; uma camada de ~33 mil (MV-I) é muito contestada.",
+   "fontes": [
+    "Dillehay, T. et al. (2015) PLOS ONE 10: e0141923"
+   ]
+  },
+  {
+   "afirmacao": "Polinésios navegando para o leste podem ter povoado as Américas antes da ponte de 13 mil anos; há afinidade genética entre polinésios e indígenas sul-americanos.",
+   "veredito": "errado na cronologia",
+   "explicacao": "A afinidade genética existe, mas vem de um contato por volta de 1150–1230, e os polinésios só chegaram à Polinésia oriental há ~1.000 anos, mais de 10 mil anos depois dos primeiros americanos. Há também um pequeno sinal de DNA 'australasiano' em povos amazônicos (como os Suruí e os Karitiana), mas ele teria vindo pela Beríngia. O mapa mostra o contato polinésio como debate.",
+   "fontes": [
+    "Ioannidis, A. et al. (2020) Nature 583: 572–577",
+    "Skoglund, P. et al. (2015) Nature 525: 104–108"
+   ]
+  },
+  {
+   "afirmacao": "Pode ter havido migrações transatlânticas.",
+   "veredito": "sem apoio",
+   "explicacao": "A hipótese solutrense (europeus pela borda do gelo do Atlântico) é rejeitada pela maioria; o DNA dos indígenas americanos aponta para a Ásia.",
+   "fontes": [
+    "Raghavan, M. et al. (2015) Science 349: aab3884"
+   ]
+  },
+  {
+   "afirmacao": "Graças a ela foi fundada em São Raimundo Nonato a primeira universidade do interior do Nordeste.",
+   "veredito": "errado como dito",
+   "explicacao": "Já havia universidades no interior do Nordeste (a UEFS, em Feira de Santana, funciona desde 1976). O que surgiu em São Raimundo Nonato, em 2004, foi o primeiro curso de graduação em arqueologia de uma universidade pública brasileira (Univasf, campus Serra da Capivara).",
+   "fontes": [
+    "Univasf, Projeto Pedagógico do curso de Arqueologia e Preservação Patrimonial (2021)"
+   ]
+  },
+  {
+   "afirmacao": "A arqueóloga Adriana Schmidt Dias diz que havia 'dois pesos e duas medidas' na avaliação de sítios dos EUA e da América Latina.",
+   "veredito": "confere em linhas gerais",
+   "explicacao": "No artigo 'Um réquiem para Clovis' (2019) ela discute como fatores institucionais e editoriais pesaram no debate. Não localizamos a expressão exata.",
+   "fontes": [
+    "Dias, A. S. (2019) Um réquiem para Clovis, UFRGS (Lume 10183/199100)",
+    "Bueno, L. & Dias, A. S. (2015) Estudos Avançados 29(83): 119–147"
+   ]
+  },
+  {
+   "afirmacao": "Citação de Paulette Steeves sobre acadêmicos que descartam sítios pré-Clovis sem conhecer a literatura.",
+   "veredito": "confere em linhas gerais",
+   "explicacao": "A ideia está no livro dela (2021); não localizamos a frase exata. Em 2016 ela disse que 'o preconceito contra o pré-Clovis é tão forte que muitos arqueólogos que relataram sítios mais antigos foram destruídos academicamente'. Steeves defende datas muito antigas (dezenas de milhares de anos), uma posição minoritária.",
+   "fontes": [
+    "Steeves, P. (2021) The Indigenous Paleolithic of the Western Hemisphere, University of Nebraska Press",
+    "Vancouver Sun (2 jul. 2016)"
+   ]
+  },
+  {
+   "afirmacao": "A Universidade do Arizona datou pegadas humanas no Novo México em ~20 mil anos.",
+   "veredito": "correto",
+   "explicacao": "Em 2025, a equipe de Vance Holliday datou a lama do antigo lago de White Sands em 20.700–22.400 anos, confirmando as datas de 2021 (sementes) e 2023 (pólen e sedimento).",
+   "fontes": [
+    "Holliday, V. et al. (2025) Science Advances, doi:10.1126/sciadv.adv4951",
+    "Bennett, M. et al. (2021) Science 373: 1528–1531",
+    "Pigati, J. et al. (2023) Science 382: 73–75"
+   ]
+  },
+  {
+   "afirmacao": "A teoria 'Clovis primeiro' se manteve por servir à hegemonia dos EUA na Guerra Fria.",
+   "veredito": "opinião",
+   "explicacao": "É uma interpretação da autora do vídeo, não um fato verificável. Há estudos sobre vieses no debate (Dias, 2019; Steeves, 2021), mas a ligação com a Guerra Fria não é consenso. Não entra no mapa.",
+   "fontes": []
+  },
+  {
+   "afirmacao": "Hoje as ideias pré-Clovis são muito mais aceitas.",
+   "veredito": "correto",
+   "explicacao": "Desde Monte Verde (1997), a ocupação antes de Clovis é consenso; a disputa agora é sobre datas acima de ~20 mil anos, como White Sands e a Pedra Furada.",
+   "fontes": [
+    "Waters, M. (2019) Science 365: eaat5447"
+   ]
+  }
+ ],
+ "correcoes": [],
+ "novos_eventos": [
+  {
+   "id": "pedra_furada",
+   "t": 0.032,
+   "icone": "🪨",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Fogueiras de 32 mil anos?",
+   "texto": "Em 1986, a arqueóloga Niède Guidon publicou na revista Nature datas de 32 mil anos para fogueiras e pedras lascadas do Boqueirão da Pedra Furada, no Piauí; novas análises na Austrália (2003) deram de 41 a mais de 50 mil anos para o carvão. Críticos dizem que ele pode ser de incêndios naturais e que pedras caídas do paredão se quebram parecendo ferramentas. A maioria dos arqueólogos ainda não aceita, mas a discussão continua (veja ⚖️ Debates).",
+   "locais": [
+    [
+     -42.55,
+     -8.84,
+     "Pedra Furada, PI"
+    ]
+   ],
+   "fontes": [
+    "Guidon, N. & Delibrias, G. (1986) Nature 321: 769–771",
+    "Santos, G. M. et al. (2003) Quaternary Science Reviews 22: 2303–2310",
+    "Meltzer, D., Adovasio, J. & Dillehay, T. (1994) Antiquity 68: 695–714"
+   ]
+  },
+  {
+   "id": "white_sands",
+   "t": 0.0225,
+   "icone": "👣",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Pegadas antes do auge do gelo?",
+   "texto": "Em White Sands (Novo México, EUA), adultos e crianças deixaram pegadas na lama de um lago que hoje é deserto. Três datações independentes (sementes, pólen e, em 2025, a própria lama) dão ~21 a 23 mil anos. Se estiverem certas, havia gente nas Américas antes do Último Máximo Glacial; ainda não se acharam ferramentas junto das pegadas.",
+   "locais": [
+    [
+     -106.4,
+     32.85,
+     "White Sands, EUA"
+    ]
+   ],
+   "fontes": [
+    "Bennett, M. et al. (2021) Science 373: 1528–1531",
+    "Pigati, J. et al. (2023) Science 382: 73–75",
+    "Holliday, V. et al. (2025) Science Advances, doi:10.1126/sciadv.adv4951"
+   ]
+  },
+  {
+   "id": "clovis",
+   "t": 0.0131,
+   "icone": "🔺",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Os caçadores de Clovis",
+   "texto": "Caçadores com pontas de lança caneladas se espalham pela América do Norte há ~13 mil anos e caçam mamutes. As pontas foram achadas nos anos 1930 perto de Clovis (Novo México) e, por décadas, valeu a regra 'Clovis primeiro': sítios mais antigos eram descartados. A regra caiu em 1997, quando céticos visitaram Monte Verde (Chile) e aceitaram suas datas de 14.500 anos.",
+   "locais": [
+    [
+     -103.33,
+     34.28,
+     "Blackwater Draw (Clovis), EUA"
+    ],
+    [
+     -73.2,
+     -41.5,
+     "Monte Verde, Chile"
+    ]
+   ],
+   "fontes": [
+    "Waters, M. et al. (2020) Science Advances 6: eaaz0455",
+    "Meltzer, D. et al. (1997) American Antiquity 62: 659–663"
+   ]
+  },
+  {
+   "id": "capivara_pinturas",
+   "t": 0.01,
+   "icone": "🖌️",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Os paredões pintados do Piauí",
+   "texto": "Na Serra da Capivara (PI) há mais de mil sítios arqueológicos, mais de 600 com pinturas: cenas de caça, dança, sexo e rituais feitas por caçadores-coletores. É uma das maiores concentrações de arte rupestre das Américas. Datar pinturas é difícil, quase não há datas diretas, mas as da Tradição Nordeste, a mais antiga, teriam mais de 9 mil anos.",
+   "locais": [
+    [
+     -42.6,
+     -8.8,
+     "Serra da Capivara, PI"
+    ]
+   ],
+   "fontes": [
+    "Pessis, A.-M. (2003) Imagens da pré-história, Fumdham",
+    "BNDES/Fumdham, Parque Nacional Serra da Capivara",
+    "Pesquisa FAPESP (nov. 2004), 'Pré-história ilustrada'"
+   ]
+  },
+  {
+   "id": "parque_capivara",
+   "ano": 1979,
+   "icone": "🏞️",
+   "tipo": "humano",
+   "prio": 3,
+   "titulo": "Niède Guidon e o Parque da Serra da Capivara",
+   "texto": "Niède Guidon (1933–2025) viu fotos das pinturas do Piauí em 1963; acusada de subversiva pelo regime militar, foi para a França em 1964 e, em 1973, chegou ao Piauí com uma missão franco-brasileira. Com o pedido dela, o governo criou o Parque Nacional em 1979, Patrimônio da Humanidade pela UNESCO desde 1991. Em São Raimundo Nonato, onde ela morreu aos 92 anos, a Univasf abriu em 2004 o primeiro curso de arqueologia de uma universidade pública do Brasil.",
+   "locais": [
+    [
+     -42.7,
+     -9.02,
+     "São Raimundo Nonato, PI"
+    ]
+   ],
+   "fontes": [
+    "Pesquisa FAPESP 353 (jul. 2025), obituário",
+    "Câmara dos Deputados, entrevista com Niède Guidon (2007)",
+    "UNESCO, Serra da Capivara National Park (1991)",
+    "Univasf, Projeto Pedagógico do curso de Arqueologia e Preservação Patrimonial (2021)"
+   ]
+  },
+  {
+   "id": "santa_elina",
+   "t": 0.026,
+   "icone": "🦥",
+   "tipo": "humano",
+   "prio": 2,
+   "titulo": "Santa Elina, Mato Grosso",
+   "texto": "No abrigo de Santa Elina (MT), três placas ósseas de preguiça-gigante foram furadas e polidas, provavelmente para virar pingentes. As camadas onde estavam têm ~25 a 27 mil anos. Se a interpretação estiver certa, havia gente no Brasil no auge da era glacial.",
+   "locais": [
+    [
+     -56.77,
+     -15.45,
+     "Abrigo Santa Elina, Jangada (MT)"
+    ]
+   ],
+   "fontes": [
+    "Pansani, T. et al. (2023) Proceedings of the Royal Society B 290: 20230316"
+   ]
+  }
+ ]
+}

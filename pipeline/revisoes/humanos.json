@@ -1993,43 +1993,19 @@
     {
      "id": "pre_clovis_16",
      "nome": "~15–17 mil anos, pela costa",
-     "padrao": true,
-     "texto": "Os primeiros americanos teriam descido pela costa do Pacífico assim que o gelo recuou, há ~16 a 17 mil anos. Os sítios bem aceitos são Monte Verde (Chile, 14.500 anos), Cooper's Ferry (EUA, ~16 mil) e Paisley (EUA, ~14.300). A antiga ideia de 'Clovis primeiro' (~13 mil anos) foi abandonada por causa deles, e sítios mais antigos são vistos com cautela. É o que o mapa mostra hoje.",
+     "padrao": false,
+     "texto": "Os primeiros americanos teriam descido pela costa do Pacífico assim que o gelo recuou, há ~16 a 17 mil anos. Os sítios bem aceitos são Monte Verde (Chile, 14.500 anos), Cooper's Ferry (EUA, ~16 mil) e Paisley (EUA, ~14.300). A antiga ideia de 'Clovis primeiro' (~13 mil anos) foi abandonada por causa deles, e sítios mais antigos são vistos com cautela.",
      "fontes": [
       "Dillehay, T. et al. (2015) PLOS ONE 10: e0141923 (Monte Verde)",
       "Davis, L. et al. (2019) Science 365: 891–897 (Cooper's Ferry)",
       "Waters, M. (2019) Science 365: eaat5447"
      ],
-     "alteracoes": {}
-    },
-    {
-     "id": "antes_lgm",
-     "nome": "Antes do auge do gelo: 21–27 mil anos",
-     "padrao": false,
-     "texto": "Pegadas humanas em White Sands (Novo México) foram datadas três vezes, com sementes, pólen e lama, em ~21 a 23 mil anos. No Brasil, ossos de preguiça-gigante furados e polidos em Santa Elina (MT) têm ~25 a 27 mil anos, e na caverna Chiquihuite (México) há pedras lascadas de ~26 mil. Se estiverem certos, gente entrou nas Américas antes do Último Máximo Glacial, em grupos pequenos que deixaram poucos rastros.",
-     "fontes": [
-      "Bennett, M. et al. (2021) Science 373: 1528–1531",
-      "Pigati, J. et al. (2023) Science 382: 73–75",
-      "Holliday, V. et al. (2025) Science Advances (datação da lama de White Sands)",
-      "Pansani, T. et al. (2023) Proc. R. Soc. B 290: 20230316",
-      "Ardelean, C. et al. (2020) Nature 584: 87–92"
-     ],
      "alteracoes": {
       "eventos": {
        "americas": {
-        "t": 0.023,
-        "texto": "Vindos da Sibéria pela Beríngia antes do auge do gelo, pequenos grupos deixam pegadas em White Sands (EUA) há ~21 a 23 mil anos. Mais tarde, há 14.500 anos, Monte Verde (Chile) já tinha um acampamento.",
+        "t": 0.016,
+        "texto": "Vindos da Sibéria pela Beríngia, descem pela costa do Pacífico. Monte Verde, no Chile, já tinha gente há 14.500 anos.",
         "locais": [
-         [
-          -106.4,
-          32.85,
-          "White Sands, EUA"
-         ],
-         [
-          -101.4,
-          24.6,
-          "Caverna Chiquihuite, México"
-         ],
          [
           -73.2,
           -41.5,
@@ -2040,37 +2016,33 @@
       },
       "rotas": {
        "sapiens_america": {
-        "de": 0.032,
+        "de": 0.03,
         "ate": 0.0115,
-        "texto": "Caçadores da Sibéria atravessaram a Beríngia antes do auge da era glacial, há mais de 23 mil anos, e se espalharam em pequenos grupos pela costa e pelo interior, chegando ao Brasil."
+        "texto": "Caçadores da Sibéria viveram milhares de anos na Beríngia, uma terra hoje submersa. Quando o gelo abriu passagem, desceram pela costa do Pacífico até o Chile e se espalharam pelo continente, chegando a Minas Gerais e ao Piauí."
        }
       },
       "chegada": {
-       "alasca": 0.03,
-       "america_norte": 0.028,
-       "america_central": 0.027,
-       "america_sul": 0.026,
-       "brasil": 0.026
-      },
-      "eventos_extra": [
-       {
-        "id": "santa_elina",
-        "t": 0.026,
-        "icone": "🦥",
-        "tipo": "humano",
-        "prio": 2,
-        "titulo": "Santa Elina, Mato Grosso",
-        "texto": "No abrigo de Santa Elina (MT), três placas ósseas de preguiça-gigante foram furadas e polidas, provavelmente para virar pingentes. As camadas onde estavam têm ~25 a 27 mil anos. Se a interpretação estiver certa, havia gente no Brasil no auge da era glacial.",
-        "locais": [
-         [
-          -56.77,
-          -15.45,
-          "Abrigo Santa Elina, Jangada (MT)"
-         ]
-        ]
-       }
-      ]
+       "alasca": 0.017,
+       "america_norte": 0.016,
+       "america_central": 0.0145,
+       "america_sul": 0.0145,
+       "brasil": 0.013
+      }
      }
+    },
+    {
+     "id": "antes_lgm",
+     "nome": "Antes do auge do gelo: 21–27 mil anos",
+     "padrao": true,
+     "texto": "Pegadas humanas em White Sands (Novo México) foram datadas três vezes, com sementes, pólen e lama, em ~21 a 23 mil anos. No Brasil, ossos de preguiça-gigante furados e polidos em Santa Elina (MT) têm ~25 a 27 mil anos, e na caverna Chiquihuite (México) há pedras lascadas de ~26 mil. Se estiverem certos, gente entrou nas Américas antes do Último Máximo Glacial, em grupos pequenos que deixaram poucos rastros. É o que o mapa mostra hoje: desde a terceira datação de White Sands (2025), essa leitura ganhou muitos adeptos.",
+     "fontes": [
+      "Bennett, M. et al. (2021) Science 373: 1528–1531",
+      "Pigati, J. et al. (2023) Science 382: 73–75",
+      "Holliday, V. et al. (2025) Science Advances (datação da lama de White Sands)",
+      "Pansani, T. et al. (2023) Proc. R. Soc. B 290: 20230316",
+      "Ardelean, C. et al. (2020) Nature 584: 87–92"
+     ],
+     "alteracoes": {}
     },
     {
      "id": "muito_antigo",
@@ -2116,25 +2088,7 @@
        "america_central": 0.052,
        "america_sul": 0.051,
        "brasil": 0.05
-      },
-      "eventos_extra": [
-       {
-        "id": "santa_elina",
-        "t": 0.026,
-        "icone": "🦥",
-        "tipo": "humano",
-        "prio": 2,
-        "titulo": "Santa Elina, Mato Grosso",
-        "texto": "No abrigo de Santa Elina (MT), três placas ósseas de preguiça-gigante foram furadas e polidas, provavelmente para virar pingentes. As camadas onde estavam têm ~25 a 27 mil anos. Se a interpretação estiver certa, havia gente no Brasil no auge da era glacial.",
-        "locais": [
-         [
-          -56.77,
-          -15.45,
-          "Abrigo Santa Elina, Jangada (MT)"
-         ]
-        ]
-       }
-      ]
+      }
      }
     }
    ]

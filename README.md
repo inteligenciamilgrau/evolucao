@@ -20,7 +20,7 @@ saem da África e ocupam o planeta até os 8 bilhões de hoje.
 | Migrações humanas | 30 movimentos: saída da África, agricultores neolíticos, bantos, indo-europeus, tupi-guarani, vikings, colonização, tráfico de africanos escravizados, grande imigração, migrações dentro do Brasil... |
 | Especial hominídeos | 15 espécies humanas dos últimos 7 milhões de anos como populações que vivem, andam e somem: bolinhas com área proporcional à população em cada região ocupada (ficam enquanto o grupo vive ali), frentes de expansão que andam pelas rotas deixando um rastro de ocupação, contornos com † onde o grupo saiu ou se extinguiu, 🛖 primeiras aldeias e 🌾 centros de agricultura, 🤝 8 encontros (como a "Denny" e a grande mistura com os neandertais) e um gráfico de população. Os sapiens seguem até hoje, com as mesmas datas de chegada da camada de população. Tem história guiada própria. |
 | Povos e cidades | Neandertais, denisovanos e outros humanos arcaicos; 39 povos e civilizações; 63 cidades com data de fundação. |
-| Marcos e histórias | 112 marcos e 14 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado...). |
+| Marcos e histórias | 117 marcos e 15 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado, quem chegou primeiro às Américas...). |
 
 ## Debates científicos
 
@@ -84,6 +84,9 @@ pesquisa e fontes. Cada revisão fica em `pipeline/revisoes/` como JSON:
 - `novos_eventos`, `novos_grupos`, `novas_rotas`, `novas_migracoes`, `novos_povos`,
   `novas_cidades` e `perspectivas`: lidos diretamente pelo pipeline, com as fontes de cada
   item (as dos marcos aparecem no painel de detalhe).
+- `checagem` (opcional): a conferência de uma fonte externa, afirmação por afirmação, com
+  veredito e fontes. É só registro; `americas.json` checa um vídeo de divulgação sobre
+  Niède Guidon e o povoamento das Américas.
 
 Para uma nova revisão, basta pôr outro `.json` na pasta e rodar `pipeline/conteudo.py`.
 O `revisao.py` valida antes de gerar o site: ids repetidos, referências inexistentes,

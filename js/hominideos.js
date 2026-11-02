@@ -28,7 +28,7 @@
     caribe: "Caribe", madagascar: "Madagascar", pacifico_remoto: "Polinésia e Micronésia", nova_zelandia: "Nova Zelândia",
     tasmania: "Tasmânia", terra_do_fogo: "Terra do Fogo", islandia: "Islândia e Faroé", canarias: "Canárias",
     pequenas_antilhas: "Pequenas Antilhas", ilhas_mediterraneo: "Ilhas do Mediterrâneo", maldivas: "Maldivas",
-    galapagos: "Galápagos", ilhas_remotas: "Ilhas remotas", antartida: "Antártida",
+    galapagos: "Galápagos", ilhas_remotas: "Ilhas remotas", antartida: "Antártida", canada: "Canadá",
   };
 
   let app, dados = null, painel, svg, x, y;
