@@ -80,7 +80,7 @@ def validar(rev):
         t = _tempo(e, "t", "ano")
         if t is not None and not (0 <= t <= 4600):
             erros.append(f"{onde}: evento '{e.get('id')}' com tempo fora de 0–4600 Ma")
-        for lon, lat, _ in e.get("locais", []):
+        for lon, lat, *_ in e.get("locais", []):
             if not _coord_ok(lon, lat):
                 erros.append(f"{onde}: evento '{e.get('id')}' com coordenada inválida")
 

@@ -1,0 +1,95 @@
+{
+ "sobre": {
+  "tema": "Origem dos neurônios: marco na linha do tempo e debate",
+  "revisor": "Claude, com pesquisa na web, a pedido do autor do mapa",
+  "data": "2026-11-03",
+  "como_usar": "Não há data nem lugar conhecidos para o primeiro neurônio. O marco fica no sinal físico mais citado (~565 Ma) como limite, e o debate cobre as árvores concorrentes. A idade das opções depende do debate 'Quando surgiram os animais?'."
+ },
+ "correcoes": [],
+ "novos_eventos": [
+  {
+   "id": "neuronios",
+   "t": 565,
+   "icone": "🧠",
+   "tipo": "vida",
+   "prio": 2,
+   "titulo": "Os primeiros neurônios?",
+   "texto": "Neurônio não vira fóssil, então ninguém sabe o lugar nem a data exata. O ponto de maior consenso é o ramo da vida: foi no mar, antes de águas-vivas (cnidários) e bilaterais, como nós, se separarem, porque os dois grupos herdaram os neurônios de um mesmo ancestral. O sinal físico mais citado são rastros de ~565 milhões de anos em Mistaken Point (Canadá), deixados por bichos parecidos com anêmonas que se moviam com músculos, que nos cnidários de hoje são comandados por nervos. É um limite, não o berço: os neurônios são mais antigos que isso, e relógios de DNA apontam para bem antes, com enorme incerteza.",
+   "locais": [
+    [
+     -53.2,
+     46.6,
+     "Rastros de Mistaken Point, Canadá",
+     565
+    ]
+   ],
+   "fontes": [
+    "Sachkova, M., Modepalli, V. & Kittelmann, M. (2025) Annual Review of Neuroscience 48: 311–329, doi:10.1146/annurev-neuro-112723-040945",
+    "Liu, A. et al. (2010) Geology 38: 123–126",
+    "Menon, L. et al. (2013) Geology 41: 895–898",
+    "dos Reis, M. et al. (2015) Current Biology 25: 2939–2950",
+    "Dohrmann, M. & Wörheide, G. (2017) Scientific Reports 7: 3599"
+   ],
+   "desvio_regua": -15
+  }
+ ],
+ "perspectivas": [
+  {
+   "id": "origem_neuronios",
+   "titulo": "Os neurônios surgiram uma vez ou duas?",
+   "resumo": "Neurônio não fossiliza, e a resposta depende de qual é o ramo mais antigo dos animais: as esponjas, que não têm neurônios, ou os ctenóforos, que têm, mas bem diferentes dos nossos. Que cnidários e bilaterais herdaram os seus de um mesmo ancestral é o ponto de maior consenso; o resto segue em discussão.",
+   "opcoes": [
+    {
+     "id": "ramo_comum",
+     "nome": "Origem comum de cnidários e bilaterais; o resto em aberto",
+     "padrao": true,
+     "texto": "Os neurônios das águas-vivas e os nossos têm a mesma origem. Se os dos ctenóforos também têm, ainda não se sabe. Esponjas e placozoários não têm neurônios, mas os placozoários têm células com parte do programa genético deles, talvez um degrau do caminho. O marco fica nos rastros de ~565 milhões de anos, o limite mais recente, sem dizer que foi ali que tudo começou. É o que o mapa mostra hoje.",
+     "fontes": [
+      "Sachkova, M., Modepalli, V. & Kittelmann, M. (2025) Annual Review of Neuroscience 48: 311–329",
+      "Najle, S. et al. (2023) Cell 186: 4676–4693",
+      "Liu, A. et al. (2010) Geology 38: 123–126"
+     ],
+     "alteracoes": {}
+    },
+    {
+     "id": "depois_das_esponjas",
+     "nome": "Uma vez só, depois das esponjas",
+     "padrao": false,
+     "texto": "Em 2025, uma análise com 785 testes publicada na Science pôs as esponjas como o ramo mais antigo dos animais: todos os 490 testes com resultado significativo apoiaram as esponjas, e nenhum os ctenóforos. Nesse caso, neurônios e músculos surgiram depois que as esponjas se separaram, e uma origem só vira a explicação mais simples. Outro estudo de 2025 contestou a principal prova a favor dos ctenóforos, a ordem dos genes nos cromossomos, dizendo que sua significância foi superestimada; esse autor não defende as esponjas, e a questão não está fechada.",
+     "fontes": [
+      "Steenwyk, J. & King, N. (2025) Science 390, doi:10.1126/science.adw9456",
+      "Mulhair, P. & Redmond, A. (2025) Science, doi:10.1126/science.aec6305",
+      "Copley, R. (2025) Molecular Biology and Evolution 42: msaf321"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "neuronios": {
+        "t": 590,
+        "texto": "Se as esponjas forem o ramo mais antigo dos animais, como aponta um estudo de 2025, os neurônios surgiram depois que elas se separaram dos outros animais, provavelmente uma vez só, num bicho do mar que ninguém conhece. Esta posição é aproximada: não há data nem lugar, e tudo depende de quando surgiram os animais (veja ⚖️ Debates). Os rastros de ~565 milhões de anos em Mistaken Point (Canadá) seriam um sinal bem posterior.",
+        "locais": []
+       }
+      }
+     }
+    },
+    {
+     "id": "duas_vezes",
+     "nome": "Duas vezes: os ctenóforos inventaram os seus",
+     "padrao": false,
+     "texto": "Faltam aos ctenóforos vários genes e mensageiros químicos típicos dos nossos neurônios, e sua rede nervosa é feita de células fundidas numa membrana contínua, diferente da dos outros animais. Se eles forem o ramo mais antigo, como indicou a ordem dos genes nos cromossomos em 2023, o neurônio pode ter surgido duas vezes, por caminhos diferentes. A outra saída seria uma origem só, com esponjas e placozoários perdendo os neurônios depois.",
+     "fontes": [
+      "Moroz, L. et al. (2014) Nature 510: 109–114",
+      "Burkhardt, P. et al. (2023) Science 380: 293–297",
+      "Schultz, D. et al. (2023) Nature 618: 110–117"
+     ],
+     "alteracoes": {
+      "eventos": {
+       "neuronios": {
+        "texto": "Para parte dos cientistas, o neurônio surgiu duas vezes: uma nos ctenóforos, cuja rede nervosa é feita de células fundidas, e outra no ancestral de águas-vivas (cnidários) e bilaterais, como nós. Os rastros de ~565 milhões de anos em Mistaken Point (Canadá), de bichos parecidos com anêmonas, são o sinal físico mais citado dessa segunda origem. É um limite, não o berço."
+       }
+      }
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -18,12 +18,21 @@ def ponto(lon, lat, *extra):
     return [round(lon, 3), round(lat, 3), placa, idade, *extra]
 
 
+def local(lon, lat, nome, rocha=0):
+    """Lugar de um marco. rocha (opcional, Ma): idade mínima da rocha do lugar, quando o modelo
+    de placas só registra a crosta depois disso (Avalon, na Terra Nova, só existe nele desde
+    420 Ma, mas tem fósseis de 565 Ma); sem isso o mapa esconde o pino."""
+    p = ponto(lon, lat, nome)
+    p[3] = max(p[3], rocha)
+    return p
+
+
 def preparar_evento(e):
     e = dict(e)
     if "ano" in e:
         e["t"] = A(e.pop("ano"))
     if "locais" in e:
-        e["locais"] = [ponto(lon, lat, nome) for lon, lat, nome in e["locais"]]
+        e["locais"] = [local(*l) for l in e["locais"]]
     return e
 
 

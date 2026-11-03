@@ -20,11 +20,11 @@ saem da África e ocupam o planeta até os 8 bilhões de hoje.
 | Migrações humanas | 30 movimentos: saída da África, agricultores neolíticos, bantos, indo-europeus, tupi-guarani, vikings, colonização, tráfico de africanos escravizados, grande imigração, migrações dentro do Brasil... |
 | Especial hominídeos | 15 espécies humanas dos últimos 7 milhões de anos como populações que vivem, andam e somem: bolinhas com área proporcional à população em cada região ocupada (ficam enquanto o grupo vive ali), frentes de expansão que andam pelas rotas deixando um rastro de ocupação, contornos com † onde o grupo saiu ou se extinguiu, 🛖 primeiras aldeias e 🌾 centros de agricultura, 🤝 8 encontros (como a "Denny" e a grande mistura com os neandertais) e um gráfico de população. Os sapiens seguem até hoje, com as mesmas datas de chegada da camada de população. Tem história guiada própria. |
 | Povos e cidades | Neandertais, denisovanos e outros humanos arcaicos; 39 povos e civilizações; 63 cidades com data de fundação. |
-| Marcos e histórias | 117 marcos e 15 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado, quem chegou primeiro às Américas...). |
+| Marcos e histórias | 119 marcos e 15 passeios guiados (dinossauros no RS, mesossauro, macacos em ilhas oceânicas, ocupação humana, como o Brasil foi povoado, quem chegou primeiro às Américas...). |
 
 ## Debates científicos
 
-Em 18 temas os cientistas ainda discordam (quando surgiu a vida, se a Terra congelou
+Em 19 temas os cientistas ainda discordam (quando surgiu a vida, se a Terra congelou
 inteira, a origem dos dinossauros e das flores, o fim do Cretáceo, a chegada dos humanos
 às Américas e à Austrália, a população das Américas em 1492, a origem das línguas
 indo-europeias...). No botão **⚖️ Debates** a pessoa escolhe qual versão o mapa segue,

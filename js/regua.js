@@ -105,7 +105,7 @@
     const evts = eventos.filter((e) => e.t <= E().maximo).sort((a, b) => (a.prio || 9) - (b.prio || 9));
     const ge = g.append("g");
     for (const ev of evts) {
-      const px = x(ev.t);
+      const px = x(ev.t) + (ev.desvio || 0); // desvio: px para caber ao lado de marcos colados
       let fila = -1;
       for (let f = 0; f < 2 && fila < 0; f++) {
         if (!ocupado.some((o) => o.f === f && Math.abs(o.x - px) < 15)) fila = f;

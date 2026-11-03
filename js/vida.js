@@ -72,7 +72,7 @@
   }
 
   function marcosNaRegua() {
-    EVO.Regua.definirEventos(dados.eventos.map((e) => ({ t: e.t, icone: e.icone, titulo: e.titulo, prio: e.prio, id: e.id })));
+    EVO.Regua.definirEventos(dados.eventos.map((e) => ({ t: e.t, icone: e.icone, titulo: e.titulo, prio: e.prio, id: e.id, desvio: e.desvio_regua })));
   }
 
   /** Recarrega depois que um debate mudou o conteúdo (marcos, grupos, rotas). */
